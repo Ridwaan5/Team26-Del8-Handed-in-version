@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />   
+    <style>
+        .bs-example {
+            margin: 20px;
+            margin-top:-2%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bs-example">
+        <nav class="nav nav-pills">
+            <a href="#" class="nav-item nav-link active">
+                <i class="fa fa-home"></i> Home
+            </a>
+            <a href="#" class="nav-item nav-link">
+                <i class="fa fa-user"></i> Profile
+            </a>
+            <a href="#" class="nav-item nav-link">
+                <i class="fa fa-clipboard"></i> Orders
+            </a>
+            <a href="#" class="nav-item nav-link">
+                <i class="fa fa-user"></i> Employees
+            </a>
+            <a href="#" class="nav-item nav-link">
+                <i class="fa fa-user-tag"></i> User Roles
+            </a>
+            <a href="#" class="nav-item nav-link">
+                <i class="fa fa-gifts"></i> Products
+            </a>
+            <a href="#" class="nav-item nav-link">
+                <i class="fa fa-truck-loading"></i> Suppliers
+            </a>
+            <a href="#" class="nav-item nav-link">
+                <i class="fa fa-clipboard-check"></i> Supplier Orders
+            </a>
+            <a href="#" class="nav-item nav-link">
+                <i class="fa fa-comment-dots"></i> Feedback
+            </a>
+        </nav>
+        <hr style="color:black;border:1px solid "/>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

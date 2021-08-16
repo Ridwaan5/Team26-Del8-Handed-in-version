@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Infinity_DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Administrator">
+    <Key>
+      <PropertyRef Name="adminID" />
+    </Key>
+    <Property Name="adminID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Surname" Type="varchar(max)" Nullable="false" />
+    <Property Name="Contact number" Type="varchar(max)" Nullable="false" />
+    <Property Name="email address" Type="varchar(max)" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="cartID" />
+    </Key>
+    <Property Name="cartID" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="varchar(max)" Nullable="false" />
+    <Property Name="ProductDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DeliveryAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CaerTotal" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="cityID" />
+    </Key>
+    <Property Name="cityID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Code" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Company_Information">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyPhysicalAddress" Type="varchar(max)" />
+    <Property Name="CompanyTelephoneNumber" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyEmailAddress" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyLogo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="customerID" />
+    </Key>
+    <Property Name="customerID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Surname" Type="varchar(max)" Nullable="false" />
+    <Property Name="Contact number" Type="varchar(max)" Nullable="false" />
+    <Property Name="Email" Type="varchar(max)" Nullable="false" />
+    <Property Name="Customer location" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Infinity_Db.dbo.Customer_Order' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Customer_Order">
+    <Key>
+      <PropertyRef Name="orderID" />
+      <PropertyRef Name="customerID" />
+    </Key>
+    <Property Name="orderID" Type="int" Nullable="false" />
+    <Property Name="customerID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Delivery">
+    <Key>
+      <PropertyRef Name="deliveryID" />
+    </Key>
+    <Property Name="deliveryID" Type="int" Nullable="false" />
+    <Property Name="Employee Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Delivery order status">
+    <Key>
+      <PropertyRef Name="deliveryorderstatusID" />
+    </Key>
+    <Property Name="deliveryorderstatusID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="employeeID" />
+    </Key>
+    <Property Name="employeeID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Surname" Type="varchar(max)" Nullable="false" />
+    <Property Name="mobile number" Type="varchar(max)" Nullable="false" />
+    <Property Name="Email address" Type="varchar(max)" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+    <Property Name="Date of birth" Type="datetime" Nullable="false" />
+    <Property Name="Username" Type="varchar(max)" Nullable="false" />
+    <Property Name="Password" Type="varchar(max)" Nullable="false" />
+    <Property Name="User role" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="feedbackID" />
+    </Key>
+    <Property Name="feedbackID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="inventoryID" />
+    </Key>
+    <Property Name="inventoryID" Type="int" Nullable="false" />
+    <Property Name="Inventory Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Log-In">
+    <Key>
+      <PropertyRef Name="loginID" />
+    </Key>
+    <Property Name="loginID" Type="int" Nullable="false" />
+    <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Log-out">
+    <Key>
+      <PropertyRef Name="logoutID" />
+    </Key>
+    <Property Name="logoutID" Type="int" Nullable="false" />
+    <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="orderID" />
+    </Key>
+    <Property Name="orderID" Type="int" Nullable="false" />
+    <Property Name="Order Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Order Number" Type="varchar(max)" Nullable="false" />
+    <Property Name="Product Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Order Status" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Infinity_Db.dbo.Order_Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Order_Product">
+    <Key>
+      <PropertyRef Name="productID" />
+      <PropertyRef Name="orderID" />
+    </Key>
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="orderID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order_Status">
+    <Key>
+      <PropertyRef Name="orderstatusID" />
+    </Key>
+    <Property Name="orderstatusID" Type="int" Nullable="false" />
+    <Property Name="Order_Description" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="paymentID" />
+    </Key>
+    <Property Name="paymentID" Type="int" Nullable="false" />
+    <Property Name="Payment_Method" Type="varchar(max)" Nullable="false" />
+    <Property Name="Payment_Amount" Type="varchar(max)" Nullable="false" />
+    <Property Name="Payment_Date" Type="datetime" Nullable="false" />
+    <Property Name="Payment_Time" Type="time" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Price">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="PriceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="productID" />
+    </Key>
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="varchar(max)" Nullable="false" />
+    <Property Name="ProductSize" Type="varchar(max)" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product Category">
+    <Key>
+      <PropertyRef Name="productcategoryID" />
+    </Key>
+    <Property Name="productcategoryID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product Type">
+    <Key>
+      <PropertyRef Name="producttypeID" />
+    </Key>
+    <Property Name="producttypeID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product_Content">
+    <Key>
+      <PropertyRef Name="ProductContentId" />
+    </Key>
+    <Property Name="ProductContentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="provinceID" />
+    </Key>
+    <Property Name="provinceID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Size">
+    <Key>
+      <PropertyRef Name="SizeId" />
+    </Key>
+    <Property Name="SizeId" Type="int" Nullable="false" />
+    <Property Name="SizeDescription" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="stockID" />
+    </Key>
+    <Property Name="stockID" Type="int" Nullable="false" />
+    <Property Name="Stock_code" Type="varchar(max)" Nullable="false" />
+    <Property Name="Stock_Amount" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Stock_Item" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stock type">
+    <Key>
+      <PropertyRef Name="stocktypeID" />
+    </Key>
+    <Property Name="stocktypeID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Infinity_Db.dbo.Stock_Inventory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Stock_Inventory">
+    <Key>
+      <PropertyRef Name="inventoryID" />
+      <PropertyRef Name="stockID" />
+    </Key>
+    <Property Name="inventoryID" Type="int" Nullable="false" />
+    <Property Name="stockID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stock_Line">
+    <Key>
+      <PropertyRef Name="StockLineId" />
+    </Key>
+    <Property Name="StockLineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Reason" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StockTake">
+    <Key>
+      <PropertyRef Name="StockTakeId" />
+    </Key>
+    <Property Name="StockTakeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Scale" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="supplierID" />
+    </Key>
+    <Property Name="supplierID" Type="int" Nullable="false" />
+    <Property Name="Company Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Contact Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Contact Number" Type="varchar(max)" Nullable="false" />
+    <Property Name="Email" Type="varchar(max)" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+    <Property Name="Website" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier Order Status">
+    <Key>
+      <PropertyRef Name="sorderID" />
+    </Key>
+    <Property Name="SupplierOrderStatusDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="sorderID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier_Order">
+    <Key>
+      <PropertyRef Name="supplierorderID" />
+    </Key>
+    <Property Name="supplierorderID" Type="int" Nullable="false" />
+    <Property Name="SupplierOrderNumber" Type="varchar(max)" Nullable="false" />
+    <Property Name="SupplierOrderDate" Type="datetime" Nullable="false" />
+    <Property Name="SupplierOrderDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="SupplierOrderQuantity" Type="int" Nullable="false" />
+    <Property Name="SupplierOrderNote" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Infinity_Db.dbo.Supplier_Order_Line' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Supplier_Order_Line">
+    <Key>
+      <PropertyRef Name="supplierorderID" />
+      <PropertyRef Name="stockID" />
+    </Key>
+    <Property Name="supplierorderID" Type="int" Nullable="false" />
+    <Property Name="stockID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier_Type">
+    <Key>
+      <PropertyRef Name="suppliertypeID" />
+    </Key>
+    <Property Name="suppliertypeID" Type="int" Nullable="false" />
+    <Property Name="Supplier Type Description" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="Username" Type="varchar(max)" Nullable="false" />
+    <Property Name="Password" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User Role">
+    <Key>
+      <PropertyRef Name="userroleID" />
+    </Key>
+    <Property Name="userroleID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Description">
+    <Key>
+      <PropertyRef Name="User_StatusId" />
+    </Key>
+    <Property Name="User_StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserStatusDescription" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Vat">
+    <Key>
+      <PropertyRef Name="VatId" />
+    </Key>
+    <Property Name="VatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VatAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WriteOffs">
+    <Key>
+      <PropertyRef Name="WriteOffId" />
+    </Key>
+    <Property Name="WriteOffId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="Reason" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_130">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Customer_Order" Type="Self.Customer_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="orderID" />
+      </Principal>
+      <Dependent Role="Customer_Order">
+        <PropertyRef Name="orderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_133">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Customer_Order" Type="Self.Customer_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="customerID" />
+      </Principal>
+      <Dependent Role="Customer_Order">
+        <PropertyRef Name="customerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_237">
+    <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="1" />
+    <End Role="Supplier_Order_Line" Type="Self.Supplier_Order_Line" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_Order">
+        <PropertyRef Name="supplierorderID" />
+      </Principal>
+      <Dependent Role="Supplier_Order_Line">
+        <PropertyRef Name="supplierorderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_248">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Order_Product" Type="Self.Order_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="Order_Product">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_251">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Order_Product" Type="Self.Order_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="orderID" />
+      </Principal>
+      <Dependent Role="Order_Product">
+        <PropertyRef Name="orderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_259">
+    <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+    <End Role="Supplier_Order_Line" Type="Self.Supplier_Order_Line" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stock">
+        <PropertyRef Name="stockID" />
+      </Principal>
+      <Dependent Role="Supplier_Order_Line">
+        <PropertyRef Name="stockID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_276">
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="1" />
+    <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inventory">
+        <PropertyRef Name="inventoryID" />
+      </Principal>
+      <Dependent Role="Stock_Inventory">
+        <PropertyRef Name="inventoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_279">
+    <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+    <End Role="Stock_Inventory" Type="Self.Stock_Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stock">
+        <PropertyRef Name="stockID" />
+      </Principal>
+      <Dependent Role="Stock_Inventory">
+        <PropertyRef Name="stockID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Infinity_DbModelStoreContainer">
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company_Information" EntityType="Self.Company_Information" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Delivery order status" EntityType="Self.Delivery order status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log-In" EntityType="Self.Log-In" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log-out" EntityType="Self.Log-out" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_Status" EntityType="Self.Order_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Price" EntityType="Self.Price" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product Category" EntityType="Self.Product Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product Type" EntityType="Self.Product Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Content" EntityType="Self.Product_Content" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stock type" EntityType="Self.Stock type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stock_Line" EntityType="Self.Stock_Line" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockTake" EntityType="Self.StockTake" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier Order Status" EntityType="Self.Supplier Order Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier_Order" EntityType="Self.Supplier_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier_Type" EntityType="Self.Supplier_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User Role" EntityType="Self.User Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Description" EntityType="Self.User_Description" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vat" EntityType="Self.Vat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WriteOffs" EntityType="Self.WriteOffs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer_Order" EntityType="Self.Customer_Order" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Customer_Order].[orderID] AS [orderID], 
+    [Customer_Order].[customerID] AS [customerID]
+    FROM [dbo].[Customer_Order] AS [Customer_Order]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Order_Product" EntityType="Self.Order_Product" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Order_Product].[productID] AS [productID], 
+    [Order_Product].[orderID] AS [orderID]
+    FROM [dbo].[Order_Product] AS [Order_Product]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Stock_Inventory" EntityType="Self.Stock_Inventory" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Stock_Inventory].[inventoryID] AS [inventoryID], 
+    [Stock_Inventory].[stockID] AS [stockID]
+    FROM [dbo].[Stock_Inventory] AS [Stock_Inventory]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Supplier_Order_Line" EntityType="Self.Supplier_Order_Line" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Supplier_Order_Line].[supplierorderID] AS [supplierorderID], 
+    [Supplier_Order_Line].[stockID] AS [stockID]
+    FROM [dbo].[Supplier_Order_Line] AS [Supplier_Order_Line]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_130" Association="Self.FK_130">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Customer_Order" EntitySet="Customer_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_133" Association="Self.FK_133">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Customer_Order" EntitySet="Customer_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_237" Association="Self.FK_237">
+      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
+      <End Role="Supplier_Order_Line" EntitySet="Supplier_Order_Line" />
+    </AssociationSet>
+    <AssociationSet Name="FK_248" Association="Self.FK_248">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Order_Product" EntitySet="Order_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_251" Association="Self.FK_251">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Order_Product" EntitySet="Order_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_259" Association="Self.FK_259">
+      <End Role="Stock" EntitySet="Stock" />
+      <End Role="Supplier_Order_Line" EntitySet="Supplier_Order_Line" />
+    </AssociationSet>
+    <AssociationSet Name="FK_276" Association="Self.FK_276">
+      <End Role="Inventory" EntitySet="Inventory" />
+      <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_279" Association="Self.FK_279">
+      <End Role="Stock" EntitySet="Stock" />
+      <End Role="Stock_Inventory" EntitySet="Stock_Inventory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
