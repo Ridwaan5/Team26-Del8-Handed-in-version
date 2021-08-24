@@ -8,6 +8,11 @@ namespace EnginX.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Terms()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             return View();

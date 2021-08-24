@@ -426,3 +426,4 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGri
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.Initial.resources
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
