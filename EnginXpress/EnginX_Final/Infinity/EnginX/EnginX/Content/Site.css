@@ -3,6 +3,13 @@
     text-shadow: 1px 1px 8px rgb(55,105,236);
 }
 
+
+
+.tbcolor {
+    background-color: rgb(55,105,236) !important;
+    box-shadow: 1px 1px 8px rgb(55,105,236);
+}
+
 /* @extend display-flex; */
 display-flex, .display-flex, .display-flex-center, .signup-content, .signin-content, .social-login, .socials {
     display: flex;
