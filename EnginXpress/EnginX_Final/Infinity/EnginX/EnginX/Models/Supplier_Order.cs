@@ -17,17 +17,23 @@ namespace EnginX.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Supplier_Order()
         {
-            this.Stocks = new HashSet<Stock>();
+            this.Supplier_Order_Line = new HashSet<Supplier_Order_Line>();
         }
     
-        public int supplierorderID { get; set; }
+        public int SupplierOrderID { get; set; }
+        public int SupplierID { get; set; }
+        public int AdminID { get; set; }
+        public int SOStatusID { get; set; }
         public string SupplierOrderNumber { get; set; }
         public System.DateTime SupplierOrderDate { get; set; }
         public string SupplierOrderDescription { get; set; }
         public int SupplierOrderQuantity { get; set; }
         public string SupplierOrderNote { get; set; }
     
+        public virtual Administrator Administrator { get; set; }
+        public virtual Supplier Supplier { get; set; }
+        public virtual Supplier_Order_Status Supplier_Order_Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Stock> Stocks { get; set; }
+        public virtual ICollection<Supplier_Order_Line> Supplier_Order_Line { get; set; }
     }
 }

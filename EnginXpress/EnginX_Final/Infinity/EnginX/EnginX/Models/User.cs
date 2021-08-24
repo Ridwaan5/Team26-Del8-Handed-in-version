@@ -14,8 +14,28 @@ namespace EnginX.Models
     
     public partial class User
     {
-        public int userID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.Addresses = new HashSet<Address>();
+            this.Customers = new HashSet<Customer>();
+            this.Employees = new HashSet<Employee>();
+        }
+    
+        public int UserID { get; set; }
         public string Username { get; set; }
-        public string Password { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public string ContactNumber { get; set; }
+        public Nullable<int> UserRoleID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Address> Addresses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Customer> Customers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual User_Role User_Role { get; set; }
     }
 }

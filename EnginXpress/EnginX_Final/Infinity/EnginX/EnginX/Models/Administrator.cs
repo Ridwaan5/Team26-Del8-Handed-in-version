@@ -14,11 +14,16 @@ namespace EnginX.Models
     
     public partial class Administrator
     {
-        public int adminID { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Contact_number { get; set; }
-        public string email_address { get; set; }
-        public string Address { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Administrator()
+        {
+            this.Supplier_Order = new HashSet<Supplier_Order>();
+        }
+    
+        public int AdminID { get; set; }
+        public int UserID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Supplier_Order> Supplier_Order { get; set; }
     }
 }

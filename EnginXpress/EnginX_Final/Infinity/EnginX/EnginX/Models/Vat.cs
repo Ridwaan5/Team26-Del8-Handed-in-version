@@ -14,7 +14,7 @@ namespace EnginX.Models
     
     public partial class Vat
     {
-        public int VatId { get; set; }
+        public int VatID { get; set; }
         public decimal VatAmount { get; set; }
     }
 }

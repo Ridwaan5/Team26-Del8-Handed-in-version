@@ -14,7 +14,8 @@ namespace EnginX.Models
     
     public partial class Log_In
     {
-        public int loginID { get; set; }
+        public int LogInID { get; set; }
+        public int UserID { get; set; }
         public System.TimeSpan Time { get; set; }
         public System.DateTime Date { get; set; }
     }

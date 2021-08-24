@@ -14,10 +14,22 @@ namespace EnginX.Models
     
     public partial class Payment
     {
-        public int paymentID { get; set; }
-        public string Payment_Method { get; set; }
-        public string Payment_Amount { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Payment()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+    
+        public int PaymentID { get; set; }
+        public int PaymentMethodID { get; set; }
+        public decimal Payment_Total { get; set; }
         public System.DateTime Payment_Date { get; set; }
         public System.TimeSpan Payment_Time { get; set; }
+        public bool isPaid { get; set; }
+        public Nullable<decimal> Payment_Amount { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
+        public virtual Payment_Method Payment_Method { get; set; }
     }
 }

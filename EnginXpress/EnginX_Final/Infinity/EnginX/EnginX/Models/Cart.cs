@@ -14,11 +14,9 @@ namespace EnginX.Models
     
     public partial class Cart
     {
-        public int cartID { get; set; }
-        public string ProductName { get; set; }
-        public string ProductDescription { get; set; }
-        public decimal ProductPrice { get; set; }
-        public decimal DeliveryAmount { get; set; }
-        public decimal CaerTotal { get; set; }
+        public int CartID { get; set; }
+        public int CustomerID { get; set; }
+    
+        public virtual Customer Customer { get; set; }
     }
 }

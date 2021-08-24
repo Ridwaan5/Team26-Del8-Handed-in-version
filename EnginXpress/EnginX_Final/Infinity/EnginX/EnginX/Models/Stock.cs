@@ -17,19 +17,22 @@ namespace EnginX.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Stock()
         {
-            this.Inventories = new HashSet<Inventory>();
-            this.Supplier_Order = new HashSet<Supplier_Order>();
+            this.Supplier_Order_Line = new HashSet<Supplier_Order_Line>();
+            this.Stock_Line = new HashSet<Stock_Line>();
+            this.Supplier_Order_Line1 = new HashSet<Supplier_Order_Line>();
         }
     
-        public int stockID { get; set; }
+        public int StockID { get; set; }
         public string Stock_code { get; set; }
         public int Stock_Amount { get; set; }
         public string Description { get; set; }
-        public string Stock_Item { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Inventory> Inventories { get; set; }
+        public virtual ICollection<Supplier_Order_Line> Supplier_Order_Line { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Supplier_Order> Supplier_Order { get; set; }
+        public virtual ICollection<Stock_Line> Stock_Line { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Supplier_Order_Line> Supplier_Order_Line1 { get; set; }
     }
 }

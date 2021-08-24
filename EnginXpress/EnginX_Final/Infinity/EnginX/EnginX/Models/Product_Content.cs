@@ -14,8 +14,10 @@ namespace EnginX.Models
     
     public partial class Product_Content
     {
-        public int ProductContentId { get; set; }
-        public int ProductId { get; set; }
+        public int ProductContentID { get; set; }
+        public int ProductID { get; set; }
         public int Quantity { get; set; }
+    
+        public virtual Product Product { get; set; }
     }
 }

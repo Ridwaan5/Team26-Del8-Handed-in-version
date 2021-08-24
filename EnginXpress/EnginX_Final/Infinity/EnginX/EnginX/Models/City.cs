@@ -14,8 +14,19 @@ namespace EnginX.Models
     
     public partial class City
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public City()
+        {
+            this.Addresses = new HashSet<Address>();
+        }
+    
         public int cityID { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
+        public int provinceID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Address> Addresses { get; set; }
+        public virtual Province Province { get; set; }
     }
 }

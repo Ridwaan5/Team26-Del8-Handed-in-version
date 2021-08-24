@@ -14,7 +14,16 @@ namespace EnginX.Models
     
     public partial class User_Role
     {
-        public int userroleID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User_Role()
+        {
+            this.Users = new HashSet<User>();
+        }
+    
+        public int UserRoleID { get; set; }
         public string Description { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }

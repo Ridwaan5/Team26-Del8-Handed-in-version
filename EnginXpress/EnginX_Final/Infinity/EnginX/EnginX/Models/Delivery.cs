@@ -14,10 +14,12 @@ namespace EnginX.Models
     
     public partial class Delivery
     {
-        public int deliveryID { get; set; }
-        public string Employee_Name { get; set; }
+        public int DeliveryID { get; set; }
+        public int UserID { get; set; }
         public string Description { get; set; }
-        public System.DateTime Date { get; set; }
-        public string Status { get; set; }
+        public Nullable<int> DeliveryStatusID { get; set; }
+    
+        public virtual DeliverStatu DeliverStatu { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

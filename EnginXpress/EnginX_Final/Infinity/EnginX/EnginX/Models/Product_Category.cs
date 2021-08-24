@@ -14,8 +14,17 @@ namespace EnginX.Models
     
     public partial class Product_Category
     {
-        public int productcategoryID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product_Category()
+        {
+            this.Products = new HashSet<Product>();
+        }
+    
+        public int ProductCategoryID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

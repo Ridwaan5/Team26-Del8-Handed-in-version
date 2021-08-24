@@ -14,9 +14,13 @@ namespace EnginX.Models
     
     public partial class Stock_Line
     {
-        public int StockLineId { get; set; }
-        public int ProductId { get; set; }
-        public string Category { get; set; }
+        public int StockLineID { get; set; }
+        public int ProductID { get; set; }
         public string Reason { get; set; }
+        public int StockID { get; set; }
+        public string Quantity { get; set; }
+    
+        public virtual Product Product { get; set; }
+        public virtual Stock Stock { get; set; }
     }
 }

@@ -14,17 +14,8 @@ namespace EnginX.Models
     
     public partial class Inventory
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Inventory()
-        {
-            this.Stocks = new HashSet<Stock>();
-        }
-    
-        public int inventoryID { get; set; }
-        public string Inventory_Description { get; set; }
+        public int InventoryID { get; set; }
+        public string InventoryDescription { get; set; }
         public int Quantity { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Stock> Stocks { get; set; }
     }
 }

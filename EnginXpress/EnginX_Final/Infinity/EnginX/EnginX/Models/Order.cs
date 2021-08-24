@@ -17,20 +17,30 @@ namespace EnginX.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            this.Customers = new HashSet<Customer>();
-            this.Products = new HashSet<Product>();
+            this.Feedbacks = new HashSet<Feedback>();
+            this.Order_Product = new HashSet<Order_Product>();
+            this.Order_Product1 = new HashSet<Order_Product>();
         }
     
-        public int orderID { get; set; }
-        public string Order_Description { get; set; }
+        public int OrderID { get; set; }
         public string Order_Number { get; set; }
-        public string Product_Name { get; set; }
-        public int Quantity { get; set; }
-        public string Order_Status { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public Nullable<int> OrderStatusID { get; set; }
+        public Nullable<int> CustomerID { get; set; }
+        public Nullable<int> AddressID { get; set; }
+        public int PaymentID { get; set; }
     
+        public virtual Address Address { get; set; }
+        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Order_Product> Order_Product { get; set; }
+        public virtual Order Order1 { get; set; }
+        public virtual Order Order2 { get; set; }
+        public virtual Order_Status Order_Status { get; set; }
+        public virtual Payment Payment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order_Product> Order_Product1 { get; set; }
     }
 }

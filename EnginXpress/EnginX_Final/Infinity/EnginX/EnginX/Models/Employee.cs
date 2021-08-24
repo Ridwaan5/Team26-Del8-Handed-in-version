@@ -14,15 +14,19 @@ namespace EnginX.Models
     
     public partial class Employee
     {
-        public int employeeID { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string mobile_number { get; set; }
-        public string Email_address { get; set; }
-        public string Address { get; set; }
-        public System.DateTime Date_of_birth { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public int User_role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Employee()
+        {
+            this.Deliveries = new HashSet<Delivery>();
+        }
+    
+        public int EmployeeID { get; set; }
+        public System.DateTime DateOfBirth { get; set; }
+        public int UserID { get; set; }
+        public bool IsCheckedIn { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Delivery> Deliveries { get; set; }
+        public virtual User User { get; set; }
     }
 }

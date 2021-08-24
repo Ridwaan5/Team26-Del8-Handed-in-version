@@ -14,7 +14,11 @@ namespace EnginX.Models
     
     public partial class Feedback
     {
-        public int feedbackID { get; set; }
+        public int FeedbackID { get; set; }
         public string Description { get; set; }
+        public Nullable<int> OrderID { get; set; }
+        public string Rating { get; set; }
+    
+        public virtual Order Order { get; set; }
     }
 }

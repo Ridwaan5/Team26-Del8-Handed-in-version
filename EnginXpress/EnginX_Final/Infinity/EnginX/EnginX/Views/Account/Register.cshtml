@@ -1,41 +1,107 @@
 ﻿@model EnginX.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
 
-<h2>@ViewBag.Title.</h2>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/Content/Account/fonts/material-icon/css/material-design-iconic-font.min.css">
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/Content/Account/css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <style>
+        .btn {
+            background-color: rgb(55,105,236);
+            border: #2e6da4;
+            font-family: Arial, Geneva, Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            color: #fff;
+            letter-spacing: 1px;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: normal;
+            border-radius: 100px;
+            line-height: 1.5;
+            text-decoration: none;
+            box-shadow: 1px 1px 8px rgb(55,105,236);
+        }
+    </style>
+</head>
+<body style="overflow-y:hidden">
+    <button class="btn" onclick="window.location.href='/Home/Index'" style="float:right">
+        <i class="fas fa-home"></i>
+    </button>
+    <div class="main">
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "register-form", role = "form", @id = "register-form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <label for="lastname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Your Username" })
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Your Email" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="mobilenumber"><i class="zmdi zmdi-phone material-icons-name"></i></label>
+                                <input type="text" name="mobilenumber" id="mobilenumber" placeholder="+27 ..." value="+27" maxlength="15" />
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter Password" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Repeat Password" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="/Home/Terms" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button" id="btndiv">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" style="background-color: rgb(55 105 236) !important;" />
+                            </div>
+                        }
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="~/Content/Account/images/signup-image.png" alt="sing up image"></figure>
+                        <button onclick="window.location.href='/Account/Login'" class="btn">
+                            Already a Member ?
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+    <!-- JS -->
+    <script src="~/Content/Account/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/Account/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btndiv').hide();
+        });
+    </script>
+</body>
+</html>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+

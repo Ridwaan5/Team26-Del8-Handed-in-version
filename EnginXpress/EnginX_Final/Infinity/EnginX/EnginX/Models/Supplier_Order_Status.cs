@@ -14,7 +14,16 @@ namespace EnginX.Models
     
     public partial class Supplier_Order_Status
     {
-        public string SupplierOrderStatusDescription { get; set; }
-        public int sorderID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Supplier_Order_Status()
+        {
+            this.Supplier_Order = new HashSet<Supplier_Order>();
+        }
+    
+        public int SOStatusID { get; set; }
+        public string SOStatusDescription { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Supplier_Order> Supplier_Order { get; set; }
     }
 }

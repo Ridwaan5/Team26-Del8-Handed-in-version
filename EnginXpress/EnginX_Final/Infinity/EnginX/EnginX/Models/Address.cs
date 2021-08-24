@@ -14,10 +14,24 @@ namespace EnginX.Models
     
     public partial class Address
     {
-        public int AddressId { get; set; }
-        public int CityId { get; set; }
-        public int UserId { get; set; }
-        public string AddressLine1 { get; set; }
-        public string AddressLine2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Address()
+        {
+            this.Customers = new HashSet<Customer>();
+            this.Orders = new HashSet<Order>();
+        }
+    
+        public int AddressID { get; set; }
+        public int CityID { get; set; }
+        public int UserID { get; set; }
+        public int HouseNumber { get; set; }
+        public string StreetName { get; set; }
+    
+        public virtual City City { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Customer> Customers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

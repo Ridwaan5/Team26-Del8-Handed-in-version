@@ -17,16 +17,18 @@ namespace EnginX.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
+            this.Carts = new HashSet<Cart>();
             this.Orders = new HashSet<Order>();
         }
     
-        public int customerID { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Contact_number { get; set; }
-        public string Email { get; set; }
-        public string Customer_location { get; set; }
+        public int CustomerID { get; set; }
+        public int UserID { get; set; }
+        public int AddressID { get; set; }
     
+        public virtual Address Address { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }

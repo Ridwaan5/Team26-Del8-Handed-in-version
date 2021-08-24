@@ -17,16 +17,39 @@ namespace EnginX.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.Orders = new HashSet<Order>();
+            this.Cart_Line = new HashSet<Cart_Line>();
+            this.Order_Product = new HashSet<Order_Product>();
+            this.Order_Product1 = new HashSet<Order_Product>();
+            this.Product_Content = new HashSet<Product_Content>();
+            this.Stock_Line = new HashSet<Stock_Line>();
+            this.WriteOffLines = new HashSet<WriteOffLine>();
+            this.WriteOffLines1 = new HashSet<WriteOffLine>();
         }
     
-        public int productID { get; set; }
+        public int ProductID { get; set; }
         public string ProductName { get; set; }
-        public string ProductSize { get; set; }
+        public int ProductCategoryID { get; set; }
+        public int ProductTypeID { get; set; }
         public string Description { get; set; }
-        public int Quantity { get; set; }
+        public byte[] Image { get; set; }
+        public string Price { get; set; }
+        public Nullable<bool> InStock { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Cart_Line> Cart_Line { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order_Product> Order_Product { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order_Product> Order_Product1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product_Content> Product_Content { get; set; }
+        public virtual Product_Category Product_Category { get; set; }
+        public virtual Product_Type Product_Type { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stock_Line> Stock_Line { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WriteOffLine> WriteOffLines { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WriteOffLine> WriteOffLines1 { get; set; }
     }
 }

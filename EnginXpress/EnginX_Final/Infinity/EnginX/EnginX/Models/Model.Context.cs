@@ -25,41 +25,43 @@ namespace EnginX.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Administrator> Administrators { get; set; }
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<Cart_Line> Cart_Line { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Company_Information> Company_Information { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<DeliverStatu> DeliverStatus { get; set; }
         public virtual DbSet<Delivery> Deliveries { get; set; }
-        public virtual DbSet<Delivery_order_status> Delivery_order_status { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Inventory> Inventories { get; set; }
         public virtual DbSet<Log_In> Log_In { get; set; }
         public virtual DbSet<Log_out> Log_out { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Order_Product> Order_Product { get; set; }
         public virtual DbSet<Order_Status> Order_Status { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
-        public virtual DbSet<Price> Prices { get; set; }
+        public virtual DbSet<Payment_Method> Payment_Method { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Product_Category> Product_Categories { get; set; }
         public virtual DbSet<Product_Type> Product_Types { get; set; }
         public virtual DbSet<Product_Content> Product_Content { get; set; }
         public virtual DbSet<Province> Provinces { get; set; }
-        public virtual DbSet<Size> Sizes { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
-        public virtual DbSet<Stock_type> Stock_types { get; set; }
         public virtual DbSet<Stock_Line> Stock_Line { get; set; }
-        public virtual DbSet<StockTake> StockTakes { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Supplier_Order_Status> Supplier_Order_Status { get; set; }
         public virtual DbSet<Supplier_Order> Supplier_Order { get; set; }
-        public virtual DbSet<Supplier_Type> Supplier_Type { get; set; }
+        public virtual DbSet<Supplier_Order_Line> Supplier_Order_Line { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<User_Role> User_Roles { get; set; }
-        public virtual DbSet<User_Description> User_Description { get; set; }
         public virtual DbSet<Vat> Vats { get; set; }
-        public virtual DbSet<WriteOff> WriteOffs { get; set; }
+        public virtual DbSet<WriteOffLine> WriteOffLines { get; set; }
+        public virtual DbSet<WriteOff> WriteOffS { get; set; }
     }
 }
