@@ -15,7 +15,7 @@ namespace EnginX.Models
     public partial class Inventory
     {
         public int InventoryID { get; set; }
-        public string Inventory_Description { get; set; }
+        public string InventoryDescription { get; set; }
         public int Quantity { get; set; }
     }
 }

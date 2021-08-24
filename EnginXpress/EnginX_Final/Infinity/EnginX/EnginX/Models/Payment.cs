@@ -22,11 +22,11 @@ namespace EnginX.Models
     
         public int PaymentID { get; set; }
         public int PaymentMethodID { get; set; }
-        public string Payment_Total { get; set; }
+        public decimal Payment_Total { get; set; }
         public System.DateTime Payment_Date { get; set; }
         public System.TimeSpan Payment_Time { get; set; }
-        public byte[] isPaid { get; set; }
-        public string Payment_Amount { get; set; }
+        public bool isPaid { get; set; }
+        public Nullable<decimal> Payment_Amount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

@@ -15,7 +15,6 @@ namespace EnginX.Models
     public partial class Cart
     {
         public int CartID { get; set; }
-        public decimal CartTotal { get; set; }
         public int CustomerID { get; set; }
     
         public virtual Customer Customer { get; set; }

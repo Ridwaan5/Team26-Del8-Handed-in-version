@@ -15,9 +15,9 @@ namespace EnginX.Models
     public partial class Cart_Line
     {
         public int CartLineID { get; set; }
-        public Nullable<int> ProductID { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public Nullable<int> CartID { get; set; }
+        public int ProductID { get; set; }
+        public int Quantity { get; set; }
+        public int CartID { get; set; }
     
         public virtual Product Product { get; set; }
     }

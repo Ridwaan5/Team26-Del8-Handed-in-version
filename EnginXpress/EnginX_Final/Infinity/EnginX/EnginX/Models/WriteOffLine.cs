@@ -14,18 +14,13 @@ namespace EnginX.Models
     
     public partial class WriteOffLine
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public WriteOffLine()
-        {
-            this.WriteOffS = new HashSet<WriteOff>();
-        }
-    
         public int WriteOffLineID { get; set; }
         public int ProductID { get; set; }
+        public int WriteOffSID { get; set; }
         public string Quantity { get; set; }
     
         public virtual Product Product { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WriteOff> WriteOffS { get; set; }
+        public virtual Product Product1 { get; set; }
+        public virtual WriteOff WriteOff { get; set; }
     }
 }

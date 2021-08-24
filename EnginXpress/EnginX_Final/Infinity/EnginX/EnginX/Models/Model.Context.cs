@@ -35,9 +35,8 @@ namespace EnginX.Models
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Company_Information> Company_Information { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Customer_Order> Customer_Order { get; set; }
+        public virtual DbSet<DeliverStatu> DeliverStatus { get; set; }
         public virtual DbSet<Delivery> Deliveries { get; set; }
-        public virtual DbSet<DeliveryOrderStatu> DeliveryOrderStatus { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Inventory> Inventories { get; set; }
@@ -48,7 +47,6 @@ namespace EnginX.Models
         public virtual DbSet<Order_Status> Order_Status { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Payment_Method> Payment_Method { get; set; }
-        public virtual DbSet<Price> Prices { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Product_Category> Product_Categories { get; set; }
         public virtual DbSet<Product_Type> Product_Types { get; set; }

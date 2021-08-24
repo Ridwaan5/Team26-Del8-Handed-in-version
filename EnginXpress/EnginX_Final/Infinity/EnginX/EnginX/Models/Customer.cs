@@ -18,22 +18,16 @@ namespace EnginX.Models
         public Customer()
         {
             this.Carts = new HashSet<Cart>();
-            this.Customer_Order = new HashSet<Customer_Order>();
-            this.Customer_Order1 = new HashSet<Customer_Order>();
             this.Orders = new HashSet<Order>();
         }
     
         public int CustomerID { get; set; }
-        public Nullable<int> UserID { get; set; }
+        public int UserID { get; set; }
         public int AddressID { get; set; }
     
         public virtual Address Address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer_Order> Customer_Order { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer_Order> Customer_Order1 { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

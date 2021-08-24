@@ -22,10 +22,8 @@ namespace EnginX.Models
     
         public int OrderStatusID { get; set; }
         public string Order_Status1 { get; set; }
-        public int OrderID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
-        public virtual Order Order { get; set; }
     }
 }

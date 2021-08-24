@@ -21,9 +21,9 @@ namespace EnginX.Models
         }
     
         public int SupplierID { get; set; }
-        public string Company_Name { get; set; }
-        public string Contact_Name { get; set; }
-        public string Contact_Number { get; set; }
+        public string CompanyName { get; set; }
+        public string ContactName { get; set; }
+        public string ContactNumber { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
         public string Website { get; set; }

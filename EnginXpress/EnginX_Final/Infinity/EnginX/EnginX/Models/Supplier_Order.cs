@@ -22,13 +22,13 @@ namespace EnginX.Models
     
         public int SupplierOrderID { get; set; }
         public int SupplierID { get; set; }
+        public int AdminID { get; set; }
+        public int SOStatusID { get; set; }
         public string SupplierOrderNumber { get; set; }
         public System.DateTime SupplierOrderDate { get; set; }
         public string SupplierOrderDescription { get; set; }
         public int SupplierOrderQuantity { get; set; }
         public string SupplierOrderNote { get; set; }
-        public int SOStatusID { get; set; }
-        public int AdminID { get; set; }
     
         public virtual Administrator Administrator { get; set; }
         public virtual Supplier Supplier { get; set; }

@@ -228,16 +228,13 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Customer_Order.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Delivery.cs">
+    <Compile Include="Models\DeliverStatu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DeliveryOrderStatu.cs">
+    <Compile Include="Models\Delivery.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs">
@@ -285,9 +282,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Payment_Method.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Price.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs">
