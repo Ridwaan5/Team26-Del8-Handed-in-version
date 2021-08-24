@@ -16,8 +16,30 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="~/Content/Account/css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <style>
+        .btn {
+            background-color: rgb(55,105,236);
+            border: #2e6da4;
+            font-family: Arial, Geneva, Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            color: #fff;
+            letter-spacing: 1px;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: normal;
+            border-radius: 100px;
+            line-height: 1.5;
+            text-decoration: none;
+            box-shadow: 1px 1px 8px rgb(55,105,236);
+        }
+    </style>
 </head>
 <body>
+    <button class="btn" onclick="window.location.href='/Home/Index'">
+        <i class="fas fa-home"></i>
+    </button>
     <div class="main">
         <!-- Sing in  Form -->
         <section class="sign-in">
@@ -29,8 +51,8 @@
                     </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">EnginX Login</h2>
-                        <form  class="register-form" id="login-form" onsubmit="alert('text');">
+                        <img src="~/Content/Pics/PicsArt_04-11-05.50.51-01-removebg.png" />
+                        <form class="register-form" id="login-form" onsubmit="alert('text');">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="your_name" id="your_name" placeholder="Username" />
@@ -44,7 +66,7 @@
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
                             <div class="form-group form-button">
-                                <input onclick="window.location.href = '@Url.Action("Index","Home")'" type="submit" name="signin" id="signin" class="form-submit bcolor" value="Log in" style="background-color: rgb(6 9 182) !important;"  />
+                                <input onclick="window.location.href = '@Url.Action("Index","Home")'" type="submit" name="signin" id="signin" class="form-submit bcolor" value="Log in" style="background-color: rgb(55 105 236) !important;" />
                             </div>
                         </form>
 
