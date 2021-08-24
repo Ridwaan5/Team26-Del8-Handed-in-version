@@ -21,9 +21,9 @@ namespace EnginX.Models
         }
     
         public int EmployeeID { get; set; }
-        public System.DateTime Date_of_birth { get; set; }
+        public System.DateTime DateOfBirth { get; set; }
         public int UserID { get; set; }
-        public Nullable<bool> IsCheckedIn { get; set; }
+        public bool IsCheckedIn { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Delivery> Deliveries { get; set; }

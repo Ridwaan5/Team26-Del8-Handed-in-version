@@ -12,11 +12,13 @@
   </EntityType>
   <EntityType Name="Address">
     <Key>
-      <PropertyRef Name="AddressId" />
+      <PropertyRef Name="AddressID" />
     </Key>
-    <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="cityID" Type="int" Nullable="false" />
-    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="HouseNumber" Type="int" Nullable="false" />
+    <Property Name="StreetName" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Administrator">
     <Key>
@@ -62,7 +64,6 @@
       <PropertyRef Name="CartID" />
     </Key>
     <Property Name="CartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CartTotal" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="CustomerID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Cart_Line">
@@ -70,9 +71,9 @@
       <PropertyRef Name="CartLineID" />
     </Key>
     <Property Name="CartLineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ProductID" Type="int" />
-    <Property Name="Quantity" Type="int" />
-    <Property Name="CartID" Type="int" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="CartID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="City">
     <Key>
@@ -92,48 +93,40 @@
     <Property Name="CompanyPhysicalAddress" Type="varchar(max)" />
     <Property Name="CompanyTelephoneNumber" Type="varchar" MaxLength="50" />
     <Property Name="CompanyEmailAddress" Type="varchar" MaxLength="50" />
-    <Property Name="CompanyLogo" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyLogo" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Customer">
     <Key>
       <PropertyRef Name="CustomerID" />
     </Key>
     <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserID" Type="int" />
+    <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="AddressID" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Customer_Order">
+  <EntityType Name="DeliverStatus">
     <Key>
-      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="DeliveryStatusID" />
     </Key>
-    <Property Name="OrderID" Type="int" Nullable="false" />
-    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="DeliveryStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Delivery">
     <Key>
       <PropertyRef Name="DeliveryID" />
     </Key>
     <Property Name="DeliveryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="EmployeeID" Type="int" Nullable="false" />
-    <Property Name="Description" Type="varchar(max)" Nullable="false" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Status" Type="varchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DeliveryOrderStatus">
-    <Key>
-      <PropertyRef Name="DeliveryOrderStatusID" />
-    </Key>
-    <Property Name="DeliveryOrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="DeliveryStatusID" Type="int" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
       <PropertyRef Name="EmployeeID" />
     </Key>
     <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Date of birth" Type="datetime" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="IsCheckedIn" Type="bit" />
+    <Property Name="IsCheckedIn" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Feedback">
     <Key>
@@ -142,14 +135,14 @@
     <Property Name="FeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="varchar(max)" Nullable="false" />
     <Property Name="OrderID" Type="int" />
-    <Property Name="Rating" Type="char" MaxLength="2" />
+    <Property Name="Rating" Type="char" MaxLength="2" Nullable="false" />
   </EntityType>
   <EntityType Name="Inventory">
     <Key>
       <PropertyRef Name="InventoryID" />
     </Key>
     <Property Name="InventoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Inventory Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="InventoryDescription" Type="varchar(max)" Nullable="false" />
     <Property Name="Quantity" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Log-In">
@@ -158,8 +151,8 @@
     </Key>
     <Property Name="LogInID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="Time" Type="time" Precision="7" Nullable="false" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Time" Type="time" Precision="3" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="Log-out">
     <Key>
@@ -167,29 +160,29 @@
     </Key>
     <Property Name="LogOutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="Time" Type="time" Precision="7" Nullable="false" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Time" Type="time" Precision="3" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="OrderID" />
     </Key>
     <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Order Number" Type="varchar(max)" Nullable="false" />
-    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Order_Number" Type="varchar(max)" />
+    <Property Name="Quantity" Type="int" />
     <Property Name="OrderStatusID" Type="int" />
     <Property Name="CustomerID" Type="int" />
     <Property Name="AddressID" Type="int" />
-    <Property Name="PaymentID" Type="int" />
+    <Property Name="PaymentID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Order_Product">
     <Key>
       <PropertyRef Name="OrderProductID" />
     </Key>
-    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OrderID" Type="int" Nullable="false" />
-    <Property Name="Quantity" Type="nchar" MaxLength="10" />
-    <Property Name="OrderProductID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="nchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="Order_Status">
     <Key>
@@ -197,7 +190,6 @@
     </Key>
     <Property Name="OrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Order_Status" Type="varchar(max)" Nullable="false" />
-    <Property Name="OrderID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Payment">
     <Key>
@@ -205,11 +197,11 @@
     </Key>
     <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PaymentMethodID" Type="int" Nullable="false" />
-    <Property Name="Payment_Total" Type="varchar(max)" Nullable="false" />
-    <Property Name="Payment_Date" Type="datetime" Nullable="false" />
+    <Property Name="Payment_Total" Type="money" Nullable="false" />
+    <Property Name="Payment_Date" Type="date" Nullable="false" />
     <Property Name="Payment_Time" Type="time" Precision="7" Nullable="false" />
-    <Property Name="isPaid" Type="binary" MaxLength="50" />
-    <Property Name="Payment_Amount" Type="nvarchar" MaxLength="50" />
+    <Property Name="isPaid" Type="bit" Nullable="false" />
+    <Property Name="Payment_Amount" Type="money" />
   </EntityType>
   <EntityType Name="Payment_Method">
     <Key>
@@ -218,27 +210,18 @@
     <Property Name="PaymentMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="nchar" MaxLength="10" />
   </EntityType>
-  <EntityType Name="Price">
-    <Key>
-      <PropertyRef Name="PriceID" />
-    </Key>
-    <Property Name="PriceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ProductID" Type="int" Nullable="false" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-  </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ProductID" />
     </Key>
     <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductName" Type="varchar(max)" Nullable="false" />
-    <Property Name="ProductSize" Type="varchar(max)" Nullable="false" />
-    <Property Name="Description" Type="varchar(max)" Nullable="false" />
-    <Property Name="Image" Type="image" />
-    <Property Name="InStock" Type="binary" MaxLength="50" />
-    <Property Name="Price" Type="varchar" MaxLength="50" />
-    <Property Name="ProductTypeID" Type="int" Nullable="false" />
     <Property Name="ProductCategoryID" Type="int" Nullable="false" />
+    <Property Name="ProductTypeID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Image" Type="image" />
+    <Property Name="Price" Type="varchar" MaxLength="50" />
+    <Property Name="InStock" Type="bit" />
   </EntityType>
   <EntityType Name="Product Category">
     <Key>
@@ -246,17 +229,15 @@
     </Key>
     <Property Name="ProductCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar(max)" Nullable="false" />
-    <Property Name="Description" Type="varchar(max)" Nullable="false" />
-    <Property Name="ProductID" Type="int" />
+    <Property Name="Description" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Product Type">
     <Key>
       <PropertyRef Name="ProductTypeID" />
     </Key>
     <Property Name="ProductTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="varchar(max)" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="10" />
-    <Property Name="ProductID" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Product_Content">
     <Key>
@@ -289,21 +270,21 @@
     </Key>
     <Property Name="StockLineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductID" Type="int" Nullable="false" />
-    <Property Name="Reason" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Reason" Type="varchar" MaxLength="50" />
     <Property Name="StockID" Type="int" Nullable="false" />
-    <Property Name="Quantity" Type="char" MaxLength="10" />
+    <Property Name="Quantity" Type="char" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="Supplier">
     <Key>
       <PropertyRef Name="SupplierID" />
     </Key>
     <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Company Name" Type="varchar(max)" Nullable="false" />
-    <Property Name="Contact Name" Type="varchar(max)" Nullable="false" />
-    <Property Name="Contact Number" Type="varchar(max)" Nullable="false" />
-    <Property Name="Email" Type="varchar(max)" Nullable="false" />
-    <Property Name="Address" Type="varchar(max)" Nullable="false" />
-    <Property Name="Website" Type="varchar(max)" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar(max)" Nullable="false" />
+    <Property Name="ContactName" Type="varchar(max)" Nullable="false" />
+    <Property Name="ContactNumber" Type="varchar(max)" Nullable="false" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Website" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Supplier Order Status">
     <Key>
@@ -318,13 +299,13 @@
     </Key>
     <Property Name="SupplierOrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="AdminID" Type="int" Nullable="false" />
+    <Property Name="SOStatusID" Type="int" Nullable="false" />
     <Property Name="SupplierOrderNumber" Type="varchar(max)" Nullable="false" />
     <Property Name="SupplierOrderDate" Type="datetime" Nullable="false" />
-    <Property Name="SupplierOrderDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="SupplierOrderDescription" Type="varchar(max)" />
     <Property Name="SupplierOrderQuantity" Type="int" Nullable="false" />
-    <Property Name="SupplierOrderNote" Type="varchar(max)" Nullable="false" />
-    <Property Name="SOStatusID" Type="int" Nullable="false" />
-    <Property Name="AdminID" Type="int" Nullable="false" />
+    <Property Name="SupplierOrderNote" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Supplier_Order_Line">
     <Key>
@@ -341,10 +322,10 @@
     </Key>
     <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Username" Type="varchar(max)" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="10" />
-    <Property Name="Surname" Type="nchar" MaxLength="10" />
-    <Property Name="Email" Type="nchar" MaxLength="10" />
-    <Property Name="ContactNumber" Type="nchar" MaxLength="10" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactNumber" Type="char" MaxLength="10" />
     <Property Name="UserRoleID" Type="int" />
   </EntityType>
   <EntityType Name="User Role">
@@ -367,7 +348,8 @@
     </Key>
     <Property Name="WriteOffLineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductID" Type="int" Nullable="false" />
-    <Property Name="Quantity" Type="nvarchar" MaxLength="50" />
+    <Property Name="WriteOffSID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="WriteOffS">
     <Key>
@@ -375,32 +357,7 @@
     </Key>
     <Property Name="WriteOffSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Reason" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="WriteOffLineID" Type="int" />
   </EntityType>
-  <Association Name="FK_130">
-    <End Role="Order" Type="Self.Order" Multiplicity="1" />
-    <End Role="Customer_Order" Type="Self.Customer_Order" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
-      </Principal>
-      <Dependent Role="Customer_Order">
-        <PropertyRef Name="OrderID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_133">
-    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-    <End Role="Customer_Order" Type="Self.Customer_Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
-        <PropertyRef Name="CustomerID" />
-      </Principal>
-      <Dependent Role="Customer_Order">
-        <PropertyRef Name="CustomerID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_237">
     <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="1" />
     <End Role="Supplier_Order_Line" Type="Self.Supplier_Order_Line" Multiplicity="*" />
@@ -457,7 +414,7 @@
         <PropertyRef Name="cityID" />
       </Principal>
       <Dependent Role="Address">
-        <PropertyRef Name="cityID" />
+        <PropertyRef Name="CityID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -469,7 +426,7 @@
         <PropertyRef Name="UserID" />
       </Principal>
       <Dependent Role="Address">
-        <PropertyRef Name="UserId" />
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -486,7 +443,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Cart_Line_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="Cart_Line" Type="Self.Cart_Line" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
@@ -514,27 +471,15 @@
     <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Address">
-        <PropertyRef Name="AddressId" />
+        <PropertyRef Name="AddressID" />
       </Principal>
       <Dependent Role="Customer">
         <PropertyRef Name="AddressID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Customer_Order_Customer">
-    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-    <End Role="Customer_Order" Type="Self.Customer_Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
-        <PropertyRef Name="CustomerID" />
-      </Principal>
-      <Dependent Role="Customer_Order">
-        <PropertyRef Name="CustomerID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Customer_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
@@ -573,6 +518,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Delivery_Delivery">
+    <End Role="DeliverStatus" Type="Self.DeliverStatus" Multiplicity="0..1" />
+    <End Role="Delivery" Type="Self.Delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliverStatus">
+        <PropertyRef Name="DeliveryStatusID" />
+      </Principal>
+      <Dependent Role="Delivery">
+        <PropertyRef Name="DeliveryStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Delivery_Employee">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
     <End Role="Delivery" Type="Self.Delivery" Multiplicity="*" />
@@ -581,7 +538,7 @@
         <PropertyRef Name="EmployeeID" />
       </Principal>
       <Dependent Role="Delivery">
-        <PropertyRef Name="EmployeeID" />
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -614,7 +571,7 @@
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Address">
-        <PropertyRef Name="AddressId" />
+        <PropertyRef Name="AddressID" />
       </Principal>
       <Dependent Role="Order">
         <PropertyRef Name="AddressID" />
@@ -658,7 +615,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_Payment">
-    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Payment">
@@ -666,6 +623,18 @@
       </Principal>
       <Dependent Role="Order">
         <PropertyRef Name="PaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Order_Product" Type="Self.Order_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="Order_Product">
+        <PropertyRef Name="OrderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -681,18 +650,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Status_Order">
-    <End Role="Order" Type="Self.Order" Multiplicity="1" />
-    <End Role="Order_Status" Type="Self.Order_Status" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
-      </Principal>
-      <Dependent Role="Order_Status">
-        <PropertyRef Name="OrderID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Payment_Payment_Method">
     <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="1" />
     <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
@@ -702,42 +659,6 @@
       </Principal>
       <Dependent Role="Payment">
         <PropertyRef Name="PaymentMethodID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Price_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Price" Type="Self.Price" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="Price">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Product Category_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-    <End Role="Product Category" Type="Self.Product Category" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="Product Category">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Product Type_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-    <End Role="Product Type" Type="Self.Product Type" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="Product Type">
-        <PropertyRef Name="ProductID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -873,15 +794,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_WriteOffS_WriteOffLine">
-    <End Role="WriteOffLine" Type="Self.WriteOffLine" Multiplicity="0..1" />
-    <End Role="WriteOffS" Type="Self.WriteOffS" Multiplicity="*" />
+  <Association Name="FK_WriteOffLine_Product1">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="WriteOffLine" Type="Self.WriteOffLine" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="WriteOffLine">
-        <PropertyRef Name="WriteOffLineID" />
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
       </Principal>
-      <Dependent Role="WriteOffS">
-        <PropertyRef Name="WriteOffLineID" />
+      <Dependent Role="WriteOffLine">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WriteOffLine_WriteOffS">
+    <End Role="WriteOffS" Type="Self.WriteOffS" Multiplicity="1" />
+    <End Role="WriteOffLine" Type="Self.WriteOffLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WriteOffS">
+        <PropertyRef Name="WriteOffSID" />
+      </Principal>
+      <Dependent Role="WriteOffLine">
+        <PropertyRef Name="WriteOffSID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -897,9 +830,8 @@
     <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Company_Information" EntityType="Self.Company_Information" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Customer_Order" EntityType="Self.Customer_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliverStatus" EntityType="Self.DeliverStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DeliveryOrderStatus" EntityType="Self.DeliveryOrderStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
@@ -910,7 +842,6 @@
     <EntitySet Name="Order_Status" EntityType="Self.Order_Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payment_Method" EntityType="Self.Payment_Method" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Price" EntityType="Self.Price" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product Category" EntityType="Self.Product Category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product Type" EntityType="Self.Product Type" Schema="dbo" store:Type="Tables" />
@@ -927,14 +858,6 @@
     <EntitySet Name="Vat" EntityType="Self.Vat" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WriteOffLine" EntityType="Self.WriteOffLine" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WriteOffS" EntityType="Self.WriteOffS" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_130" Association="Self.FK_130">
-      <End Role="Order" EntitySet="Order" />
-      <End Role="Customer_Order" EntitySet="Customer_Order" />
-    </AssociationSet>
-    <AssociationSet Name="FK_133" Association="Self.FK_133">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="Customer_Order" EntitySet="Customer_Order" />
-    </AssociationSet>
     <AssociationSet Name="FK_237" Association="Self.FK_237">
       <End Role="Supplier_Order" EntitySet="Supplier_Order" />
       <End Role="Supplier_Order_Line" EntitySet="Supplier_Order_Line" />
@@ -975,10 +898,6 @@
       <End Role="Address" EntitySet="Address" />
       <End Role="Customer" EntitySet="Customer" />
     </AssociationSet>
-    <AssociationSet Name="FK_Customer_Order_Customer" Association="Self.FK_Customer_Order_Customer">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="Customer_Order" EntitySet="Customer_Order" />
-    </AssociationSet>
     <AssociationSet Name="FK_Customer_User" Association="Self.FK_Customer_User">
       <End Role="User" EntitySet="User" />
       <End Role="Customer" EntitySet="Customer" />
@@ -990,6 +909,10 @@
     <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Delivery_Delivery" Association="Self.FK_Delivery_Delivery">
+      <End Role="DeliverStatus" EntitySet="DeliverStatus" />
+      <End Role="Delivery" EntitySet="Delivery" />
     </AssociationSet>
     <AssociationSet Name="FK_Delivery_Employee" Association="Self.FK_Delivery_Employee">
       <End Role="Employee" EntitySet="Employee" />
@@ -1023,29 +946,17 @@
       <End Role="Payment" EntitySet="Payment" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
+    <AssociationSet Name="FK_Order_Product_Order" Association="Self.FK_Order_Product_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Order_Product" EntitySet="Order_Product" />
+    </AssociationSet>
     <AssociationSet Name="FK_Order_Product_Product" Association="Self.FK_Order_Product_Product">
       <End Role="Product" EntitySet="Product" />
       <End Role="Order_Product" EntitySet="Order_Product" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Status_Order" Association="Self.FK_Order_Status_Order">
-      <End Role="Order" EntitySet="Order" />
-      <End Role="Order_Status" EntitySet="Order_Status" />
-    </AssociationSet>
     <AssociationSet Name="FK_Payment_Payment_Method" Association="Self.FK_Payment_Payment_Method">
       <End Role="Payment_Method" EntitySet="Payment_Method" />
       <End Role="Payment" EntitySet="Payment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Price_Product" Association="Self.FK_Price_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Price" EntitySet="Price" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product Category_Product" Association="Self.FK_Product Category_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Product Category" EntitySet="Product Category" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product Type_Product" Association="Self.FK_Product Type_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Product Type" EntitySet="Product Type" />
     </AssociationSet>
     <AssociationSet Name="FK_Product_Content_Product" Association="Self.FK_Product_Content_Product">
       <End Role="Product" EntitySet="Product" />
@@ -1091,9 +1002,13 @@
       <End Role="Product" EntitySet="Product" />
       <End Role="WriteOffLine" EntitySet="WriteOffLine" />
     </AssociationSet>
-    <AssociationSet Name="FK_WriteOffS_WriteOffLine" Association="Self.FK_WriteOffS_WriteOffLine">
+    <AssociationSet Name="FK_WriteOffLine_Product1" Association="Self.FK_WriteOffLine_Product1">
+      <End Role="Product" EntitySet="Product" />
       <End Role="WriteOffLine" EntitySet="WriteOffLine" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WriteOffLine_WriteOffS" Association="Self.FK_WriteOffLine_WriteOffS">
       <End Role="WriteOffS" EntitySet="WriteOffS" />
+      <End Role="WriteOffLine" EntitySet="WriteOffLine" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

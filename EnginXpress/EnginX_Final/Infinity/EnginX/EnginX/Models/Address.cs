@@ -21,9 +21,11 @@ namespace EnginX.Models
             this.Orders = new HashSet<Order>();
         }
     
-        public int AddressId { get; set; }
-        public int cityID { get; set; }
-        public int UserId { get; set; }
+        public int AddressID { get; set; }
+        public int CityID { get; set; }
+        public int UserID { get; set; }
+        public int HouseNumber { get; set; }
+        public string StreetName { get; set; }
     
         public virtual City City { get; set; }
         public virtual User User { get; set; }
