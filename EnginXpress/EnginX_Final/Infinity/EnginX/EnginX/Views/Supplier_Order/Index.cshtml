@@ -1,0 +1,75 @@
+﻿@model IEnumerable<EnginX.Models.Supplier_Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierOrderNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierOrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierOrderDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierOrderQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierOrderNote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Administrator.AdminID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier_Order_Status.SOStatusDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierOrderNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierOrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierOrderDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierOrderQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierOrderNote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Administrator.AdminID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplier_Order_Status.SOStatusDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SupplierOrderID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SupplierOrderID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SupplierOrderID })
+        </td>
+    </tr>
+}
+
+</table>
