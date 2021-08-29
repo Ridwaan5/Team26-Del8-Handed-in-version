@@ -195,6 +195,8 @@
     <Compile Include="Controllers\InventoriesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\Product_CategoryController.cs" />
+    <Compile Include="Controllers\Product_TypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -636,6 +638,16 @@
     <Content Include="Views\Inventories\Details.cshtml" />
     <Content Include="Views\Inventories\Edit.cshtml" />
     <Content Include="Views\Inventories\Index.cshtml" />
+    <Content Include="Views\Product_Category\Create.cshtml" />
+    <Content Include="Views\Product_Category\Delete.cshtml" />
+    <Content Include="Views\Product_Category\Details.cshtml" />
+    <Content Include="Views\Product_Category\Edit.cshtml" />
+    <Content Include="Views\Product_Category\Index.cshtml" />
+    <Content Include="Views\Product_Type\Create.cshtml" />
+    <Content Include="Views\Product_Type\Delete.cshtml" />
+    <Content Include="Views\Product_Type\Details.cshtml" />
+    <Content Include="Views\Product_Type\Edit.cshtml" />
+    <Content Include="Views\Product_Type\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
