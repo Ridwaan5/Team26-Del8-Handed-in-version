@@ -526,3 +526,5 @@ C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Inf
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CopyComplete
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Cookies.xml
