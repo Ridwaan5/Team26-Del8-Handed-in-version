@@ -224,24 +224,36 @@
                     </div>
                     @if (Request.IsAuthenticated)
                     {
-                        <li class="nav-item">
-                            <a class="nav-link active" href="javascript:void(0);"><i class="fas fa-home"></i>Dashboard</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
-                        </li>
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link" href=" javascript:void(0); /employees/Index"><i class="far fa-address-book"></i>Employees</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href=" javascript:void(0); /home/admin"><i class="fas fa-home"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href=" javascript:void(0); /user_role/Index"><i class="far fa-address-book"></i>User Roles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href=" javascript:void(0); /customers/Index"><i class="fas fa-user"></i>Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href=" javascript:void(0); /orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0); /products/Index"><i class="far fa-boxes"></i>Products</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href=" javascript:void(0); /suppliers/Index"><i class="far fa-address-book"></i>Suppliers</a>
+                            </li>
+                            <li class="nav-item" id="supplier">
+                                <a class="nav-link" href="javascript:void(0);" onclick="load(this)" id="/supplier_order/index">
+                                    <i class="fas fa-truck-loading"></i>Supplier Orders
+                                </a>
+                            </li>
+
+                        }
                     }
                     else
                     {
@@ -249,7 +261,14 @@
                             <a class="nav-link" href="javascript:void(0);"><i class="fas fa-home"></i></a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-shopping-cart"></i></a>
+                            <a class="nav-link" href="javascript:void(0);">
+                                <i class="far fa-shopping-cart"></i><span>
+                                    @if (ViewBag.Count != null)
+                                    {
+                                        <sup class="sup">@ViewBag.Count</sup>
+                                    }
+                                </span>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="javascript:void(0);"><i class="far fa-question"></i>Help</a>
