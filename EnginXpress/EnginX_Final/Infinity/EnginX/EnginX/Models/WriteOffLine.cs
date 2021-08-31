@@ -19,8 +19,6 @@ namespace EnginX.Models
         public int WriteOffSID { get; set; }
         public string Quantity { get; set; }
     
-        public virtual Product Product { get; set; }
-        public virtual Product Product1 { get; set; }
         public virtual WriteOff WriteOff { get; set; }
     }
 }

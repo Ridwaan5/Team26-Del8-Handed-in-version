@@ -17,7 +17,5 @@ namespace EnginX.Models
         public int ProductContentID { get; set; }
         public int ProductID { get; set; }
         public int Quantity { get; set; }
-    
-        public virtual Product Product { get; set; }
     }
 }

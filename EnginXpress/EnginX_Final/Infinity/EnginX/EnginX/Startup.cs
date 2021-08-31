@@ -54,6 +54,18 @@ namespace EnginX
                     role.Name = "Cashier";
                     roleManager.Create(role);
                 }
+                if (!roleManager.RoleExists("Driver"))
+                {
+                    var role = new IdentityRole();
+                    role.Name = "Driver";
+                    roleManager.Create(role);
+                }
+                if (!roleManager.RoleExists("StockClerk"))
+                {
+                    var role = new IdentityRole();
+                    role.Name = "StockClerk";
+                    roleManager.Create(role);
+                }
             }
             catch (Exception ex)
             {

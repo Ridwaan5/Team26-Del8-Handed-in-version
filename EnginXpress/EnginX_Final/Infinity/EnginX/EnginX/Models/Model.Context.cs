@@ -25,12 +25,10 @@ namespace EnginX.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Administrator> Administrators { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
-        public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Cart_Line> Cart_Line { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Company_Information> Company_Information { get; set; }
@@ -63,5 +61,7 @@ namespace EnginX.Models
         public virtual DbSet<Vat> Vats { get; set; }
         public virtual DbSet<WriteOffLine> WriteOffLines { get; set; }
         public virtual DbSet<WriteOff> WriteOffS { get; set; }
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
     }
 }

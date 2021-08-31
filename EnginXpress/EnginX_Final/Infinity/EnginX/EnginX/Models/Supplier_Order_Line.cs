@@ -19,8 +19,6 @@ namespace EnginX.Models
         public int StockID { get; set; }
         public Nullable<int> Quantity { get; set; }
     
-        public virtual Stock Stock { get; set; }
-        public virtual Stock Stock1 { get; set; }
         public virtual Supplier_Order Supplier_Order { get; set; }
     }
 }
