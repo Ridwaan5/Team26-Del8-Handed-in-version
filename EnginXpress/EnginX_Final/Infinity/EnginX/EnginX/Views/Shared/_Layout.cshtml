@@ -8,6 +8,9 @@
     <link rel="icon" href="@Url.Content("~/Content/Pics/Logo.jpeg")" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/jquery-3.6.0.min.js")
+    @Scripts.Render("~/Scripts/Chart.min.js")
+    @Scripts.Render("~/Scripts/Common.js")
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <style>
@@ -206,6 +209,15 @@
                 }
         }
     </style>
+    <script>
+        function printContent(el) {
+            var restorepage = $('body').html();
+            var printcontent = $('#' + el);
+            $('body').empty().html(printcontent);
+            window.print();
+            $('body').html(restorepage);
+        }
+    </script>
 </head>
 <body>
     <div class="bs-example">
@@ -248,7 +260,7 @@
                                 <a class="nav-link" href=" javascript:void(0); /suppliers/Index"><i class="far fa-address-book"></i>Suppliers</a>
                             </li>
                             <li class="nav-item" id="supplier">
-                                <a class="nav-link" href="javascript:void(0);" onclick="load(this)" id="/supplier_order/index">
+                                <a class="nav-link" href="javascript:void(0);" id="/supplier_order/index">
                                     <i class="fas fa-truck-loading"></i>Supplier Orders
                                 </a>
                             </li>

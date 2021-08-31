@@ -52,7 +52,7 @@ namespace EnginX.Controllers
 
         }
 
-        public ActionResult AddToCart(int id)
+        public async Task<ActionResult> AddToCart(int id)
         {
 
             if (User.Identity.IsAuthenticated)
@@ -95,20 +95,23 @@ namespace EnginX.Controllers
                        
                         CustomerID = CustomerID;
                         var CreatedAt = DateTime.Now;
-                        //create Cart
+                         int C = 0;
+                         //create Cart
                         Cart newCart = new Cart();
                         newCart.CustomerID = CustomerID;
                         newCart.CreatedAt = CreatedAt;
                         db.Carts.Add(newCart);
-                        db.SaveChangesAsync();
+                        await db.SaveChangesAsync();
+                        C = newCart.CartID;
 
                         //get newly created Cart
-                        int CartId = db.Carts.Where(r => r.CreatedAt == CreatedAt).First().CartID;
+                        var CartId = db.Carts.Where(r => r.CartID == C).FirstOrDefault();
                         Cart_Line addtocart = new Cart_Line();
                         addtocart.ProductID = ItemInShop.ProductID;
                         addtocart.Quantity = 1;
-                        addtocart.CartID = CartId;
-                        db.Cart_Line.Add(addtocart);
+                        addtocart.CartID = CartId.CartID;
+                        CartLines.Add(addtocart);
+
                         //decrease quantity of stock
                         var ItemInStock = db.Stocks.Where(item => item.StockID == ItemInShop.StockID).FirstOrDefault();
                         ItemInStock.Quantity--;

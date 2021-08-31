@@ -202,6 +202,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\Product_CategoryController.cs" />
     <Compile Include="Controllers\Product_TypeController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Controllers\Supplier_OrderController.cs" />
     <Compile Include="Controllers\User_RoleController.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="Models\Cart_Line.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Charts.cs" />
     <Compile Include="Models\City.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -495,6 +497,8 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -707,6 +711,7 @@
     <Content Include="Views\Home\Main.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Reports\ProductReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
