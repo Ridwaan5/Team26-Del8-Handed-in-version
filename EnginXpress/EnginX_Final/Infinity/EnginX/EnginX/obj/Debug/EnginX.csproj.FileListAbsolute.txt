@@ -519,10 +519,9 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Antlr3.
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.InitialCreate.resources
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CoreCompileInputs.cache
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CopyComplete
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.InitialCreate.resources
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
