@@ -19,8 +19,5 @@ namespace EnginX.Models
         public string Reason { get; set; }
         public int StockID { get; set; }
         public string Quantity { get; set; }
-    
-        public virtual Product Product { get; set; }
-        public virtual Stock Stock { get; set; }
     }
 }

@@ -1,23 +1,12 @@
-﻿@{
+﻿@model IEnumerable<EnginX.Models.Product>
+@{
     ViewBag.Title = "Home Page";
 }
-<style>
-    .form-control:focus {
-        box-shadow: none;
-    }
 
-    .form-control-underlined {
-        border-width: 0;
-        border-bottom-width: 1px;
-        border-radius: 0;
-        padding-left: 0;
-    }
-
-    .form-control::placeholder {
-        font-size: 0.95rem;
-        color: #aaa;
-    }
-</style>
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <strong>@ViewBag.Message</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 
 <div class="container text-center">
     <h2 class="tcolor">
@@ -27,19 +16,495 @@
 <br />
 <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
     <div class="input-group">
-        <input type="search" placeholder="Search Here" class="form-control border-0 bg-light text-center">
+        <input type="search" id="search" placeholder="Search Here" class="form-control border-0 bg-light text-center">
         <div class="input-group-append">
             <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
         </div>
     </div>
 </div>
-<br />
-
-<div style="width:20%">
-    <label class="tcolor">Sort by</label>
-    <select class="form-select show-tick border-0 bg-light " style="border-radius:20px">
-        <option>Newest</option>
-        <option>Price Low to High </option>
-        <option>Price High to Low</option>
-    </select>
+<div hidden id="notfound" class="text-center container">
+    <i class="fa fa-question" style="color: orange;font-size: 50px;"></i>
+    <br />
+    <h4><b>Whoops , we currently dont have that in our store</b></h4>
+    <br>
 </div>
+<br />
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">1-12</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">12-24</button>
+        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">24 ></button>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div style="width:20%">
+            <label class="tcolor">     Sort by</label>
+            <select class="form-select show-tick border-0 bg-light " style="border-radius:20px" id="sort">
+                <option>Newest</option>
+                <option>Price Low to High</option>
+                <option>Price High to Low</option>
+            </select>
+        </div>
+        <br />
+        <div class="container-fluid">
+            <div class="row" style="height:100%;" id="newest">
+                @foreach (var shopItem in Model.OrderByDescending(r => r.Stock.Date).Take(12))
+                {
+                    <div class="card" style="width: 18rem;">
+                        @if (shopItem.InStock == false)
+                        {
+                            <p style="text-align:right;color:red">*** Out of Stock ***</p>
+                        }
+                        else
+                        {
+                            <p style="text-align:right;color:darkgreen"> Quantity Availible: @shopItem.Stock.Quantity</p>
+                        }
+                        @if (shopItem.Image == "" || shopItem.Image == null)
+                        {
+                            <img class="card-img-top" src="~/Content/Pics/null.jpg">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@Url.Content(shopItem.Image)" height="10" width="10">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@shopItem.ProductName</h5>
+                            <p class="card-text"><strong style="color:dodgerblue;font-size:20px">R @shopItem.Price</strong></p>
+                            <div class="btn-group" style="border-radius:20px !important">
+                                <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddToCart", "Home", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-plus"></i> Add
+                                </button>
+                                <button type="button" class="btn btn btn-sm tbcolor" onclick="window.location.href='@Url.Action("Details", "Products", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-eye"></i> View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row" style="height:100%;" id="low" hidden>
+                @foreach (var shopItem in Model.OrderBy(r => r.Price).Take(12))
+                {
+                    <div class="card" style="width: 18rem;">
+                        @if (shopItem.InStock == false)
+                        {
+                            <p style="text-align:right;color:red">*** Out of Stock ***</p>
+                        }
+                        else
+                        {
+                            <p style="text-align:right;color:darkgreen"> Quantity Availible: @shopItem.Stock.Quantity</p>
+                        }
+                        @if (shopItem.Image == "" || shopItem.Image == null)
+                        {
+                            <img class="card-img-top" src="~/Content/Pics/null.jpg">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@Url.Content(shopItem.Image)" height="10" width="10">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@shopItem.ProductName</h5>
+                            <p class="card-text"><strong style="color:dodgerblue;font-size:20px">R @shopItem.Price</strong></p>
+                            <div class="btn-group" style="border-radius:20px !important">
+                                <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddToCart", "Home", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-plus"></i> Add
+                                </button>
+                                <button type="button" class="btn btn btn-sm tbcolor" onclick="window.location.href='@Url.Action("Details", "Products", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-eye"></i> View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row" style="height:100%;" id="high" hidden>
+                @foreach (var shopItem in Model.OrderByDescending(r => r.Price).Take(12))
+                {
+                    <div class="card" style="width: 18rem;">
+                        @if (shopItem.InStock == false)
+                        {
+                            <p style="text-align:right;color:red">*** Out of Stock ***</p>
+                        }
+                        else
+                        {
+                            <p style="text-align:right;color:darkgreen"> Quantity Availible: @shopItem.Stock.Quantity</p>
+                        }
+                        @if (shopItem.Image == "" || shopItem.Image == null)
+                        {
+                            <img class="card-img-top" src="~/Content/Pics/null.jpg">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@Url.Content(shopItem.Image)" height="10" width="10">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@shopItem.ProductName</h5>
+                            <p class="card-text"><strong style="color:dodgerblue;font-size:20px">R @shopItem.Price</strong></p>
+                            <div class="btn-group" style="border-radius:20px !important">
+                                <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddToCart", "Home", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-plus"></i> Add
+                                </button>
+                                <button type="button" class="btn btn btn-sm tbcolor" onclick="window.location.href='@Url.Action("Details", "Products", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-eye"></i> View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div style="width:20%">
+            <label class="tcolor">     Sort by</label>
+            <select class="form-select show-tick border-0 bg-light " style="border-radius:20px" id="sort2">
+                <option>Newest</option>
+                <option>Price Low to High</option>
+                <option>Price High to Low</option>
+            </select>
+        </div>
+        <br />
+        <div class="container-fluid">
+            <div class="row" style="height:100%;" id="newest2">
+                @foreach (var shopItem in Model.OrderByDescending(r => r.Stock.Date).Skip(12).Take(12))
+                {
+                    <div class="card" style="width: 18rem;">
+                        @if (shopItem.InStock == false)
+                        {
+                            <p style="text-align:right;color:red">*** Out of Stock ***</p>
+                        }
+                        else
+                        {
+                            <p style="text-align:right;color:darkgreen"> Quantity Availible: @shopItem.Stock.Quantity</p>
+                        }
+                        @if (shopItem.Image == "" || shopItem.Image == null)
+                        {
+                            <img class="card-img-top" src="~/Content/Pics/null.jpg">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@Url.Content(shopItem.Image)" height="10" width="10">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@shopItem.ProductName</h5>
+                            <p class="card-text"><strong style="color:dodgerblue;font-size:20px">R @shopItem.Price</strong></p>
+                            <div class="btn-group" style="border-radius:20px !important">
+                                <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddToCart", "Home", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-plus"></i> Add
+                                </button>
+                                <button type="button" class="btn btn btn-sm tbcolor" onclick="window.location.href='@Url.Action("Details", "Products", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-eye"></i> View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row" style="height:100%;" id="low2" hidden>
+                @foreach (var shopItem in Model.OrderBy(r => r.Price).Skip(12).Take(12))
+                {
+                    <div class="card" style="width: 18rem;">
+                        @if (shopItem.InStock == false)
+                        {
+                            <p style="text-align:right;color:red">*** Out of Stock ***</p>
+                        }
+                        else
+                        {
+                            <p style="text-align:right;color:darkgreen"> Quantity Availible: @shopItem.Stock.Quantity</p>
+                        }
+                        @if (shopItem.Image == "" || shopItem.Image == null)
+                        {
+                            <img class="card-img-top" src="~/Content/Pics/null.jpg">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@Url.Content(shopItem.Image)" height="10" width="10">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@shopItem.ProductName</h5>
+                            <p class="card-text"><strong style="color:dodgerblue;font-size:20px">R @shopItem.Price</strong></p>
+                            <div class="btn-group" style="border-radius:20px !important">
+                                <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddToCart", "Home", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-plus"></i> Add
+                                </button>
+                                <button type="button" class="btn btn btn-sm tbcolor" onclick="window.location.href='@Url.Action("Details", "Products", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-eye"></i> View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row" style="height:100%;" id="high2" hidden>
+                @foreach (var shopItem in Model.OrderByDescending(r => r.Price).Skip(12).Take(12))
+                {
+                    <div class="card" style="width: 18rem;">
+                        @if (shopItem.InStock == false)
+                        {
+                            <p style="text-align:right;color:red">*** Out of Stock ***</p>
+                        }
+                        else
+                        {
+                            <p style="text-align:right;color:darkgreen"> Quantity Availible: @shopItem.Stock.Quantity</p>
+                        }
+                        @if (shopItem.Image == "" || shopItem.Image == null)
+                        {
+                            <img class="card-img-top" src="~/Content/Pics/null.jpg">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@Url.Content(shopItem.Image)" height="10" width="10">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@shopItem.ProductName</h5>
+                            <p class="card-text"><strong style="color:dodgerblue;font-size:20px">R @shopItem.Price</strong></p>
+                            <div class="btn-group" style="border-radius:20px !important">
+                                <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddToCart", "Home", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-plus"></i> Add
+                                </button>
+                                <button type="button" class="btn btn btn-sm tbcolor" onclick="window.location.href='@Url.Action("Details", "Products", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-eye"></i> View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <div style="width:20%">
+            <label class="tcolor">     Sort by</label>
+            <select class="form-select show-tick border-0 bg-light " style="border-radius:20px" id="sort3">
+                <option>Newest</option>
+                <option>Price Low to High</option>
+                <option>Price High to Low</option>
+            </select>
+        </div>
+        <br />
+        <div class="container-fluid">
+            <div class="row" style="height:100%;" id="newest3">
+                @foreach (var shopItem in Model.OrderByDescending(r => r.Stock.Date).Skip(24))
+                {
+                    <div class="card" style="width: 18rem;">
+                        @if (shopItem.InStock == false)
+                        {
+                            <p style="text-align:right;color:red">*** Out of Stock ***</p>
+                        }
+                        else
+                        {
+                            <p style="text-align:right;color:darkgreen"> Quantity Availible: @shopItem.Stock.Quantity</p>
+                        }
+                        @if (shopItem.Image == "" || shopItem.Image == null)
+                        {
+                            <img class="card-img-top" src="~/Content/Pics/null.jpg">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@Url.Content(shopItem.Image)" height="10" width="10">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@shopItem.ProductName</h5>
+                            <p class="card-text"><strong style="color:dodgerblue;font-size:20px">R @shopItem.Price</strong></p>
+                            <div class="btn-group" style="border-radius:20px !important">
+                                <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddToCart", "Home", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-plus"></i> Add
+                                </button>
+                                <button type="button" class="btn btn btn-sm tbcolor" onclick="window.location.href='@Url.Action("Details", "Products", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-eye"></i> View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row" style="height:100%;" id="low3" hidden>
+                @foreach (var shopItem in Model.OrderBy(r => r.Price).Skip(24))
+                {
+                    <div class="card" style="width: 18rem;">
+                        @if (shopItem.InStock == false)
+                        {
+                            <p style="text-align:right;color:red">*** Out of Stock ***</p>
+                        }
+                        else
+                        {
+                            <p style="text-align:right;color:darkgreen"> Quantity Availible: @shopItem.Stock.Quantity</p>
+                        }
+                        @if (shopItem.Image == "" || shopItem.Image == null)
+                        {
+                            <img class="card-img-top" src="~/Content/Pics/null.jpg">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@Url.Content(shopItem.Image)" height="10" width="10">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@shopItem.ProductName</h5>
+                            <p class="card-text"><strong style="color:dodgerblue;font-size:20px">R @shopItem.Price</strong></p>
+                            <div class="btn-group" style="border-radius:20px !important">
+                                <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddToCart", "Home", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-plus"></i> Add
+                                </button>
+                                <button type="button" class="btn btn btn-sm tbcolor" onclick="window.location.href='@Url.Action("Details", "Products", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-eye"></i> View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row" style="height:100%;" id="high3" hidden>
+                @foreach (var shopItem in Model.OrderByDescending(r => r.Price).Skip(24))
+                {
+                    <div class="card" style="width: 18rem;">
+                        @if (shopItem.InStock == false)
+                        {
+                            <p style="text-align:right;color:red">*** Out of Stock ***</p>
+                        }
+                        else
+                        {
+                            <p style="text-align:right;color:darkgreen"> Quantity Availible: @shopItem.Stock.Quantity</p>
+                        }
+                        @if (shopItem.Image == "" || shopItem.Image == null)
+                        {
+                            <img class="card-img-top" src="~/Content/Pics/null.jpg">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@Url.Content(shopItem.Image)" height="10" width="10">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@shopItem.ProductName</h5>
+                            <p class="card-text"><strong style="color:dodgerblue;font-size:20px">R @shopItem.Price</strong></p>
+                            <div class="btn-group" style="border-radius:20px !important">
+                                <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddToCart", "Home", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-plus"></i> Add
+                                </button>
+                                <button type="button" class="btn btn btn-sm tbcolor" onclick="window.location.href='@Url.Action("Details", "Products", new { id = shopItem.ProductID })'">
+                                    <i class="fa fa-eye"></i> View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#sort').on('change', function () {
+                //Hide all The divs
+                $('#newest').prop('hidden', true);
+                $('#low').prop('hidden', true);
+                $('#high').prop('hidden', true);
+                //get the selected option text
+                divtoshow = $("#sort option:selected").text();
+                //check the selected options text
+                if (divtoshow === "Newest") {
+                    $('#newest').prop('hidden', false);
+                }
+                else if (divtoshow === "Price Low to High") {
+                    $('#low').prop('hidden', false);
+                }
+                else {
+                    $('#high').prop('hidden', false);
+                }
+            });
+            $('#sort2').on('change', function () {
+                //Hide all The divs
+                $('#newest2').prop('hidden', true);
+                $('#low2').prop('hidden', true);
+                $('#high2').prop('hidden', true);
+                //get the selected option text
+                divtoshow = $("#sort2 option:selected").text();
+                //check the selected options text
+                if (divtoshow === "Newest") {
+                    $('#newest2').prop('hidden', false);
+                }
+                else if (divtoshow === "Price Low to High") {
+                    $('#low2').prop('hidden', false);
+                }
+                else {
+                    $('#high2').prop('hidden', false);
+                }
+            });
+            $('#sort3').on('change', function () {
+                //Hide all The divs
+                $('#newest3').prop('hidden', true);
+                $('#low3').prop('hidden', true);
+                $('#high3').prop('hidden', true);
+                //get the selected option text
+                divtoshow = $("#sort option:selected").text();
+                //check the selected options text
+                if (divtoshow === "Newest") {
+                    $('#newest3').prop('hidden', false);
+                }
+                else if (divtoshow === "Price Low to High") {
+                    $('#low3').prop('hidden', false);
+                }
+                else {
+                    $('#high3').prop('hidden', false);
+                }
+            });
+
+            var productId = [];
+            $("#search").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '/Home/searchProduct/',
+                        data: "{ 'prefix': '" + request.term + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            var stringList = $.map(data, function (item) {
+                                productId = [];
+                                var itemsend = item.label;
+                                productId.push({ "label": item.label, "val": item.val });
+                                return itemsend;
+                            });
+                            response(stringList);
+                            if (stringList.length === 0) {
+                                $('#notfound').prop('hidden', false);
+                            }
+                            else {
+                                $('#notfound').prop('hidden', true);
+                            }
+                            request.term = '';
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    var label = i.item.label;
+                    var product = productId.find(item => item.label === label);
+                    window.location.href = "/Products/Details/" + product.val
+                    return i;
+                },
+                minLength: 1
+            });
+        });
+    </script>
+}
+
+        @*function load() {
+            $('#navbarSupportedContent ul li').removeClass("active");
+            alert('done')
+            $('#supplier').addClass("nav-item active");
+        }*@

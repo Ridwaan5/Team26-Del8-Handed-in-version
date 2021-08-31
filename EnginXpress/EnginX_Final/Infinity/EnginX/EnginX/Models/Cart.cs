@@ -16,6 +16,7 @@ namespace EnginX.Models
     {
         public int CartID { get; set; }
         public int CustomerID { get; set; }
+        public Nullable<System.DateTime> CreatedAt { get; set; }
     
         public virtual Customer Customer { get; set; }
     }

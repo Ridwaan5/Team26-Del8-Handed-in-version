@@ -68,6 +68,28 @@ namespace EnginX.Models
         [Display(Name = "UserName")]
         public string UserName { get; set; }
 
+        [Required]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+        [Required]
+        [Display(Name = "Surname")]
+        public string Surname{ get; set; }
+
+        [Required]
+        [Display(Name = "MobileNumber")]
+        public string MobileNumber { get; set; }
+
+
+        [Required]
+        [Display(Name = "HouseNumber")]
+        public int HouseNumber { get; set; }
+
+        [Required]
+        [Display(Name = "StreetName")]
+        public string StreetName { get; set; }
+
+
 
         [Required]
         [EmailAddress]

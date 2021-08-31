@@ -8,6 +8,9 @@
     <link rel="icon" href="@Url.Content("~/Content/Pics/Logo.jpeg")" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/jquery-3.6.0.min.js")
+    @Scripts.Render("~/Scripts/Chart.min.js")
+    @Scripts.Render("~/Scripts/Common.js")
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <style>
@@ -206,6 +209,15 @@
                 }
         }
     </style>
+    <script>
+        function printContent(el) {
+            var restorepage = $('body').html();
+            var printcontent = $('#' + el);
+            $('body').empty().html(printcontent);
+            window.print();
+            $('body').html(restorepage);
+        }
+    </script>
 </head>
 <body>
     <div class="bs-example">
@@ -224,24 +236,36 @@
                     </div>
                     @if (Request.IsAuthenticated)
                     {
-                        <li class="nav-item">
-                            <a class="nav-link active" href="javascript:void(0);"><i class="fas fa-home"></i>Dashboard</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
-                        </li>
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link" href=" javascript:void(0); /employees/Index"><i class="far fa-address-book"></i>Employees</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href=" javascript:void(0); /home/admin"><i class="fas fa-home"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href=" javascript:void(0); /user_role/Index"><i class="far fa-address-book"></i>User Roles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href=" javascript:void(0); /customers/Index"><i class="fas fa-user"></i>Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href=" javascript:void(0); /orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0); /products/Index"><i class="far fa-boxes"></i>Products</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href=" javascript:void(0); /suppliers/Index"><i class="far fa-address-book"></i>Suppliers</a>
+                            </li>
+                            <li class="nav-item" id="supplier">
+                                <a class="nav-link" href="javascript:void(0);" id="/supplier_order/index">
+                                    <i class="fas fa-truck-loading"></i>Supplier Orders
+                                </a>
+                            </li>
+
+                        }
                     }
                     else
                     {
@@ -249,18 +273,20 @@
                             <a class="nav-link" href="javascript:void(0);"><i class="fas fa-home"></i></a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-industry"></i>Shop By Category</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-clipboard-check"></i>Orders</a>
+                            <a class="nav-link" href="javascript:void(0);">
+                                <i class="far fa-shopping-cart"></i><span>
+                                    @if (ViewBag.Count != null)
+                                    {
+                                        <sup class="sup">@ViewBag.Count</sup>
+                                    }
+                                </span>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="javascript:void(0);"><i class="far fa-question"></i>Help</a>
                         </li>
                     }
-                    <li class="nav-item ">
-                        <a class="nav-link" href="javascript:void(0);"><i class="far fa-shopping-cart"></i></a>
-                    </li>
+
                 </ul>
             </div>
             @Html.Partial("_LoginPartial")
