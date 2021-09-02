@@ -249,7 +249,7 @@ body {
     .mytable td {
         max-width: 260px;
         max-height: 100px;
-        overflow: scroll;
+        overflow: auto;
         text-align: justify;
         vertical-align: middle;
 
