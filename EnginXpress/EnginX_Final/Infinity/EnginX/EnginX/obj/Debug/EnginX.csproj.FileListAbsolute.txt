@@ -329,7 +329,6 @@ E:\Infinity\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
 E:\Infinity\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
 E:\Infinity\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csprojAssemblyReference.cache
-C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.Initial.resources
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
@@ -367,8 +366,6 @@ C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Inf
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Antlr3.Runtime.dll
-C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.dll
-C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.SqlServer.dll
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -526,3 +523,5 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\E
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.InitialCreate.resources
