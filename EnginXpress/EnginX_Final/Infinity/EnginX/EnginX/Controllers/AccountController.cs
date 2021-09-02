@@ -131,6 +131,7 @@ namespace EnginX.Controllers
             {
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber = model.MobileNumber };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                await db.SaveChangesAsync();
                 var result2 = UserManager.AddToRole(user.Id, "Customer");
                 if (result.Succeeded & result2.Succeeded)
                 {

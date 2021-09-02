@@ -239,28 +239,28 @@
                         if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item ">
-                                <a class="nav-link" href=" javascript:void(0); /employees/Index"><i class="far fa-address-book"></i>Employees</a>
+                                <a class="nav-link" href="/employees/Index"><i class="far fa-address-book"></i>Employees</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href=" javascript:void(0); /home/admin"><i class="fas fa-home"></i>Dashboard</a>
+                                <a class="nav-link" href="/home/admin"><i class="fas fa-home"></i>Dashboard</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href=" javascript:void(0); /user_role/Index"><i class="far fa-address-book"></i>User Roles</a>
+                                <a class="nav-link" href="/user_role/Index"><i class="far fa-address-book"></i>User Roles</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href=" javascript:void(0); /customers/Index"><i class="fas fa-user"></i>Customers</a>
+                                <a class="nav-link" href="/customers/Index"><i class="fas fa-user"></i>Customers</a>
                             </li>
+                            @*<li class="nav-item">
+                                <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>*@
                             <li class="nav-item">
-                                <a class="nav-link" href=" javascript:void(0); /orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0); /products/Index"><i class="far fa-boxes"></i>Products</a>
+                                <a class="nav-link" href="/products/Index"><i class="far fa-boxes"></i>Products</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href=" javascript:void(0); /suppliers/Index"><i class="far fa-address-book"></i>Suppliers</a>
+                                <a class="nav-link" href="/suppliers/Index"><i class="far fa-address-book"></i>Suppliers</a>
                             </li>
                             <li class="nav-item" id="supplier">
-                                <a class="nav-link" href="javascript:void(0);" id="/supplier_order/index">
+                                <a class="nav-link" href="/supplier_order/index">
                                     <i class="fas fa-truck-loading"></i>Supplier Orders
                                 </a>
                             </li>
@@ -310,26 +310,26 @@
             var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
             var itemPosNewAnimTop = activeItemNewAnim.position();
             var itemPosNewAnimLeft = activeItemNewAnim.position();
-            $(".hori-selector").css({
-                "top": itemPosNewAnimTop.top + "px",
-                "left": itemPosNewAnimLeft.left + "px",
-                "height": activeWidthNewAnimHeight + "px",
-                "width": activeWidthNewAnimWidth + "px"
-            });
-            $("#navbarSupportedContent").on("click", "li", function (e) {
-                $('#navbarSupportedContent ul li').removeClass("active");
-                $(this).addClass('active');
-                var activeWidthNewAnimHeight = $(this).innerHeight();
-                var activeWidthNewAnimWidth = $(this).innerWidth();
-                var itemPosNewAnimTop = $(this).position();
-                var itemPosNewAnimLeft = $(this).position();
-                $(".hori-selector").css({
-                    "top": itemPosNewAnimTop.top + "px",
-                    "left": itemPosNewAnimLeft.left + "px",
-                    "height": activeWidthNewAnimHeight + "px",
-                    "width": activeWidthNewAnimWidth + "px"
-                });
-            });
+            //$(".hori-selector").css({
+            //    "top": itemPosNewAnimTop.top + "px",
+            //    "left": itemPosNewAnimLeft.left + "px",
+            //    "height": activeWidthNewAnimHeight + "px",
+            //    "width": activeWidthNewAnimWidth + "px"
+            //});
+            //$("#navbarSupportedContent").on("click", "li", function (e) {
+            //    $('#navbarSupportedContent ul li').removeClass("active");
+            //    $(this).addClass('active');
+            //    var activeWidthNewAnimHeight = $(this).innerHeight();
+            //    var activeWidthNewAnimWidth = $(this).innerWidth();
+            //    var itemPosNewAnimTop = $(this).position();
+            //    var itemPosNewAnimLeft = $(this).position();
+            //    $(".hori-selector").css({
+            //        "top": itemPosNewAnimTop.top + "px",
+            //        "left": itemPosNewAnimLeft.left + "px",
+            //        "height": activeWidthNewAnimHeight + "px",
+            //        "width": activeWidthNewAnimWidth + "px"
+            //    });
+            //});
         }
         $(document).ready(function () {
             setTimeout(function () { test(); });
