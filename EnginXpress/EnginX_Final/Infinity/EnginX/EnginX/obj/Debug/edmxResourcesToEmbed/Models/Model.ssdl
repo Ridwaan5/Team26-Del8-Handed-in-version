@@ -125,7 +125,7 @@
       <PropertyRef Name="EmployeeID" />
     </Key>
     <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Date_of_birth" Type="date" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="IsCheckedIn" Type="bit" Nullable="false" />
   </EntityType>

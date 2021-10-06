@@ -34,7 +34,7 @@
         <p class="card-title">@Model.Description</p>
         <p class="card-text"><strong style="color:dodgerblue;font-size:20px">R @Model.Price</strong></p>
         <div class="btn-group" style="border-radius:20px !important">
-            <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddItemToCart", "Home", new { id = Model.ProductID })'">
+            <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddToCart", "Home", new { id = Model.ProductID })'">
                 <i class="fa fa-plus"></i> Add
             </button>
         </div>

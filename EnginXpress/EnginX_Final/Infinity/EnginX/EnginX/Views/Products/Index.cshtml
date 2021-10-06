@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table mytable">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ProductName)
@@ -59,8 +59,8 @@
             @Html.DisplayFor(modelItem => item.Product_Type.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) <br />
+            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) <br />
             @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
         </td>
     </tr>

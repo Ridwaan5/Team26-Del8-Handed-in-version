@@ -109,7 +109,7 @@
       <EntityTypeMapping TypeName="Infinity_DbModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="IsCheckedIn" ColumnName="IsCheckedIn" />
         </MappingFragment>

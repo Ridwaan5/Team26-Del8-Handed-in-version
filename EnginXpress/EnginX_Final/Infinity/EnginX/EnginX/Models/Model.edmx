@@ -130,7 +130,7 @@
             <PropertyRef Name="EmployeeID" />
           </Key>
           <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="Date_of_birth" Type="date" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="IsCheckedIn" Type="bit" Nullable="false" />
         </EntityType>
@@ -994,7 +994,7 @@
             <PropertyRef Name="EmployeeID" />
           </Key>
           <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="IsCheckedIn" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Deliveries" Relationship="Self.FK_Delivery_Employee" FromRole="Employee" ToRole="Delivery" />
@@ -1882,7 +1882,7 @@
             <EntityTypeMapping TypeName="Infinity_DbModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="IsCheckedIn" ColumnName="IsCheckedIn" />
               </MappingFragment>
