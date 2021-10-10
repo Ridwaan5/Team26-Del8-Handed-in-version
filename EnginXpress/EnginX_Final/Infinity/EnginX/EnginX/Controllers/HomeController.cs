@@ -18,7 +18,7 @@ namespace EnginX.Controllers
         private Infinity_DbEntities db = new Infinity_DbEntities();
         private static string useremail = null;
         public static List<Cart_Line> CartLines = new List<Cart_Line>();
-        public static string CartID = null;
+        public static int CartID = 0;
         public static int CustomerID = 0;
 
         public ActionResult Index()
@@ -54,7 +54,6 @@ namespace EnginX.Controllers
 
         public async Task<ActionResult> AddToCart(int id)
         {
-
             if (User.Identity.IsAuthenticated)
             {
                 var Customer = db.Customers.Where(x => x.User.Email == useremail).FirstOrDefault();
@@ -63,11 +62,30 @@ namespace EnginX.Controllers
             }
             else
             {
-                useremail = "UserCart@gmail.com";
+                useremail = db.Customers.Where(x => x.CustomerID == 8).FirstOrDefault().User.Email;
                 CustomerID = 8;
             }
+
+            if (CartID == 0)
+            {
+                /////////////////////////////////////
+                var CreatedAt = DateTime.Now;
+                Cart newCart = new Cart();
+                newCart.CustomerID = CustomerID;
+                newCart.CreatedAt = CreatedAt;
+                db.Carts.Add(newCart);
+
+                ///////////////////////////////////
+                await db.SaveChangesAsync();
+                CartID = newCart.CartID;
+            }
+            else
+            {
+
+
                 //Locate Specific item in Db
                 var ItemInShop = db.Products.Where(item => item.ProductID == id).FirstOrDefault();
+
                 //check the quantity of that item and prompt user if item is out of stock
                 if (ItemInShop.Stock.Quantity == 0 || ItemInShop.Stock.Quantity < 0)
                 {
@@ -79,6 +97,7 @@ namespace EnginX.Controllers
                 {
                     //find item in cart line 
                     var ItemInCart = CartLines.Find(item => item.ProductID == id);
+
                     if (ItemInCart != null)
                     {
                         //change quantity
@@ -87,25 +106,16 @@ namespace EnginX.Controllers
                         //decrease quantity of stock
                         var ItemInStock = db.Stocks.Where(item => item.StockID == ItemInShop.StockID).FirstOrDefault();
                         ItemInStock.Quantity--;
+
+
                         db.SaveChangesAsync();
                         TempData["Message"] = "Successfully added to Cart";
                     }
                     else
                     {
-                       
-                        CustomerID = CustomerID;
-                        var CreatedAt = DateTime.Now;
-                         int C = 0;
-                         //create Cart
-                        Cart newCart = new Cart();
-                        newCart.CustomerID = CustomerID;
-                        newCart.CreatedAt = CreatedAt;
-                        db.Carts.Add(newCart);
-                        await db.SaveChangesAsync();
-                        C = newCart.CartID;
-
-                        //get newly created Cart
+                        //Get newly created Cart
                         var CartId = db.Carts.Where(r => r.CartID == C).FirstOrDefault();
+
                         Cart_Line addtocart = new Cart_Line();
                         addtocart.ProductID = ItemInShop.ProductID;
                         addtocart.Quantity = 1;
@@ -118,10 +128,11 @@ namespace EnginX.Controllers
                         db.SaveChangesAsync();
                         TempData["Message"] = "Successfully added to Cart";
                     }
+
                 }
                 TempData["CartCount"] = CartLines.Count();
 
-
+            }
             return RedirectToAction("Index");
         }
 
