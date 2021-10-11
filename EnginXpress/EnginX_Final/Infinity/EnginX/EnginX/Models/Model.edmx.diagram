@@ -71,6 +71,7 @@
         <EntityTypeShape EntityType="Infinity_DbModel.C__MigrationHistory" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="Infinity_DbModel.Cart" Width="1.5" PointX="9.75" PointY="5.375" />
         <AssociationConnector Association="Infinity_DbModel.FK_Cart_Customer" />
+        <AssociationConnector Association="Infinity_DbModel.FK_Cart_Line_Product" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

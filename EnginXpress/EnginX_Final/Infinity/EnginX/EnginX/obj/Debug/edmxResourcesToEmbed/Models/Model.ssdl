@@ -421,6 +421,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Cart_Line_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Cart_Line" Type="Self.Cart_Line" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Cart_Line">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_City_Province">
     <End Role="Province" Type="Self.Province" Multiplicity="1" />
     <End Role="City" Type="Self.City" Multiplicity="*" />
@@ -772,6 +784,10 @@
     <AssociationSet Name="FK_Cart_Customer" Association="Self.FK_Cart_Customer">
       <End Role="Customer" EntitySet="Customer" />
       <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_Line_Product" Association="Self.FK_Cart_Line_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Cart_Line" EntitySet="Cart_Line" />
     </AssociationSet>
     <AssociationSet Name="FK_City_Province" Association="Self.FK_City_Province">
       <End Role="Province" EntitySet="Province" />

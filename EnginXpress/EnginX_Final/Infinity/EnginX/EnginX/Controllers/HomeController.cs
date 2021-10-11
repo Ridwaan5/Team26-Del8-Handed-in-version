@@ -79,13 +79,8 @@ namespace EnginX.Controllers
                 await db.SaveChangesAsync();
                 CartID = newCart.CartID;
             }
-            else
-            {
-
-
                 //Locate Specific item in Db
                 var ItemInShop = db.Products.Where(item => item.ProductID == id).FirstOrDefault();
-
                 //check the quantity of that item and prompt user if item is out of stock
                 if (ItemInShop.Stock.Quantity == 0 || ItemInShop.Stock.Quantity < 0)
                 {
@@ -113,18 +108,19 @@ namespace EnginX.Controllers
                     }
                     else
                     {
-                        //Get newly created Cart
-                        var CartId = db.Carts.Where(r => r.CartID == C).FirstOrDefault();
-
                         Cart_Line addtocart = new Cart_Line();
                         addtocart.ProductID = ItemInShop.ProductID;
                         addtocart.Quantity = 1;
-                        addtocart.CartID = CartId.CartID;
+                        addtocart.CartID = CartID;
+                        db.Cart_Line.Add(addtocart);
+                        await db.SaveChangesAsync();
+                        addtocart.CartLineID = addtocart.CartLineID;
                         CartLines.Add(addtocart);
 
-                        //decrease quantity of stock
-                        var ItemInStock = db.Stocks.Where(item => item.StockID == ItemInShop.StockID).FirstOrDefault();
+                    //decrease quantity of stock
+                    var ItemInStock = db.Stocks.Where(item => item.StockID == ItemInShop.StockID).FirstOrDefault();
                         ItemInStock.Quantity--;
+
                         db.SaveChangesAsync();
                         TempData["Message"] = "Successfully added to Cart";
                     }
@@ -132,7 +128,6 @@ namespace EnginX.Controllers
                 }
                 TempData["CartCount"] = CartLines.Count();
 
-            }
             return RedirectToAction("Index");
         }
 

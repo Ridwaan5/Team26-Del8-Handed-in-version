@@ -56,6 +56,7 @@
     <Property Name="ProductID" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" Nullable="false" />
     <Property Name="CartID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Infinity_DbModel.FK_Cart_Line_Product" FromRole="Cart_Line" ToRole="Product" />
   </EntityType>
   <EntityType Name="City">
     <Key>
@@ -235,6 +236,7 @@
     <NavigationProperty Name="Product_Category" Relationship="Self.FK_Product_Product_Category" FromRole="Product" ToRole="Product_Category" />
     <NavigationProperty Name="Product_Type" Relationship="Self.FK_Product_Product_Type" FromRole="Product" ToRole="Product_Type" />
     <NavigationProperty Name="Stock" Relationship="Self.FK_Product_Stock" FromRole="Product" ToRole="Stock" />
+    <NavigationProperty Name="Cart_Line" Relationship="Infinity_DbModel.FK_Cart_Line_Product" FromRole="Product" ToRole="Cart_Line" />
   </EntityType>
   <EntityType Name="Product_Category">
     <Key>
@@ -857,6 +859,10 @@
       <End Role="Customer" EntitySet="Customers" />
       <End Role="Cart" EntitySet="Carts" />
     </AssociationSet>
+    <AssociationSet Name="FK_Cart_Line_Product" Association="Infinity_DbModel.FK_Cart_Line_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Cart_Line" EntitySet="Cart_Line" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="C__MigrationHistory">
     <Key>
@@ -886,6 +892,18 @@
       </Principal>
       <Dependent Role="Cart">
         <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_Line_Product">
+    <End Type="Infinity_DbModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="Infinity_DbModel.Cart_Line" Role="Cart_Line" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Cart_Line">
+        <PropertyRef Name="ProductID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
