@@ -228,8 +228,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
                             </li>
-                            <li class="nav-item" >
-                                <a class="nav-link" href="/products/Index" ><i class="far fa-boxes"></i>Products</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/products/Index"><i class="far fa-boxes"></i>Products</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="/suppliers/Index"><i class="far fa-address-book"></i>Suppliers</a>
@@ -238,6 +238,58 @@
                                 <a class="nav-link" href="/supplier_order/index"><i class="fas fa-truck-loading"></i>Supplier Orders</a>
                             </li>
 
+                        }
+                        if (User.IsInRole("Cashier"))
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/Home/Cashier"><i class="fas fa-home"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/customers/Index"><i class="fas fa-user"></i>Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>
+                        }
+                        if (User.IsInRole("Driver"))
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/Home/Driver"><i class="fas fa-home"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>
+                        }
+                        if (User.IsInRole("Clerk"))
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/Home/Clerk"><i class="fas fa-home"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>
+                        }
+                        if (User.IsInRole("Customer"))
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/Home/Customer"><i class="fas fa-home"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home/index"><i class="fas fa-home"></i></a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/carts/index">
+                                    <i class="far fa-shopping-cart"></i><span>
+                                        @if (ViewBag.Count != null)
+                                        {
+                                            <sup class="sup">@ViewBag.Count</sup>
+                                        }
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>
                         }
                     }
                     else

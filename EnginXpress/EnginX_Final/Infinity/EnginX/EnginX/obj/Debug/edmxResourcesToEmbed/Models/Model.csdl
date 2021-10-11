@@ -351,8 +351,8 @@
     <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ContactNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="UserRoleID" Type="Int32" />
     <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_User" FromRole="User" ToRole="Address" />
     <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_User" FromRole="User" ToRole="Customer" />

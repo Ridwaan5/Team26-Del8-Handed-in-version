@@ -124,23 +124,26 @@ namespace EnginX.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model,int cityID)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber = model.MobileNumber };
+                string Number = model.MobileNumber.Remove(0, 1);
+                string cell = "+27" + Number;
+
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber = cell, EmailConfirmed = true ,PhoneNumberConfirmed = true};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 var result2 = UserManager.AddToRole(user.Id, "Customer");
                 if (result.Succeeded & result2.Succeeded)
                 {
                     var User = db.AspNetUsers.Where(x => x.Email == model.Email).FirstOrDefault();
                     User newUser = new User();
+
                     newUser.Username = User.UserName;
                     newUser.Name = model.Name;
                     newUser.Surname = model.Surname;
                     newUser.Email = model.Email;
-                    newUser.ContactNumber = model.MobileNumber;
+                    newUser.ContactNumber = cell;
                     newUser.UserRoleID = Convert.ToInt32(db.User_Roles.Where( r => r.UserRoleID == 5 ).First().UserRoleID);
                     db.Users.Add(newUser);
                     await db.SaveChangesAsync();
@@ -276,12 +279,19 @@ namespace EnginX.Controllers
             var user = await UserManager.FindByNameAsync(model.Email);
             if (user == null)
             {
-                // Don't reveal that the user does not exist
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
+                string body = string.Empty;
+                using (StreamReader reader = new StreamReader(Server.MapPath("~/Content/templates/MainReset.html")))
+                {
+                    body = reader.ReadToEnd();
+                }
+                body = body.Replace("{UserName}", model.Email);
+                body = body.Replace("{Password}", model.Password);
+                await UserManager.SendEmailAsync(user.Id, "Password Changed", body);
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
             AddErrors(result);

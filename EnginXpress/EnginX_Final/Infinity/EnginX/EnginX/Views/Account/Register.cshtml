@@ -49,7 +49,7 @@
 
     </style>
 </head>
-<body >
+<body style="overflow-y:hidden" >
     <button class="btn" onclick="window.location.href='/Home/Index'" style="float:right">
         <i class="fas fa-home"></i>
     </button>
@@ -72,37 +72,37 @@
                             <div id="first">
                                 <div class="form-group">
                                     <label for="lastname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Your Username" })
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Your Username", @required=true })
                                     @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Your Name" })
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Your Name", @required = true })
                                     @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label for="surnamename"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", @placeholder = "Your Surname" })
+                                    @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", @placeholder = "Your Surname", @required = true })
                                     @Html.ValidationMessageFor(m => m.Surname, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Your Email" })
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Your Email", @required = true })
                                     @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label for="mobilenumber"><i class="zmdi zmdi-phone material-icons-name"></i></label>
-                                    @Html.TextBoxFor(m => m.MobileNumber, new { @class = "form-control", @placeholder = "Your Username" , @value = "+27", @maxlength = "15" })
+                                    @Html.TextBoxFor(m => m.MobileNumber, new { @class = "form-control", @required = true, @placeholder = "0671728770" , @value = "+27", @maxlength = "15" })
                                     @Html.ValidationMessageFor(m => m.MobileNumber, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter Password" })
+                                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter Password", @required = true })
                                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                    @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Repeat Password" })
+                                    @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Repeat Password", @required = true })
                                     @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group form-button">
@@ -114,16 +114,16 @@
                                     <label for="lastname">City</label>
                                     <br />
                                     <br />
-                                    @Html.DropDownList("cityID", (IEnumerable<SelectListItem>)ViewBag.CityID, new { @class = "form-select" })
+                                    @Html.DropDownList("cityID", (IEnumerable<SelectListItem>)ViewBag.CityID, new { @class = "form-select", @required = true })
                                 </div>
                                 <div class="form-group">
                                     <label for="houseNumber"><i class="zmdi zmdi-home"></i></label>
-                                    @Html.TextBoxFor(m => m.HouseNumber, new { @class = "form-control", @placeholder = "Your House Number" })
+                                    @Html.TextBoxFor(m => m.HouseNumber, new { @class = "form-control", @placeholder = "Your House Number", @required = true })
                                     @Html.ValidationMessageFor(m => m.HouseNumber, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label for="StreetName"><i class="zmdi zmdi-home"></i></label>
-                                    @Html.TextBoxFor(m => m.StreetName, new { @class = "form-control", @placeholder = "Your Street Name" })
+                                    @Html.TextBoxFor(m => m.StreetName, new { @class = "form-control", @placeholder = "Your Street Name", @required = true })
                                     @Html.ValidationMessageFor(m => m.StreetName, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
@@ -133,7 +133,7 @@
                                 <div class="form-group form-button">
                                     <button class="form-submit" type="button" style="background-color: black !important;" id="back"> Back </button>
                                     <button class="form-submit" type="submit" style="background-color: rgb(55 105 236) !important;">Submit</button>
-</div>
+                                </div>
                             </div>
                         }
                     </div>
@@ -156,17 +156,6 @@
                 $('#second').hide();
                 $('#first').show();
             });
-
-
-
-
-
-
-
-
-
-
-
         });
     </script>
 </body>

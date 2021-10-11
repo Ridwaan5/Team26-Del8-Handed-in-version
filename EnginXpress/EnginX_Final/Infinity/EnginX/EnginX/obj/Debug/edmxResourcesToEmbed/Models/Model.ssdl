@@ -327,8 +327,8 @@
     <Property Name="Username" Type="varchar(max)" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
     <Property Name="Surname" Type="varchar" MaxLength="50" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" />
-    <Property Name="ContactNumber" Type="char" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="20" />
     <Property Name="UserRoleID" Type="int" />
   </EntityType>
   <EntityType Name="User Role">
@@ -397,18 +397,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Address_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Address" Type="Self.Address" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Address">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Cart_Customer">
     <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
     <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
@@ -454,18 +442,6 @@
       </Principal>
       <Dependent Role="Customer">
         <PropertyRef Name="AddressID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Customer_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Customer">
-        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -517,18 +493,6 @@
         <PropertyRef Name="EmployeeID" />
       </Principal>
       <Dependent Role="Delivery">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Employee_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Employee">
         <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
@@ -777,10 +741,6 @@
       <End Role="City" EntitySet="City" />
       <End Role="Address" EntitySet="Address" />
     </AssociationSet>
-    <AssociationSet Name="FK_Address_User" Association="Self.FK_Address_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Address" EntitySet="Address" />
-    </AssociationSet>
     <AssociationSet Name="FK_Cart_Customer" Association="Self.FK_Cart_Customer">
       <End Role="Customer" EntitySet="Customer" />
       <End Role="Cart" EntitySet="Cart" />
@@ -795,10 +755,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_Customer_Address" Association="Self.FK_Customer_Address">
       <End Role="Address" EntitySet="Address" />
-      <End Role="Customer" EntitySet="Customer" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Customer_User" Association="Self.FK_Customer_User">
-      <End Role="User" EntitySet="User" />
       <End Role="Customer" EntitySet="Customer" />
     </AssociationSet>
     <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
@@ -816,10 +772,6 @@
     <AssociationSet Name="FK_Delivery_Employee" Association="Self.FK_Delivery_Employee">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="Delivery" EntitySet="Delivery" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Employee_User" Association="Self.FK_Employee_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Employee" EntitySet="Employee" />
     </AssociationSet>
     <AssociationSet Name="FK_Feedback_Order" Association="Self.FK_Feedback_Order">
       <End Role="Order" EntitySet="Order" />
