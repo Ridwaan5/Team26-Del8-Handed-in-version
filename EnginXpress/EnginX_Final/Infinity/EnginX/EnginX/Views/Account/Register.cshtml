@@ -17,6 +17,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="~/Content/Account/css/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
         .btn {
             background-color: rgb(55,105,236);
@@ -43,10 +44,9 @@
             background-color: white;
         }
 
-        .text-danger{
-            color:darkred;
+        .text-danger {
+            color: darkred;
         }
-
     </style>
 </head>
 <body style="overflow-y:hidden" >
@@ -127,12 +127,15 @@
                                     @Html.ValidationMessageFor(m => m.StreetName, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                    <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="/Home/Terms" class="term-service">Terms of service</a></label>
+                                    <p style="color:seagreen">Please Accept Terms and Conditions</p>
+                                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" onclick="check()" />
+                                    <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a target="_blank"  href="/Home/Terms" class="term-service">Terms of service</a></label>
                                 </div>
                                 <div class="form-group form-button">
                                     <button class="form-submit" type="button" style="background-color: black !important;" id="back"> Back </button>
-                                    <button class="form-submit" type="submit" style="background-color: rgb(55 105 236) !important;">Submit</button>
+                                    <button  id="sub" class="form-submit" type="submit" style="display:none; background-color: rgb(55 105 236) !important;">
+                                      Submit
+                                    </button>
                                 </div>
                             </div>
                         }
@@ -157,6 +160,17 @@
                 $('#first').show();
             });
         });
+        function check()
+        {
+            debugger
+            if ($("#agree-term").prop("checked") == true)
+            {
+                $("#sub").attr("style","display:inline");
+            }
+            else {
+                $("#sub").attr("style", "display:none");
+            }
+        }
     </script>
 </body>
 </html>

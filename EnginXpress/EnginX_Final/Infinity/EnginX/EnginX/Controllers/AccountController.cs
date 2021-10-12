@@ -223,7 +223,7 @@ namespace EnginX.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindByNameAsync(model.Email);
+                var user = await UserManager.FindByEmailAsync(model.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
@@ -234,7 +234,7 @@ namespace EnginX.Controllers
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 var home = Url.Action("Index", "Home", Request.Url.Scheme);
                 string body = string.Empty;
-                using (StreamReader reader = new StreamReader(Server.MapPath("~/Templates/MainReset.html")))
+                using (StreamReader reader = new StreamReader(Server.MapPath("~/Templates/NewDetails.html")))
                 {
                     body = reader.ReadToEnd();
                 }
@@ -276,7 +276,7 @@ namespace EnginX.Controllers
             {
                 return View(model);
             }
-            var user = await UserManager.FindByNameAsync(model.Email);
+            var user = await UserManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
@@ -285,7 +285,7 @@ namespace EnginX.Controllers
             if (result.Succeeded)
             {
                 string body = string.Empty;
-                using (StreamReader reader = new StreamReader(Server.MapPath("~/Content/templates/MainReset.html")))
+                using (StreamReader reader = new StreamReader(Server.MapPath("~/Templates/MainReset.html")))
                 {
                     body = reader.ReadToEnd();
                 }
