@@ -96,7 +96,7 @@ namespace EnginX.Controllers
                     if (ItemInCart != null)
                     {
                         //change quantity
-                        ItemInCart.Quantity += 1;
+                          CartLines.Add(ItemInCart);
 
                         //decrease quantity of stock
                         var ItemInStock = db.Stocks.Where(item => item.StockID == ItemInShop.StockID).FirstOrDefault();

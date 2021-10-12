@@ -14,12 +14,25 @@ namespace EnginX.Controllers
     public class CartsController : Controller
     {
         private Infinity_DbEntities db = new Infinity_DbEntities();
-        List<Cart_Line> CartItems = new List<Cart_Line>();
+        private List<Cart_Line> CartItems = new List<Cart_Line>();
+        private static List<CartList> cartObjects = new List<CartList>();
+        static double Total = 0;
+        static double VatTotal = 0;
+        static double Gtotal = 0;
 
 
         // GET: Carts
         public async Task<ActionResult> Index()
         {
+            var Msg = TempData["Message"] as string;
+            if (Msg == null || Msg == "")
+            {
+                ViewBag.Message = "Welcome";
+            }
+            else
+            {
+                ViewBag.Message = Msg;
+            }
             ViewBag.Customer = "";
             ViewBag.Total = "0.00";
             var cart = await db.Carts.Include(c => c.Customer).Where(x => x.CartID == HomeController.CartID).FirstOrDefaultAsync();
@@ -28,135 +41,93 @@ namespace EnginX.Controllers
                 var Customer = db.Customers.Include(u => u.User).Where(x => x.CustomerID == HomeController.CustomerID).FirstOrDefault();
                 ViewBag.Customer = Customer.User.Name + " " + Customer.User.Surname;
             }
-            var cartObjects = new List<CartList>();
+            
             if (HomeController.CartLines != null)
             {
+                CartItems.Clear();
                 foreach (var item in HomeController.CartLines)
                 {
-                    //find in db 
                     var fitem = db.Cart_Line.Include(p => p.Product).Where(i => i.CartLineID == item.CartLineID).First();
                     CartItems.Add(fitem);
                 }
-                //Linq query to sort and group Occourances of Items in the list 
+                cartObjects.Clear();
                 cartObjects = CartItems.OrderBy(a => a.Product.ProductName).GroupBy(a => a.Product.ProductName, (key, items) => new CartList
                 {
                     Name = key,
+                    Image = items.Select(x => x.Product.Image).First(),
+                    Description = items.Select(x => x.Product.Description).First(),
                     Quntity = items.Count(),
                     Price = items.Sum(item => Convert.ToInt32(item.Product.Price))
                 }).ToList();
-                //get totoal using linq sum attribute 
+   
                 ViewBag.Total = CartItems.Sum(price => price.Product.Price);
+                Total = 0;
+                Total = Math.Round(Convert.ToDouble(CartItems.Sum(price => price.Product.Price)),2);
+                VatTotal = 0;
+                VatTotal = Math.Round(0.15*Total,2);
+                Gtotal = 0;
+                Gtotal = Total + VatTotal;
 
             }
-            return View( cartObjects);
+            return View(cartObjects);
         }
 
-        // GET: Carts/Details/5
-        public async Task<ActionResult> Details(int? id)
+
+        public ActionResult PlusQuantity(string Name)
         {
-            if (id == null)
+            //Find Item
+            var ItemInShop = db.Products.Where(item => item.ProductName == Name).First();
+
+            //check quantity
+            if (ItemInShop.Stock.Quantity == 0 || ItemInShop.Stock.Quantity < 0)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["Message"] = "Unfortunatly the Product is out of stock ...Please check back soon!!!";
+                return RedirectToAction("ViewCart", "Home");
             }
-            Cart cart = await db.Carts.FindAsync(id);
-            if (cart == null)
+            else if (ItemInShop.Stock.Quantity > 0)
             {
-                return HttpNotFound();
+                    var ItemInCart = HomeController.CartLines.Find(item => item.Product.ProductName == Name);
+                    //change quantity
+                     HomeController.CartLines.Add(ItemInCart);
+
+                    //decrease quantity of stock
+                    var ItemInStock = db.Stocks.Where(item => item.StockID == ItemInShop.StockID).FirstOrDefault();
+                    ItemInStock.Quantity--;
+
+                    db.SaveChangesAsync();
+                    TempData["Message"] = "Successfully added to Cart";          
             }
-            return View(cart);
+            return RedirectToAction("Index", "Carts");
         }
 
-        // GET: Carts/Create
-        public ActionResult Create()
+        public ActionResult MinusQuantity(string Name)
         {
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustomerID");
-            return View();
+            // Remove item form cart 
+            var ItemInCart = HomeController.CartLines.Find(item => item.Product.ProductName == Name);
+            var ItemInShop = db.Products.Where(item => item.ProductName == Name).First();
+
+            HomeController.CartLines.Remove(ItemInCart);
+
+            ItemInShop.Stock.Quantity++;
+
+            db.SaveChangesAsync();
+            TempData["Message"] = "Successfully removed from Cart";
+
+            //Route back to View Cart
+            return RedirectToAction("Index", "Carts");
         }
 
-        // POST: Carts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "CartID,CustomerID,CreatedAt")] Cart cart)
+
+        public ActionResult Checkout()
         {
-            if (ModelState.IsValid)
-            {
-                db.Carts.Add(cart);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
 
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustomerID", cart.CustomerID);
-            return View(cart);
+            ViewBag.Total = Total;
+            ViewBag.VatTotal = VatTotal;
+            ViewBag.Grand = Gtotal;
+            return View(cartObjects);
         }
 
-        // GET: Carts/Edit/5
-        public async Task<ActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Cart cart = await db.Carts.FindAsync(id);
-            if (cart == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustomerID", cart.CustomerID);
-            return View(cart);
-        }
 
-        // POST: Carts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "CartID,CustomerID,CreatedAt")] Cart cart)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(cart).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "CustomerID", cart.CustomerID);
-            return View(cart);
-        }
 
-        // GET: Carts/Delete/5
-        public async Task<ActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Cart cart = await db.Carts.FindAsync(id);
-            if (cart == null)
-            {
-                return HttpNotFound();
-            }
-            return View(cart);
-        }
-
-        // POST: Carts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
-        {
-            Cart cart = await db.Carts.FindAsync(id);
-            db.Carts.Remove(cart);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

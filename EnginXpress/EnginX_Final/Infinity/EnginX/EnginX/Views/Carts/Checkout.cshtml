@@ -1,0 +1,292 @@
+﻿@model IEnumerable<EnginX.Models.CartList>
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<style>
+    body {
+        background: #eee;
+    }
+
+    .invoice {
+        background: #fff;
+        padding: 20px
+    }
+
+    .invoice-company {
+        font-size: 20px
+    }
+
+    .invoice-header {
+        margin: 0 -20px;
+        background: #f0f3f4;
+        padding: 20px
+    }
+
+    .invoice-date,
+    .invoice-from,
+    .invoice-to {
+        display: table-cell;
+        width: 1%
+    }
+
+    .invoice-from,
+    .invoice-to {
+        padding-right: 20px
+    }
+
+        .invoice-date .date,
+        .invoice-from strong,
+        .invoice-to strong {
+            font-size: 16px;
+            font-weight: 600
+        }
+
+    .invoice-date {
+        text-align: right;
+        padding-left: 20px
+    }
+
+    .invoice-price {
+        background: #f0f3f4;
+        display: table;
+        width: 100%
+    }
+
+        .invoice-price .invoice-price-left,
+        .invoice-price .invoice-price-right {
+            display: table-cell;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: 600;
+            width: 75%;
+            position: relative;
+            vertical-align: middle
+        }
+
+            .invoice-price .invoice-price-left .sub-price {
+                display: table-cell;
+                vertical-align: middle;
+                padding: 0 20px
+            }
+
+        .invoice-price small {
+            font-size: 12px;
+            font-weight: 400;
+            display: block
+        }
+
+        .invoice-price .invoice-price-row {
+            display: table;
+            float: left
+        }
+
+        .invoice-price .invoice-price-right {
+            width: 25%;
+            background: #2d353c;
+            color: #fff;
+            font-size: 28px;
+            text-align: right;
+            vertical-align: bottom;
+            font-weight: 300
+        }
+
+            .invoice-price .invoice-price-right small {
+                display: block;
+                opacity: .6;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                font-size: 12px
+            }
+
+    .invoice-footer {
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+        font-size: 10px
+    }
+
+    .invoice-note {
+        color: #999;
+        margin-top: 80px;
+        font-size: 85%
+    }
+
+    .invoice > div:not(.invoice-footer) {
+        margin-bottom: 20px
+    }
+
+    .btn.btn-white, .btn.btn-white.disabled, .btn.btn-white.disabled:focus, .btn.btn-white.disabled:hover, .btn.btn-white[disabled], .btn.btn-white[disabled]:focus, .btn.btn-white[disabled]:hover {
+        color: #2d353c;
+        background: #fff;
+        border-color: #d9dfe3;
+    }
+</style>
+<div class="container">
+    <div class="col-md-12">
+        <div class="invoice">
+            <!-- begin invoice-company -->
+            <div class="invoice-company text-inverse f-w-600 text-center">
+                <span class="text-center">Engen X</span><br />
+                <span class="pull-right hidden-print">
+                    <a onclick="getPDF()" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-file t-plus-1 text-danger fa-fw fa-lg"></i> Export as PDF</a>
+                    <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print</a>
+                </span>
+
+            </div>
+            <div id="pdf">
+                <!-- end invoice-company -->
+                <!-- begin invoice-header -->
+                <div id="unlinked" class="invoice-header">
+                    <div class="p-1 bg-light rounded rounded-pill mb-4">
+                        <div class="input-group rounded">
+                            <input type="search" id="search" placeholder="Enter Cell Number " class="form-control border-0 bg-light text-center">
+                            <div class="input-group-append">
+                                <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="linked" hidden class="invoice-header">
+                    <div class="invoice-from">
+                        <small>from</small>
+                        <address class="m-t-5 m-b-5">
+                            <strong class="text-inverse">Engen X</strong><br>
+                            1 Roper Street<br>
+                            Pretoria, 0023<br>
+                            Phone: (123) 456-7890<br>
+                            Fax: (123) 456-7890
+                        </address>
+                    </div>
+                    <div class="invoice-to">
+                        <small>to</small>
+                        <address class="m-t-5 m-b-5">
+                            <strong class="text-inverse">Company Name</strong><br>
+                            Street Address<br>
+                            City, Zip Code<br>
+                            Phone: (123) 456-7890<br>
+                            Fax: (123) 456-7890
+                        </address>
+                    </div>
+                    <div class="invoice-date">
+                        <small>Invoice / July period</small>
+                        <div class="date text-inverse m-t-5">August 3,2012</div>
+                        <div class="invoice-detail">
+                            #0000123DSS<br>
+                            Services Product
+                        </div>
+                    </div>
+                </div>
+                <!-- end invoice-header -->
+                <!-- begin invoice-content -->
+                <div class="invoice-content">
+                    <!-- begin table-responsive -->
+                    <div class="table-responsive">
+                        <table class="table table-invoice">
+                            <thead>
+                                <tr>
+                                    <th>PRODUCT NAME</th>
+                                    <th class="text-center" width="10%">QUANTITY</th>
+                                    <th class="text-center" width="10%">PRICE</th>
+                                    <th class="text-center" width="10%">VAT</th>
+                                    <th class="text-right" width="20%">LINE TOTAL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var console in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <span class="text-inverse">@console.Name</span><br>
+                                            <small>@console.Description</small>
+                                        </td>
+                                        <td class="text-center">R @console.Quntity</td>
+                                        <td class="text-center">R @console.Price</td>
+                                        <td class="text-center">R @Math.Round((0.15 * Convert.ToDouble(console.Price)), 2)</td>
+                                        <td class="text-right"> R @Math.Round(Convert.ToDouble(console.Price) + Math.Round((0.15 * Convert.ToDouble(console.Price)), 2), 2)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- end table-responsive -->
+                    <!-- begin invoice-price -->
+                    <div class="invoice-price">
+                        <div class="invoice-price-left">
+                            <div class="invoice-price-row">
+                                <div class="sub-price">
+                                    <small>SUBTOTAL</small>
+                                    <span class="text-inverse">R @ViewBag.Total</span>
+                                </div>
+                                <div class="sub-price">
+                                    <i class="fa fa-plus text-muted"></i>
+                                </div>
+                                <div class="sub-price">
+                                    <small>VAT (15 %)</small>
+                                    <span class="text-inverse">R @ViewBag.VatTotal  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="invoice-price-right">
+                            <small>TOTAL</small> <span class="f-w-600">R @ViewBag.Grand</span>
+                        </div>
+                    </div>
+                    <!-- end invoice-price -->
+                </div>
+                <!-- end invoice-content -->
+                <!-- begin invoice-note -->
+                <div class="invoice-note">
+                    * Make all cheques payable to [Engen Xpress]<br>
+                    * If you have any questions concerning this invoice, contact  [ engenxpress@gmail.com]
+                </div>
+                <!-- end invoice-note -->
+                <!-- begin invoice-footer -->
+                <div class="invoice-footer">
+                    <p class="text-center m-b-5 f-w-600">
+                        THANK YOU FOR YOUR BUSINESS
+                    </p>
+                    <p class="text-center">
+                        <span class="m-r-10"><i class="fa fa-fw fa-lg fa-globe"></i> engenxpress.com</span>
+                        <span class="m-r-10"><i class="fa fa-fw fa-lg fa-phone-volume"></i>0813419362</span>
+                        <span class="m-r-10"><i class="fa fa-fw fa-lg fa-envelope"></i> engenexpress@gmail.com</span>
+                    </p>
+                </div>
+                <!-- end invoice-footer -->
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;" id="editor"></div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script>
+        $('#document').ready(function () {
+
+
+        });
+        var element = $("#pdf"); // global variable
+        var getCanvas;
+
+        function getPDF() {
+
+            html2canvas(element, {
+                onrendered: function (canvas) {
+                    $("#editor").append(canvas);
+                    getCanvas = canvas;
+
+                    var img = canvas.toDataURL("image/png"),
+                        doc = new jsPDF({
+                            unit: 'px',
+                            format: 'a4'
+                        });
+                    doc.addImage(img, 'JPEG', 20, 20);
+                    doc.save('Vistordetails.pdf');
+                    form.width(cache_width);
+                }
+            });
+
+        };
+
+    </script>
+}
