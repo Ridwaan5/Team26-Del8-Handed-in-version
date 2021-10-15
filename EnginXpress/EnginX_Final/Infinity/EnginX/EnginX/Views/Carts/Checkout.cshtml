@@ -129,65 +129,61 @@
     <div class="col-md-12">
         <div class="invoice">
             <!-- begin invoice-company -->
-            <div class="invoice-company text-inverse f-w-600 text-center">
+            <div class="invoice-company text-inverse f-w-600 text-center" id="print" hidden>
                 <span class="text-center">Engen X</span><br />
-                <span class="pull-right hidden-print">
-                    <a onclick="getPDF()" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-file t-plus-1 text-danger fa-fw fa-lg"></i> Export as PDF</a>
-                    <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print</a>
+                <span>
+                    <a onclick="getPDF()" class="btn btn-sm btn-white m-b-10 p-l-5" style="float:left"><i class="fa fa-file t-plus-1 text-danger fa-fw fa-lg"></i> Export as PDF</a>
+                    <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-white m-b-10 p-l-5" style="float:left"><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print</a>
                 </span>
-
+                <br />
             </div>
             <div id="pdf">
                 <!-- end invoice-company -->
                 <!-- begin invoice-header -->
-                @if (!User.Identity.IsAuthenticated)
-                {
-                    <div id="unlinked" class="invoice-header text-center">
-                        <h4 class="tcolor">Please Enter Cell Number</h4>
-                        <div class="p-1 bg-light rounded rounded-pill mb-4">
-                            <div class="input-group rounded">
-                                <input required maxlength="10" id="search" placeholder="Search Here" class="form-control border-0 bg-light text-center">
-                                <div class="input-group-append">
-                                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="pulsingButton" onclick="Locate()">Confirm Number</a>
-                    </div>
-                }
-                else
-                {
-                    <div id="linked" class="invoice-header">
-                        <div class="invoice-from">
-                            <small>from</small>
-                            <address class="m-t-5 m-b-5">
-                                <strong class="text-inverse">Engen X</strong><br>
-                                1 Roper Street<br>
-                                Pretoria, 0023<br>
-                                Phone: (123) 456-7890<br>
-                                Fax: (123) 456-7890
-                            </address>
-                        </div>
-                        <div class="invoice-to">
-                            <small>to</small>
-                            <address class="m-t-5 m-b-5">
-                                <strong class="text-inverse">Company Name</strong><br>
-                                Street Address<br>
-                                City, Zip Code<br>
-                                Phone: (123) 456-7890<br>
-                                Fax: (123) 456-7890
-                            </address>
-                        </div>
-                        <div class="invoice-date">
-                            <small>Invoice / July period</small>
-                            <div class="date text-inverse m-t-5">August 3,2012</div>
-                            <div class="invoice-detail">
-                                #0000123DSS<br>
-                                Services Product
+                <div hidden id="unlinked" class="invoice-header text-center">
+                    <h4 class="tcolor">Please Enter Cell Number</h4>
+                    <div class="p-1 bg-light rounded rounded-pill mb-4">
+                        <div class="input-group rounded">
+                            <input required maxlength="10" id="search" placeholder="Search Here" class="form-control border-0 bg-light text-center">
+                            <div class="input-group-append">
+                                <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                     </div>
-                }
+                    <a class="pulsingButton" onclick="Locate()">Confirm Number</a>
+                </div>
+
+                <div hidden id="linked" class="invoice-header">
+                    <div class="invoice-from">
+                        <small>from</small>
+                        <address class="m-t-5 m-b-5">
+                            <strong class="text-inverse">Engen X</strong><br>
+                            1 Roper Street<br>
+                            Pretoria, 0023<br>
+                            Phone: (123) 456-7890<br>
+                            Fax: (123) 456-7890
+                        </address>
+                    </div>
+                    <div class="invoice-to">
+                        <small>to</small>
+                        <address class="m-t-5 m-b-5">
+                            <strong class="text-inverse"><span id="cusname"></span></strong><br>
+                            House Number: <span id="housenumber"></span><br>
+                            Street: <span id="streetname"></span><br>
+                            Phone: <span id="cell"></span><br>
+                            Email: <span id="email"></span>
+                        </address>
+                    </div>
+                    <div class="invoice-date">
+                        <small>Customer Order</small>
+                        <div class="date text-inverse m-t-5">@DateTime.Today.ToShortDateString()  </div>
+                        <div class="invoice-detail">
+                            #0000123DSS<br>
+                            Order Invoice
+                        </div>
+                    </div>
+                </div>
+
                 <!-- end invoice-header -->
                 <!-- begin invoice-content -->
                 <div class="invoice-content">
@@ -255,6 +251,7 @@
                     <!-- end invoice-price -->
                 </div>
                 <!-- end invoice-content -->
+                <a style="float:right;" id="paytrigger" hidden class="pulsingButton" data-bs-toggle="modal" data-bs-target="#payModal">Checkout</a>
                 <!-- begin invoice-note -->
                 <div class="invoice-note">
                     * Make all cheques payable to [Engen Xpress]<br>
@@ -280,7 +277,7 @@
 <div style="display: none;" id="editor"></div>
 
 <!-- Modal -->
-<div class="modal fade"  id="modal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="border-radius:15px">
             <div class="modal-header">
@@ -298,12 +295,62 @@
             <div class="modal-footer" style="justify-content:center !important">
                 @using (Html.BeginForm("Register", "Account", FormMethod.Get, new { target = "_blank" }))
                 {
-                    <button type="submit" class="btn btn-sm btn tbcolor" data-bs-dismiss="modal" > Sign Up</button>
+                    <button type="submit" class="btn btn-sm btn tbcolor" data-bs-dismiss="modal"> Sign Up</button>
                 }
             </div>
         </div>
     </div>
 </div>
+<div class="modal fade" id="payModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-radius:15px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="payment-form" method="POST">
+                    <div class="one-liner">
+                        <div id="card-frame">
+                            <!-- classes in square brackets will be allied based on field and form state -->
+                            <div class="yc-card-form-container">
+                                <div class="yc-field-group--card-number yc-field-group yc-field-group--invalid">
+                                    <label>Card number</label>
+                                    <div class="yc-card-input-wrapper">
+                                        <!-- secure iframe inserted here, style the input at this level to set style the iframe contents -->
+                                        <input />
+                                    </div>
+                                </div>
+                                <div class="yc-expiry-cvv-holder">
+                                    <div class="yc-field-group--card-expiry yc-field-group">
+                                        <label>Expiry date</label>
+                                        <div class="yc-card-input-wrapper">
+                                            <!-- secure iframe inserted here, style the input at this level to set style the iframe contents -->
+                                            <input />
+                                        </div>
+                                    </div>
+                                    <div class="yc-field-group--card-cvv yc-field-group">
+                                        <label>CVV/CVC</label>
+                                        <div class="yc-card-input-wrapper">
+                                            <!-- secure iframe inserted here, style the input at this level to set style the iframe contents -->
+                                            <input />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="pay-button"> PAY ZAR @ViewBag.Grand </button>
+                    </div>
+                    <p class="success-payment-message" />
+                </form>
+            </div>
+            <div class="modal-footer" style="justify-content:center !important">
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 @section Scripts{
@@ -313,6 +360,31 @@
         var element = $("#pdf"); // global variable
         var getCanvas;
         $('#document').ready(function () {
+            $.ajax({
+                url: '/Home/checkLoggedIn/',
+                type: "GET",
+                success: function (data) {
+                    console.log(data.Customer);
+                    if (data.Customer = {}) {
+                        $('#unlinked').prop('hidden', false);
+                        $('#linked').prop('hidden', true);
+                        $('#search').val('');
+                    }
+                    else {
+                        $('#search').val('');
+                        $('#print').prop('hidden', false);
+                        $('#paytrigger').prop('hidden', false);
+                        $('#linked').prop('hidden', false);
+                        $('#unlinked').prop('hidden', true)
+                        $('#cusname').text(data.Customer.Name);
+                        $('#housenumber').text(data.Customer.HouseNumber);
+                        $('#streetname').text(data.Customer.StreetName);
+                        $('#cell').text(data.Customer.ContactNumber);
+                        $('#email').text(data.Customer.Email);
+                    }
+
+                }
+            });
 
         });
         //functions
@@ -364,22 +436,28 @@
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
-                    if (data.CustomerID == 0) {
+                    if (data.Customer == null) {
                         $('#modal').modal('show');
                     }
                     else {
-                        //do linking here
-                        debugger;
-                        $('#notfound').prop('hidden', true);
+                        $('#search').val('');
+                        $('#print').prop('hidden', false);
+                        $('#paytrigger').prop('hidden', false);
+                        $('#linked').prop('hidden', false);
+                        $('#unlinked').prop('hidden', true);
+                        $('#cusname').text(data.Customer.Name);
+                        $('#housenumber').text(data.Customer.HouseNumber);
+                        $('#streetname').text(data.Customer.StreetName);
+                        $('#cell').text(data.Customer.ContactNumber);
+                        $('#email').text(data.Customer.Email);
                     }
                 }
             });
         };
-        $('#modal').on('hidden.bs.modal', function ()
-        {
+        $('#modal').on('hidden.bs.modal', function () {
             $('#search').val('');
         });
-          
+
         function phone_validate(phno) {
             var regexPattern = new RegExp(/^[0-9]+$/);    // regular expression pattern
             return regexPattern.test(phno);
@@ -406,4 +484,48 @@
 
 
     </script>
+    <!--Yoco Payments Intergration-->
+    <script>
+        var yoco = new window.YocoSDK({
+            publicKey: 'pk_live_ad448c7fGWXvmeKc3814',
+        });
+
+        // Create a new dropin form instance
+        var inline = sdk.inline({
+            layout: 'field',
+            amountInCents: 2499,
+            currency: 'ZAR'
+        });
+        // this ID matches the id of the element we created earlier.
+        inline.mount('#card-frame');
+    </script>
+    <script>
+        // Run our code when your form is submitted
+        var form = document.getElementById('payment-form');
+        var submitButton = document.getElementById('pay-button');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault()
+            // Disable the button to prevent multiple clicks while processing
+            submitButton.disabled = true;
+            // This is the inline object we created earlier with the sdk
+            inline.createToken().then(function (result) {
+                // Re-enable button now that request is complete
+                // (i.e. on success, on error and when auth is cancelled)
+                submitButton.disabled = false;
+                if (result.error) {
+                    const errorMessage = result.error.message;
+                    errorMessage && alert("error occured: " + errorMessage);
+                } else {
+                    const token = result;
+                    alert("card successfully tokenised: " + token.id);
+                }
+            }).catch(function (error) {
+                // Re-enable button now that request is complete
+                submitButton.disabled = false;
+                alert("error occured: " + error);
+            });
+        });
+      // Any additional form data you want to submit to your backend should be done here, or in another event listener
+    </script>
+
 }

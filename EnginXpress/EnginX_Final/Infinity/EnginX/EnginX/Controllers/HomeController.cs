@@ -52,19 +52,65 @@ namespace EnginX.Controllers
 
         }
 
+        [HttpGet]
+        public JsonResult checkLoggedIn(string prefix)
+        {
+            var Customer = new object();
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ApplicationDbContext context = new ApplicationDbContext();
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                var sysUser = UserManager.GetEmail(user.GetUserId()); 
+                List<Customer> foundCustomers = new List<Customer>();
+                Customer foundCustomer = new Customer();
+                using (Infinity_DbEntities dbs = new Infinity_DbEntities())
+                {
+                     Customer = (from cs in db.Customers
+                                    join us in db.Users on cs.UserID equals us.UserID
+                                    join ad in db.Addresses on cs.AddressID equals ad.AddressID
+                                    where us.Email == sysUser
+                                    select new
+                                    {
+                                        us.Name,
+                                        us.ContactNumber,
+                                        ad.HouseNumber,
+                                        ad.StreetName,
+                                        us.Email
+                                    }).FirstOrDefault();
+                    //db.Configuration.ProxyCreationEnabled = false;         
+                    return new JsonResult { Data = new { Customer }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                }
+            }
+            return new JsonResult { Data = new { Customer  }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+        }
+
         [HttpPost]
         public JsonResult searchCustomer(string prefix)
         {
             string Number = prefix.Remove(0, 1);
             string cell = "+27" + Number;
-            Infinity_DbEntities dbs = new Infinity_DbEntities();
-            var locate = dbs.Customers.Include(x=> x.Address).Include(x=> x.User).Where(x => x.User.ContactNumber == cell).FirstOrDefault();
+            List<Customer> foundCustomers = new List<Customer>();
             Customer foundCustomer = new Customer();
-            if(locate != null)
+            using (Infinity_DbEntities dbs = new Infinity_DbEntities())
             {
-                foundCustomer = locate;
+                var Customer = (from cs in db.Customers
+                                join us in db.Users on cs.UserID equals us.UserID
+                                join ad in db.Addresses on cs.AddressID equals ad.AddressID
+                                where us.ContactNumber == cell
+                                select new
+                                {
+                                    us.Name,
+                                    us.ContactNumber,
+                                    ad.HouseNumber,
+                                    ad.StreetName,
+                                    us.Email
+                                 }).FirstOrDefault();
+                //db.Configuration.ProxyCreationEnabled = false;         
+                return new JsonResult { Data = new { Customer }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
-            return Json(foundCustomer);
+
         }
 
         public async Task<ActionResult> AddToCart(int id)

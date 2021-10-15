@@ -14,6 +14,9 @@ using EnginX.Models;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Diagnostics;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
 
 namespace EnginX
 {
@@ -57,7 +60,14 @@ namespace EnginX
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your SMS service here to send a text message.
+            var accountSid = "AC78b270ff9e6b06b5ab065c27ca4a239b";
+            var authToken = "7e5fdcbbe7a62aac79e2457fd8e1f93c";
+            TwilioClient.Init(accountSid, authToken);
+
+            var MessageOptions = new CreateMessageOptions(new PhoneNumber(message.Destination));
+            MessageOptions.MessagingServiceSid = "MG84ccae6a1e029ed05bfdf0d05b6e26a8";
+            MessageOptions.Body = message.Body;
+            var messagecreate = MessageResource.Create(MessageOptions);
             return Task.FromResult(0);
         }
     }

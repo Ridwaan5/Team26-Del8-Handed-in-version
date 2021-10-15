@@ -180,6 +180,13 @@ namespace EnginX.Controllers
                     body = body.Replace("{Password}", model.Password);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", body);
                     ViewBag.Link = callbackUrl;
+                     var message = new IdentityMessage
+                        {
+                            Destination =cell,
+                            Body = "Hi " +  " " + model.Name + " 😁" + " Welcome To EngenX. " + "This number has successfully been linked..."
+                     };
+                    await UserManager.SmsService.SendAsync(message);
+                    AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
                     return View("DisplayEmail");
                 }
                 AddErrors(result);
