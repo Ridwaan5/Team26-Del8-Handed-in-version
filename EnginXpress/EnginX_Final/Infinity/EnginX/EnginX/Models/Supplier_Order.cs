@@ -30,10 +30,10 @@ namespace EnginX.Models
         public int SupplierOrderQuantity { get; set; }
         public string SupplierOrderNote { get; set; }
     
-        public virtual Administrator Administrator { get; set; }
         public virtual Supplier Supplier { get; set; }
         public virtual Supplier_Order_Status Supplier_Order_Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Supplier_Order_Line> Supplier_Order_Line { get; set; }
+        public virtual Administrator Administrator { get; set; }
     }
 }

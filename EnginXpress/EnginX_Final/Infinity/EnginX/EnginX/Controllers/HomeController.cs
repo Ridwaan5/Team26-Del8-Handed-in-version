@@ -52,6 +52,21 @@ namespace EnginX.Controllers
 
         }
 
+        [HttpPost]
+        public JsonResult searchCustomer(string prefix)
+        {
+            string Number = prefix.Remove(0, 1);
+            string cell = "+27" + Number;
+            Infinity_DbEntities dbs = new Infinity_DbEntities();
+            var locate = dbs.Customers.Include(x=> x.Address).Include(x=> x.User).Where(x => x.User.ContactNumber == cell).FirstOrDefault();
+            Customer foundCustomer = new Customer();
+            if(locate != null)
+            {
+                foundCustomer = locate;
+            }
+            return Json(foundCustomer);
+        }
+
         public async Task<ActionResult> AddToCart(int id)
         {
             if (User.Identity.IsAuthenticated)
@@ -62,8 +77,8 @@ namespace EnginX.Controllers
             }
             else
             {
-                useremail = db.Customers.Where(x => x.CustomerID == 8).FirstOrDefault().User.Email;
-                CustomerID = 8;
+                useremail = db.Users.Where(x => x.UserID == 1).FirstOrDefault().Email;
+                CustomerID = 1;
             }
 
             if (CartID == 0)

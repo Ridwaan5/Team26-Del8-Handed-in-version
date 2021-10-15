@@ -21,5 +21,6 @@ namespace EnginX.Models
     
         public virtual DeliverStatu DeliverStatu { get; set; }
         public virtual Employee Employee { get; set; }
+        public virtual User User { get; set; }
     }
 }

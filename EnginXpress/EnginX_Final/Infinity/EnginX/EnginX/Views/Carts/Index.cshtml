@@ -3,227 +3,231 @@
     ViewBag.Title = "Cart ";
 }
 <style>
-select.form-control:not([size]):not([multiple]) {
-    height: 44pxs;
-}
-select.form-control {
-    padding-right: 38px;
-    background-position: center right 17px;
-    background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNv…9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
-    background-repeat: no-repeat;
-    background-size: 9px 9px;
-}
-.form-control:not(textarea) {
-    height: 44px;
-}
-.form-control {
-    padding: 0 18px 3px;
-    border: 1px solid #dbe2e8;
-    border-radius: 22px;
-    background-color: #fff;
-    color: #606975;
-    font-family: "Maven Pro",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-
-
-.shopping-cart .table,
-.wishlist-table .table,
-.order-table .table {
-    margin-bottom: 0
-}
-
-.shopping-cart .btn,
-.wishlist-table .btn,
-.order-table .btn {
-    margin: 0
-}
-
-.shopping-cart>table>thead>tr>th,
-.shopping-cart>table>thead>tr>td,
-.shopping-cart>table>tbody>tr>th,
-.shopping-cart>table>tbody>tr>td,
-.wishlist-table>table>thead>tr>th,
-.wishlist-table>table>thead>tr>td,
-.wishlist-table>table>tbody>tr>th,
-.wishlist-table>table>tbody>tr>td,
-.order-table>table>thead>tr>th,
-.order-table>table>thead>tr>td,
-.order-table>table>tbody>tr>th,
-.order-table>table>tbody>tr>td {
-    vertical-align: middle !important
-}
-
-.shopping-cart>table thead th,
-.wishlist-table>table thead th,
-.order-table>table thead th {
-    padding-top: 17px;
-    padding-left:17px;
-    padding-bottom: 17px;
-
-}
-
-.shopping-cart .remove-from-cart,
-.wishlist-table .remove-from-cart,
-.order-table .remove-from-cart {
-    display: inline-block;
-    color: #ff5252;
-    font-size: 18px;
-    line-height: 1;
-    text-decoration: none
-}
-
-.shopping-cart .count-input,
-.wishlist-table .count-input,
-.order-table .count-input {
-    display: inline-block;
-    width: 100%;
-    width: 86px
-}
-
-.shopping-cart .product-item,
-.wishlist-table .product-item,
-.order-table .product-item {
-    display: table;
-    width: 100%;
-    min-width: 150px;
-    margin-top: 5px;
-    margin-bottom: 3px
-}
-
-.shopping-cart .product-item .product-thumb,
-.shopping-cart .product-item .product-info,
-.wishlist-table .product-item .product-thumb,
-.wishlist-table .product-item .product-info,
-.order-table .product-item .product-thumb,
-.order-table .product-item .product-info {
-    display: table-cell;
-    vertical-align: top
-}
-
-.shopping-cart .product-item .product-thumb,
-.wishlist-table .product-item .product-thumb,
-.order-table .product-item .product-thumb {
-    width: 130px;
-    padding-right: 20px
-}
-
-.shopping-cart .product-item .product-thumb>img,
-.wishlist-table .product-item .product-thumb>img,
-.order-table .product-item .product-thumb>img {
-    display: block;
-    width: 100%
-}
-
-@@media screen and (max-width: 860px) {
-    .shopping-cart .product-item .product-thumb,
-    .wishlist-table .product-item .product-thumb,
-    .order-table .product-item .product-thumb {
-        display: none
+    select.form-control:not([size]):not([multiple]) {
+        height: 44pxs;
     }
-}
 
-.shopping-cart .product-item .product-info span,
-.wishlist-table .product-item .product-info span,
-.order-table .product-item .product-info span {
-    display: block;
-    font-size: 13px
-}
-
-.shopping-cart .product-item .product-info span>em,
-.wishlist-table .product-item .product-info span>em,
-.order-table .product-item .product-info span>em {
-    font-weight: 500;
-    font-style: normal
-}
-
-.shopping-cart .product-item .product-title,
-.wishlist-table .product-item .product-title,
-.order-table .product-item .product-title {
-    margin-bottom: 6px;
-    padding-top: 5px;
-    font-size: 16px;
-    font-weight: 500
-}
-
-.shopping-cart .product-item .product-title>a,
-.wishlist-table .product-item .product-title>a,
-.order-table .product-item .product-title>a {
-    transition: color .3s;
-    color: #374250;
-    line-height: 1.5;
-    text-decoration: none
-}
-
-.shopping-cart .product-item .product-title>a:hover,
-.wishlist-table .product-item .product-title>a:hover,
-.order-table .product-item .product-title>a:hover {
-    color: #0da9ef
-}
-
-.shopping-cart .product-item .product-title small,
-.wishlist-table .product-item .product-title small,
-.order-table .product-item .product-title small {
-    display: inline;
-    margin-left: 6px;
-    font-weight: 500
-}
-
-.wishlist-table .product-item .product-thumb {
-    display: table-cell !important
-}
-
-@@media screen and (max-width: 576px) {
-    .wishlist-table .product-item .product-thumb {
-        display: none !important
+    select.form-control {
+        padding-right: 38px;
+        background-position: center right 17px;
+        background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNv…9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
+        background-repeat: no-repeat;
+        background-size: 9px 9px;
     }
-}
 
-.shopping-cart-footer {
-    display: table;
-    width: 100%;
-    padding: 10px 0;
-    border-top: 1px solid #e1e7ec
-}
-
-.shopping-cart-footer>.column {
-    display: table-cell;
-    padding: 5px 0;
-    vertical-align: middle
-}
-
-.shopping-cart-footer>.column:last-child {
-    text-align: right
-}
-
-.shopping-cart-footer>.column:last-child .btn {
-    margin-right: 0;
-    margin-left: 15px
-}
-
-@@media (max-width: 768px) {
-    .shopping-cart-footer>.column {
-        display: block;
-        width: 100%
+    .form-control:not(textarea) {
+        height: 44px;
     }
-    .shopping-cart-footer>.column:last-child {
-        text-align: center
+
+    .form-control {
+        padding: 0 18px 3px;
+        border: 1px solid #dbe2e8;
+        border-radius: 22px;
+        background-color: #fff;
+        color: #606975;
+        font-family: "Maven Pro",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
-    .shopping-cart-footer>.column .btn {
+
+
+
+    .shopping-cart .table,
+    .wishlist-table .table,
+    .order-table .table {
+        margin-bottom: 0
+    }
+
+    .shopping-cart .btn,
+    .wishlist-table .btn,
+    .order-table .btn {
+        margin: 0
+    }
+
+    .shopping-cart > table > thead > tr > th,
+    .shopping-cart > table > thead > tr > td,
+    .shopping-cart > table > tbody > tr > th,
+    .shopping-cart > table > tbody > tr > td,
+    .wishlist-table > table > thead > tr > th,
+    .wishlist-table > table > thead > tr > td,
+    .wishlist-table > table > tbody > tr > th,
+    .wishlist-table > table > tbody > tr > td,
+    .order-table > table > thead > tr > th,
+    .order-table > table > thead > tr > td,
+    .order-table > table > tbody > tr > th,
+    .order-table > table > tbody > tr > td {
+        vertical-align: middle !important
+    }
+
+    .shopping-cart > table thead th,
+    .wishlist-table > table thead th,
+    .order-table > table thead th {
+        padding-top: 17px;
+        padding-left: 17px;
+        padding-bottom: 17px;
+    }
+
+    .shopping-cart .remove-from-cart,
+    .wishlist-table .remove-from-cart,
+    .order-table .remove-from-cart {
+        display: inline-block;
+        color: #ff5252;
+        font-size: 18px;
+        line-height: 1;
+        text-decoration: none
+    }
+
+    .shopping-cart .count-input,
+    .wishlist-table .count-input,
+    .order-table .count-input {
+        display: inline-block;
         width: 100%;
-        margin: 12px 0 !important
+        width: 86px
     }
-}
+
+    .shopping-cart .product-item,
+    .wishlist-table .product-item,
+    .order-table .product-item {
+        display: table;
+        width: 100%;
+        min-width: 150px;
+        margin-top: 5px;
+        margin-bottom: 3px
+    }
+
+        .shopping-cart .product-item .product-thumb,
+        .shopping-cart .product-item .product-info,
+        .wishlist-table .product-item .product-thumb,
+        .wishlist-table .product-item .product-info,
+        .order-table .product-item .product-thumb,
+        .order-table .product-item .product-info {
+            display: table-cell;
+            vertical-align: top
+        }
+
+        .shopping-cart .product-item .product-thumb,
+        .wishlist-table .product-item .product-thumb,
+        .order-table .product-item .product-thumb {
+            width: 130px;
+            padding-right: 20px
+        }
+
+            .shopping-cart .product-item .product-thumb > img,
+            .wishlist-table .product-item .product-thumb > img,
+            .order-table .product-item .product-thumb > img {
+                display: block;
+                width: 100%
+            }
+
+    @@media screen and (max-width: 860px) {
+        .shopping-cart .product-item .product-thumb,
+        .wishlist-table .product-item .product-thumb,
+        .order-table .product-item .product-thumb {
+            display: none
+        }
+    }
+
+    .shopping-cart .product-item .product-info span,
+    .wishlist-table .product-item .product-info span,
+    .order-table .product-item .product-info span {
+        display: block;
+        font-size: 13px
+    }
+
+        .shopping-cart .product-item .product-info span > em,
+        .wishlist-table .product-item .product-info span > em,
+        .order-table .product-item .product-info span > em {
+            font-weight: 500;
+            font-style: normal
+        }
+
+    .shopping-cart .product-item .product-title,
+    .wishlist-table .product-item .product-title,
+    .order-table .product-item .product-title {
+        margin-bottom: 6px;
+        padding-top: 5px;
+        font-size: 16px;
+        font-weight: 500
+    }
+
+        .shopping-cart .product-item .product-title > a,
+        .wishlist-table .product-item .product-title > a,
+        .order-table .product-item .product-title > a {
+            transition: color .3s;
+            color: #374250;
+            line-height: 1.5;
+            text-decoration: none
+        }
+
+            .shopping-cart .product-item .product-title > a:hover,
+            .wishlist-table .product-item .product-title > a:hover,
+            .order-table .product-item .product-title > a:hover {
+                color: #0da9ef
+            }
+
+        .shopping-cart .product-item .product-title small,
+        .wishlist-table .product-item .product-title small,
+        .order-table .product-item .product-title small {
+            display: inline;
+            margin-left: 6px;
+            font-weight: 500
+        }
+
+    .wishlist-table .product-item .product-thumb {
+        display: table-cell !important
+    }
+
+    @@media screen and (max-width: 576px) {
+        .wishlist-table .product-item .product-thumb {
+            display: none !important
+        }
+    }
+
+    .shopping-cart-footer {
+        display: table;
+        width: 100%;
+        padding: 10px 0;
+        border-top: 1px solid #e1e7ec
+    }
+
+        .shopping-cart-footer > .column {
+            display: table-cell;
+            padding: 5px 0;
+            vertical-align: middle
+        }
+
+            .shopping-cart-footer > .column:last-child {
+                text-align: right
+            }
+
+                .shopping-cart-footer > .column:last-child .btn {
+                    margin-right: 0;
+                    margin-left: 15px
+                }
+
+    @@media (max-width: 768px) {
+        .shopping-cart-footer > .column {
+            display: block;
+            width: 100%
+        }
+
+            .shopping-cart-footer > .column:last-child {
+                text-align: center
+            }
+
+            .shopping-cart-footer > .column .btn {
+                width: 100%;
+                margin: 12px 0 !important
+            }
+    }
 
 
 
-.form-control-sm:not(textarea) {
-    height: 36px;
-}
+    .form-control-sm:not(textarea) {
+        height: 36px;
+    }
 </style>
 
 
@@ -246,31 +250,9 @@ select.form-control {
     }
     else
     {
-        <div class="modal fade" id="modal-clear" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content" style="background-color:black;color:white;border-radius:15px">
-                    <div class="modal-header">
-                        <button style="color:red" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="myModalLabel">Confirm Clear</h4>
-                    </div>
-                    <div class="modal-body">
-                        <h3><strong>Are you Sure You want to Clear The Basket?</strong> </h3>
-                    </div>
-                    <div class="modal-footer">
-                        <button onclick="myfun()" type="button" class="btn btn-danger" data-dismiss="modal"> X No</button>
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="window.location.href='@Url.Action("ResetShopItems", "Cart")'">
-                            <i class="glyphicon glyphicon-ok">
-                            </i>
-                            Yes
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!--Table -->
         <div class="container padding-bottom-3x mb-1">
             <!-- Alert-->
-
             <!-- Shopping Cart-->
             <div class="table-responsive shopping-cart">
                 <table class="table table-hover  table-sm">
@@ -280,10 +262,10 @@ select.form-control {
                             <th class="text-center">Quantity</th>
                             <th class="text-center">Subtotal</th>
                             <th class="text-center">
-                               <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#modal-clear">
-                                <i class="fa fa-trash"></i>
-                                 Clear Cart
-                               </button>
+                                <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#modal" onclick="call()">
+                                    <i class="fa fa-trash"></i>
+                                    Clear Cart
+                                </button>
                             </th>
                         </tr>
                     </thead>
@@ -297,7 +279,7 @@ select.form-control {
                                             <img src="@Url.Content(console.Image)" height="10" width="10">
                                         </a>
                                         <div class="product-info">
-                                           <h4 class="product-title" >
+                                            <h4 class="product-title">
                                                 @console.Name
                                             </h4>
                                         </div>
@@ -305,28 +287,28 @@ select.form-control {
                                 </td>
                                 <td class="text-center">
 
-                                    <button onclick="window.location.href='@Url.Action("MinusQuantity", "Carts", new { Name = console.Name })'" class="btn btn-sm btn-dark text-center"  style="border-radius:100px">
+                                    <button onclick="window.location.href='@Url.Action("MinusQuantity", "Carts", new { Name = console.Name })'" class="btn btn-sm btn-dark text-center" style="border-radius:100px">
 
-                                        <i style="margin-right:0 !important" class="text-danger fa fa-minus" ></i>
-                                  
+                                        <i style="margin-right:0 !important" class="text-danger fa fa-minus"></i>
+
                                     </button>
 
                                     <span style="font-size:15px"> @console.Quntity </span>
 
                                     <button onclick="window.location.href='@Url.Action("PlusQuantity", "Carts", new { Name = console.Name })'" class="btn btn-sm btn-dark" style="border-radius:100px">
 
-                                      <i style="margin-right:0 !important"   class="text-success fa fa-plus" ></i>
-                                   
+                                        <i style="margin-right:0 !important" class="text-success fa fa-plus"></i>
+
                                     </button>
-                             
+
                                 </td>
                                 <td class="text-center text-lg text-medium">
                                     <span style="font-size:15px">   R @console.Price </span>
                                 </td>
                                 <td class="text-center">
-                                    <button style="border-radius:100px" class="btn btn-dark btn-sm" >
+                                    <button onclick="window.location.href='@Url.Action("Details", "Products", new { id = console.ID })'" style="border-radius:100px" class="btn btn-dark btn-sm">
 
-                                        <i style="margin-right:0 !important"  class="text-primary fa fa-info"></i>
+                                        <i style="margin-right:0 !important" class="text-primary fa fa-info"></i>
 
                                     </button>
                                 </td>
@@ -337,15 +319,12 @@ select.form-control {
             </div>
             <div class="shopping-cart-footer">
                 <div class="column text-lg" style="font-size:30px">
-                Subtotal: 
-                <span class="text-medium"><strong> R @ViewBag.Total</strong></span>
+                    Subtotal:
+                    <span class="text-medium"><strong> R @ViewBag.Total</strong></span>
                 </div>
             </div>
 
         </div>
-
-
-
         <!--Table-->
         <div class="btn btn-lg btn-primary" style="border-radius:20px;color:white;width:50%;margin:0 auto; margin-left:25%; height:50px" onclick="window.location.href='@Url.Action("Checkout", "Carts", new { Total = @ViewBag.Total })'">
             <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -355,7 +334,33 @@ select.form-control {
 </div>
 <hr style="color:dodgerblue;border: 2px double" />
 <br />
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-radius:15px">
+            <div class="modal-header text-center">
+                <h4 class="modal-title" id="myModalLabel">Clear Cart </h4>
+            </div>
+            <div class="modal-body">
+                <h5><strong>Are you Sure You want to Clear The Cart?</strong> </h5>
+            </div>
+            <div class="modal-footer" style="justify-content:center !important">
+                <button type="submit" class="btn btn-sm btn tbcolor" data-dismiss="modal" onclick="window.location.href='@Url.Action("ResetShopItems", "Carts")'">
+                    <i class="fa fa-check"></i>
+                    Yes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
-
+@section Scripts{
+    <script>
+        function call()
+        {
+            $('#modal').modal('show');
+        }
+    </script>
+    
+    }
 
 

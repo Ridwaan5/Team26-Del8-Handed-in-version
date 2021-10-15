@@ -17,6 +17,7 @@ namespace EnginX.Controllers
         private List<Cart_Line> CartItems = new List<Cart_Line>();
         private static List<CartList> cartObjects = new List<CartList>();
         static double Total = 0;
+        static double TotalnoVat = 0;
         static double VatTotal = 0;
         static double Gtotal = 0;
 
@@ -53,23 +54,43 @@ namespace EnginX.Controllers
                 cartObjects.Clear();
                 cartObjects = CartItems.OrderBy(a => a.Product.ProductName).GroupBy(a => a.Product.ProductName, (key, items) => new CartList
                 {
+
                     Name = key,
+                    ID = items.Select(x => x.ProductID).First(),
                     Image = items.Select(x => x.Product.Image).First(),
+                    PtID = items.Select(x => x.Product.ProductTypeID).First(),
                     Description = items.Select(x => x.Product.Description).First(),
                     Quntity = items.Count(),
                     Price = items.Sum(item => Convert.ToInt32(item.Product.Price))
                 }).ToList();
-   
+
                 ViewBag.Total = CartItems.Sum(price => price.Product.Price);
                 Total = 0;
-                Total = Math.Round(Convert.ToDouble(CartItems.Sum(price => price.Product.Price)),2);
+                Total = Math.Round(Convert.ToDouble(CartItems.Where(x=> x.Product.ProductTypeID != 2).Sum(price => price.Product.Price)),2);
+                TotalnoVat = Math.Round(Convert.ToDouble(CartItems.Where(x => x.Product.ProductTypeID == 2).Sum(price => price.Product.Price)), 2);
+                
                 VatTotal = 0;
                 VatTotal = Math.Round(0.15*Total,2);
+
                 Gtotal = 0;
-                Gtotal = Total + VatTotal;
+                Gtotal = Total + VatTotal + TotalnoVat;
 
             }
             return View(cartObjects);
+        }
+
+
+        public async Task<ActionResult> ResetShopItems()
+        {
+            foreach(var item in HomeController.CartLines)
+            {
+                var ItemInShop = db.Products.Where(i => i.ProductID == item.ProductID).First();
+                ItemInShop.Stock.Quantity++;
+                await db.SaveChangesAsync();       
+            }
+            HomeController.CartLines.Clear();
+            TempData["Message"] = "Successfully Cleared Cart";
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -116,7 +137,6 @@ namespace EnginX.Controllers
             //Route back to View Cart
             return RedirectToAction("Index", "Carts");
         }
-
 
         public ActionResult Checkout()
         {

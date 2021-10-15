@@ -12,11 +12,13 @@ namespace EnginX.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Feedback
+    public partial class AspNetUserClaim
     {
-        public int FeedbackID { get; set; }
-        public string Description { get; set; }
-        public Nullable<int> OrderID { get; set; }
-        public string Rating { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

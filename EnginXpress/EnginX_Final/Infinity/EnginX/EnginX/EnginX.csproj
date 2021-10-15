@@ -229,6 +229,12 @@
     <Compile Include="Models\AspNetUser.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cart.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -401,9 +407,31 @@
     <Content Include="Content\Pics\Logo.jpeg" />
     <Content Include="Content\shoppics\albany.png" />
     <Content Include="Content\shoppics\astros.png" />
+    <Content Include="Content\shoppics\biltong.png" />
     <Content Include="Content\shoppics\bonaqua-water-500ml.png" />
+    <Content Include="Content\shoppics\cadbury.png" />
+    <Content Include="Content\shoppics\charcoal.png" />
+    <Content Include="Content\shoppics\clover.png" />
+    <Content Include="Content\shoppics\coke.png" />
+    <Content Include="Content\shoppics\eggs.png" />
+    <Content Include="Content\shoppics\energade.png" />
+    <Content Include="Content\shoppics\fanta.png" />
+    <Content Include="Content\shoppics\feerrero.png" />
+    <Content Include="Content\shoppics\lays.png" />
+    <Content Include="Content\shoppics\liquifruit.png" />
+    <Content Include="Content\shoppics\magnum.png" />
     <Content Include="Content\shoppics\marlboro-gold-pack.jpg" />
     <Content Include="Content\shoppics\niknaks-original-cheese.png" />
+    <Content Include="Content\shoppics\peanuts.png" />
+    <Content Include="Content\shoppics\powerade.png" />
+    <Content Include="Content\shoppics\ps.png" />
+    <Content Include="Content\shoppics\pump.png" />
+    <Content Include="Content\shoppics\redbull.png" />
+    <Content Include="Content\shoppics\simba.png" />
+    <Content Include="Content\shoppics\sprite.png" />
+    <Content Include="Content\shoppics\sunlight.png" />
+    <Content Include="Content\shoppics\tex.png" />
+    <Content Include="Content\shoppics\tuffy.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

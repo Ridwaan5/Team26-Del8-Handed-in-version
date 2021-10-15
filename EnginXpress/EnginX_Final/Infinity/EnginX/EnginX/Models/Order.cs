@@ -17,7 +17,6 @@ namespace EnginX.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            this.Feedbacks = new HashSet<Feedback>();
             this.Order_Product = new HashSet<Order_Product>();
             this.Order_Product1 = new HashSet<Order_Product>();
         }
@@ -31,9 +30,6 @@ namespace EnginX.Models
         public int PaymentID { get; set; }
     
         public virtual Address Address { get; set; }
-        public virtual Customer Customer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Feedback> Feedbacks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Product> Order_Product { get; set; }
         public virtual Order Order1 { get; set; }
@@ -42,5 +38,6 @@ namespace EnginX.Models
         public virtual Payment Payment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Product> Order_Product1 { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

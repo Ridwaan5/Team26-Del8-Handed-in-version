@@ -4,6 +4,9 @@
 }
 
 <style>
+
+
+
     body {
         background: #eee;
     }
@@ -137,46 +140,54 @@
             <div id="pdf">
                 <!-- end invoice-company -->
                 <!-- begin invoice-header -->
-                <div id="unlinked" class="invoice-header">
-                    <div class="p-1 bg-light rounded rounded-pill mb-4">
-                        <div class="input-group rounded">
-                            <input type="search" id="search" placeholder="Enter Cell Number " class="form-control border-0 bg-light text-center">
-                            <div class="input-group-append">
-                                <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <div id="unlinked" class="invoice-header text-center">
+                        <h4 class="tcolor">Please Enter Cell Number</h4>
+                        <div class="p-1 bg-light rounded rounded-pill mb-4">
+                            <div class="input-group rounded">
+                                <input required maxlength="10" id="search" placeholder="Search Here" class="form-control border-0 bg-light text-center">
+                                <div class="input-group-append">
+                                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="pulsingButton" onclick="Locate()">Confirm Number</a>
+                    </div>
+                }
+                else
+                {
+                    <div id="linked" class="invoice-header">
+                        <div class="invoice-from">
+                            <small>from</small>
+                            <address class="m-t-5 m-b-5">
+                                <strong class="text-inverse">Engen X</strong><br>
+                                1 Roper Street<br>
+                                Pretoria, 0023<br>
+                                Phone: (123) 456-7890<br>
+                                Fax: (123) 456-7890
+                            </address>
+                        </div>
+                        <div class="invoice-to">
+                            <small>to</small>
+                            <address class="m-t-5 m-b-5">
+                                <strong class="text-inverse">Company Name</strong><br>
+                                Street Address<br>
+                                City, Zip Code<br>
+                                Phone: (123) 456-7890<br>
+                                Fax: (123) 456-7890
+                            </address>
+                        </div>
+                        <div class="invoice-date">
+                            <small>Invoice / July period</small>
+                            <div class="date text-inverse m-t-5">August 3,2012</div>
+                            <div class="invoice-detail">
+                                #0000123DSS<br>
+                                Services Product
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="linked" hidden class="invoice-header">
-                    <div class="invoice-from">
-                        <small>from</small>
-                        <address class="m-t-5 m-b-5">
-                            <strong class="text-inverse">Engen X</strong><br>
-                            1 Roper Street<br>
-                            Pretoria, 0023<br>
-                            Phone: (123) 456-7890<br>
-                            Fax: (123) 456-7890
-                        </address>
-                    </div>
-                    <div class="invoice-to">
-                        <small>to</small>
-                        <address class="m-t-5 m-b-5">
-                            <strong class="text-inverse">Company Name</strong><br>
-                            Street Address<br>
-                            City, Zip Code<br>
-                            Phone: (123) 456-7890<br>
-                            Fax: (123) 456-7890
-                        </address>
-                    </div>
-                    <div class="invoice-date">
-                        <small>Invoice / July period</small>
-                        <div class="date text-inverse m-t-5">August 3,2012</div>
-                        <div class="invoice-detail">
-                            #0000123DSS<br>
-                            Services Product
-                        </div>
-                    </div>
-                </div>
+                }
                 <!-- end invoice-header -->
                 <!-- begin invoice-content -->
                 <div class="invoice-content">
@@ -185,6 +196,7 @@
                         <table class="table table-invoice">
                             <thead>
                                 <tr>
+
                                     <th>PRODUCT NAME</th>
                                     <th class="text-center" width="10%">QUANTITY</th>
                                     <th class="text-center" width="10%">PRICE</th>
@@ -197,12 +209,21 @@
                                 {
                                     <tr>
                                         <td>
+                                            <img src="@Url.Content(console.Image)" height="30" width="30">
                                             <span class="text-inverse">@console.Name</span><br>
                                             <small>@console.Description</small>
                                         </td>
-                                        <td class="text-center">R @console.Quntity</td>
+                                        <td class="text-center">@console.Quntity</td>
                                         <td class="text-center">R @console.Price</td>
-                                        <td class="text-center">R @Math.Round((0.15 * Convert.ToDouble(console.Price)), 2)</td>
+                                        @if (console.PtID == 2)
+                                        {
+                                            <td class="text-center">N/A</td>
+                                        }
+                                        else
+                                        {
+                                            <td class="text-center">R @Math.Round((0.15 * Convert.ToDouble(console.Price)), 2)</td>
+
+                                        }
                                         <td class="text-right"> R @Math.Round(Convert.ToDouble(console.Price) + Math.Round((0.15 * Convert.ToDouble(console.Price)), 2), 2)</td>
                                     </tr>
                                 }
@@ -258,16 +279,111 @@
 </div>
 <div style="display: none;" id="editor"></div>
 
+<!-- Modal -->
+<div class="modal fade"  id="modal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-radius:15px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="notfound" class="text-center container">
+                    <i class="fa fa-question" style="color: orange;font-size: 50px;"></i>
+                    <br />
+                    <h5><b>Whoops , Looks Like you not signed up yet </b></h5>
+                    <h6>Click Below to Sign up 🙂 </h6>
+                </div>
+            </div>
+            <div class="modal-footer" style="justify-content:center !important">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Get, new { target = "_blank" }))
+                {
+                    <button type="submit" class="btn btn-sm btn tbcolor" data-bs-dismiss="modal" > Sign Up</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script>
-        $('#document').ready(function () {
-
-
-        });
+        //var
         var element = $("#pdf"); // global variable
         var getCanvas;
+        $('#document').ready(function () {
 
+        });
+        //functions
+        function Locate() {
+            var data = $('#search').val();
+
+            if ($('#search').val() == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Number',
+                    text: 'Please Enter a Number',
+                    timer: 5000,
+                    showConfirmButton: false
+                })
+                return;
+            } else {
+                if (data.length == 10) {
+                    if (phone_validate(data)) {
+                        console.log("correct format");
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Incorrect Number',
+                            text: 'Phone Number has to be a valid Number Sequence',
+                            timer: 5000,
+                            showConfirmButton: false
+                        });
+                        return;
+                    }
+                }
+                else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Oops',
+                        text: 'Phone Number is Missing a few Number, Please double check  🙂 ',
+                        timer: 5000,
+                        showConfirmButton: false
+                    });
+                    return;
+                }
+            }
+
+
+            $.ajax({
+                url: '/Home/searchCustomer/',
+                data: "{ 'prefix': '" + data + "'}",
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.CustomerID == 0) {
+                        $('#modal').modal('show');
+                    }
+                    else {
+                        //do linking here
+                        debugger;
+                        $('#notfound').prop('hidden', true);
+                    }
+                }
+            });
+        };
+        $('#modal').on('hidden.bs.modal', function ()
+        {
+            $('#search').val('');
+        });
+          
+        function phone_validate(phno) {
+            var regexPattern = new RegExp(/^[0-9]+$/);    // regular expression pattern
+            return regexPattern.test(phno);
+        }
         function getPDF() {
 
             html2canvas(element, {
@@ -287,6 +403,7 @@
             });
 
         };
+
 
     </script>
 }
