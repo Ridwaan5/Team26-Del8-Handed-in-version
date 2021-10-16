@@ -124,12 +124,14 @@ namespace EnginX.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model,int cityID)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber = model.MobileNumber };
+                string Number = model.MobileNumber.Remove(0, 1);
+                string cell = "+27" + Number;
+
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber = cell, EmailConfirmed = true ,PhoneNumberConfirmed = true};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 await db.SaveChangesAsync();
                 var result2 = UserManager.AddToRole(user.Id, "Customer");
@@ -137,11 +139,12 @@ namespace EnginX.Controllers
                 {
                     var User = db.AspNetUsers.Where(x => x.Email == model.Email).FirstOrDefault();
                     User newUser = new User();
+
                     newUser.Username = User.UserName;
                     newUser.Name = model.Name;
                     newUser.Surname = model.Surname;
                     newUser.Email = model.Email;
-                    newUser.ContactNumber = model.MobileNumber;
+                    newUser.ContactNumber = cell;
                     newUser.UserRoleID = Convert.ToInt32(db.User_Roles.Where( r => r.UserRoleID == 5 ).First().UserRoleID);
                     db.Users.Add(newUser);
                     await db.SaveChangesAsync();
@@ -178,6 +181,13 @@ namespace EnginX.Controllers
                     body = body.Replace("{Password}", model.Password);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", body);
                     ViewBag.Link = callbackUrl;
+                     var message = new IdentityMessage
+                        {
+                            Destination =cell,
+                            Body = "Hi " +  " " + model.Name + " 😁" + " Welcome To EngenX. " + "This number has successfully been linked..."
+                     };
+                    await UserManager.SmsService.SendAsync(message);
+                    AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
                     return View("DisplayEmail");
                 }
                 AddErrors(result);
@@ -221,7 +231,7 @@ namespace EnginX.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindByNameAsync(model.Email);
+                var user = await UserManager.FindByEmailAsync(model.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
@@ -232,7 +242,7 @@ namespace EnginX.Controllers
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 var home = Url.Action("Index", "Home", Request.Url.Scheme);
                 string body = string.Empty;
-                using (StreamReader reader = new StreamReader(Server.MapPath("~/Templates/MainReset.html")))
+                using (StreamReader reader = new StreamReader(Server.MapPath("~/Templates/NewDetails.html")))
                 {
                     body = reader.ReadToEnd();
                 }
@@ -274,15 +284,22 @@ namespace EnginX.Controllers
             {
                 return View(model);
             }
-            var user = await UserManager.FindByNameAsync(model.Email);
+            var user = await UserManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
-                // Don't reveal that the user does not exist
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
+                string body = string.Empty;
+                using (StreamReader reader = new StreamReader(Server.MapPath("~/Templates/MainReset.html")))
+                {
+                    body = reader.ReadToEnd();
+                }
+                body = body.Replace("{UserName}", model.Email);
+                body = body.Replace("{Password}", model.Password);
+                await UserManager.SendEmailAsync(user.Id, "Password Changed", body);
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
             AddErrors(result);

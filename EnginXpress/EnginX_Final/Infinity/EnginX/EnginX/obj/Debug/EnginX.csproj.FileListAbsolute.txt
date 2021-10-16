@@ -329,7 +329,6 @@ E:\Infinity\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
 E:\Infinity\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
 E:\Infinity\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csprojAssemblyReference.cache
-C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.Initial.resources
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
@@ -367,8 +366,6 @@ C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Inf
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Antlr3.Runtime.dll
-C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.dll
-C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.SqlServer.dll
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -427,6 +424,8 @@ C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Inf
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CopyComplete
 C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.InitialCreate.resources
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll.config
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.pdb
@@ -522,9 +521,15 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microso
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.InitialCreate.resources
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CoreCompileInputs.cache
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CopyComplete
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Logging.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Tokens.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Twilio.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Tokens.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Twilio.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll.config
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll

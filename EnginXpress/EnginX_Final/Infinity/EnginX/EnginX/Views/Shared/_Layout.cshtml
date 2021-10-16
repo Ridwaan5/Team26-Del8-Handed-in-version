@@ -13,6 +13,13 @@
     @Scripts.Render("~/Scripts/Common.js")
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://js.yoco.com/sdk/v1/yoco-sdk-web.js"></script>
+
+
     <style>
         @@import url('https://fonts.googleapis.com/css?family=Roboto');
 
@@ -28,7 +35,7 @@
         i {
             margin-right: 10px;
         }
-        /*----------multi-level-accordian-menu------------*/
+        /*----------bootstrap-navbar-css------------*/
         .navbar-logo {
             padding: 15px;
             color: #fff;
@@ -239,41 +246,91 @@
                         if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item ">
-                                <a class="nav-link" href=" javascript:void(0); "><i class="far fa-address-book"></i>Employees</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href=" javascript:void(0); "><i class="fas fa-home"></i>Dashboard</a>
+                                <a class="nav-link" href="/employees/Index"><i class="far fa-address-book"></i>Employees</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href=" javascript:void(0); "><i class="far fa-address-book"></i>User Roles</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href=" javascript:void(0); "><i class="fas fa-user"></i>Customers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href=" javascript:void(0); "><i class="fas fa-clipboard-list"></i>Orders</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0); "><i class="far fa-boxes"></i>Products</a>
+                                <a class="nav-link" href="/Home/Admin"><i class="fas fa-home"></i>Dashboard</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href=" javascript:void(0); "><i class="far fa-address-book"></i>Suppliers</a>
+                                <a class="nav-link" href="/user_role/Index"><i class="far fa-address-book"></i>User Roles</a>
                             </li>
-                            <li class="nav-item" id="supplier">
-                                <a class="nav-link" href="javascript:void(0);" id="/supplier_order/index">
-                                    <i class="fas fa-truck-loading"></i>Supplier Orders
-                                </a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/customers/Index"><i class="fas fa-user"></i>Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/products/Index"><i class="far fa-boxes"></i>Products</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/suppliers/Index"><i class="far fa-address-book"></i>Suppliers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/supplier_order/index"><i class="fas fa-truck-loading"></i>Supplier Orders</a>
                             </li>
 
+                        }
+                        if (User.IsInRole("Cashier"))
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/Home/Cashier"><i class="fas fa-home"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/customers/Index"><i class="fas fa-user"></i>Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>
+                        }
+                        if (User.IsInRole("Driver"))
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/Home/Driver"><i class="fas fa-home"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>
+                        }
+                        if (User.IsInRole("Clerk"))
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/Home/Clerk"><i class="fas fa-home"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>
+                        }
+                        if (User.IsInRole("Customer"))
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/Home/Customer"><i class="fas fa-home"></i>Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home/index"><i class="fas fa-home"></i></a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/carts/index">
+                                    <i class="far fa-shopping-cart"></i><span>
+                                        @if (ViewBag.Count != null)
+                                        {
+                                            <sup class="sup">@ViewBag.Count</sup>
+                                        }
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
+                            </li>
                         }
                     }
                     else
                     {
-                        <li class="nav-item active ">
-                            <a class="nav-link" href="javascript:void(0);"><i class="fas fa-home"></i></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home/index"><i class="fas fa-home"></i></a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="javascript:void(0);">
+                            <a class="nav-link" href="/carts/index">
                                 <i class="far fa-shopping-cart"></i><span>
                                     @if (ViewBag.Count != null)
                                     {
@@ -283,7 +340,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);"><i class="far fa-question"></i>Help</a>
+                            <a class="nav-link" href="/help/index"><i class="far fa-question"></i>Help</a>
                         </li>
                     }
 
@@ -302,7 +359,8 @@
     @RenderSection("scripts", required: false)
     <script>
         // ---------Responsive-navbar-active-animation-----------
-        function test() {
+        function test()
+        {
             var tabsNewAnim = $('#navbarSupportedContent');
             var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
             var activeItemNewAnim = tabsNewAnim.find('.active');
@@ -338,7 +396,27 @@
             setTimeout(function () { test(); }, 500);
         });
         $(".navbar-toggler").click(function () {
+            $(".navbar-collapse").slideToggle(300);
             setTimeout(function () { test(); });
+        });
+
+
+        // --------------add active class-on another-page move----------
+        jQuery(document).ready(function ($) {
+            // Account for home page with empty path
+            var path = window.location.pathname.split("/");
+            var p = "/" + path[1] + "/" + path[2];
+            if (p == '//undefined' || p == '/Home/Index') {
+                p = '/home/index';
+            }
+            if (p == '/Carts/undefined' || p == '/Carts/Index' || p == '/Carts/Checkout')
+            {
+                p = '/carts/index';
+            }
+            debugger;
+  
+            var target = $('#navbarSupportedContent ul li a[href="' + p + '"]');
+            target.parent().addClass('active');
         });
     </script>
 </body>

@@ -1,385 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="Infinity_DbModelStoreContainer" CdmEntityContainer="Infinity_DbEntities">
-    <EntitySetMapping Name="Addresses">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Address">
-        <MappingFragment StoreEntitySet="Address">
-          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
-          <ScalarProperty Name="CityID" ColumnName="CityID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
-          <ScalarProperty Name="StreetName" ColumnName="StreetName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Administrators">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Administrator">
-        <MappingFragment StoreEntitySet="Administrator">
-          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetRoles">
-      <EntityTypeMapping TypeName="Infinity_DbModel.AspNetRole">
-        <MappingFragment StoreEntitySet="AspNetRoles">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="Infinity_DbModel.AspNetUser">
-        <MappingFragment StoreEntitySet="AspNetUsers">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Cart_Line">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Cart_Line">
-        <MappingFragment StoreEntitySet="Cart_Line">
-          <ScalarProperty Name="CartLineID" ColumnName="CartLineID" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="CartID" ColumnName="CartID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Cities">
-      <EntityTypeMapping TypeName="Infinity_DbModel.City">
-        <MappingFragment StoreEntitySet="City">
-          <ScalarProperty Name="cityID" ColumnName="cityID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Code" ColumnName="Code" />
-          <ScalarProperty Name="provinceID" ColumnName="provinceID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Company_Information">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Company_Information">
-        <MappingFragment StoreEntitySet="Company_Information">
-          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-          <ScalarProperty Name="CompanyPhysicalAddress" ColumnName="CompanyPhysicalAddress" />
-          <ScalarProperty Name="CompanyTelephoneNumber" ColumnName="CompanyTelephoneNumber" />
-          <ScalarProperty Name="CompanyEmailAddress" ColumnName="CompanyEmailAddress" />
-          <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Customers">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Customer">
-        <MappingFragment StoreEntitySet="Customer">
-          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DeliverStatus">
-      <EntityTypeMapping TypeName="Infinity_DbModel.DeliverStatu">
-        <MappingFragment StoreEntitySet="DeliverStatus">
-          <ScalarProperty Name="DeliveryStatusID" ColumnName="DeliveryStatusID" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Deliveries">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Delivery">
-        <MappingFragment StoreEntitySet="Delivery">
-          <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="DeliveryStatusID" ColumnName="DeliveryStatusID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Employees">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Employee">
-        <MappingFragment StoreEntitySet="Employee">
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-          <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="IsCheckedIn" ColumnName="IsCheckedIn" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Feedbacks">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Feedback">
-        <MappingFragment StoreEntitySet="Feedback">
-          <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-          <ScalarProperty Name="Rating" ColumnName="Rating" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Inventories">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Inventory">
-        <MappingFragment StoreEntitySet="Inventory">
-          <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
-          <ScalarProperty Name="InventoryDescription" ColumnName="InventoryDescription" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Log_In">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Log_In">
-        <MappingFragment StoreEntitySet="Log-In">
-          <ScalarProperty Name="LogInID" ColumnName="LogInID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="Time" ColumnName="Time" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Log_out">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Log_out">
-        <MappingFragment StoreEntitySet="Log-out">
-          <ScalarProperty Name="LogOutID" ColumnName="LogOutID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="Time" ColumnName="Time" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Orders">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Order">
-        <MappingFragment StoreEntitySet="Order">
-          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-          <ScalarProperty Name="Order_Number" ColumnName="Order_Number" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
-          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
-          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Order_Product">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Order_Product">
-        <MappingFragment StoreEntitySet="Order_Product">
-          <ScalarProperty Name="OrderProductID" ColumnName="OrderProductID" />
-          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Order_Status">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Order_Status">
-        <MappingFragment StoreEntitySet="Order_Status">
-          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
-          <ScalarProperty Name="Order_Status1" ColumnName="Order_Status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Payments">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Payment">
-        <MappingFragment StoreEntitySet="Payment">
-          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
-          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
-          <ScalarProperty Name="Payment_Total" ColumnName="Payment_Total" />
-          <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
-          <ScalarProperty Name="Payment_Time" ColumnName="Payment_Time" />
-          <ScalarProperty Name="isPaid" ColumnName="isPaid" />
-          <ScalarProperty Name="Payment_Amount" ColumnName="Payment_Amount" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Payment_Method">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Payment_Method">
-        <MappingFragment StoreEntitySet="Payment_Method">
-          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Product">
-        <MappingFragment StoreEntitySet="Product">
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
-          <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="InStock" ColumnName="InStock" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="StockID" ColumnName="StockID" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Product_Categories">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Product_Category">
-        <MappingFragment StoreEntitySet="Product Category">
-          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Product_Types">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Product_Type">
-        <MappingFragment StoreEntitySet="Product Type">
-          <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Product_Content">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Product_Content">
-        <MappingFragment StoreEntitySet="Product_Content">
-          <ScalarProperty Name="ProductContentID" ColumnName="ProductContentID" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Provinces">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Province">
-        <MappingFragment StoreEntitySet="Province">
-          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Stocks">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Stock">
-        <MappingFragment StoreEntitySet="Stock">
-          <ScalarProperty Name="StockID" ColumnName="StockID" />
-          <ScalarProperty Name="Stock_code" ColumnName="Stock_code" />
-          <ScalarProperty Name="Stock_Amount" ColumnName="Stock_Amount" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Stock_Line">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Stock_Line">
-        <MappingFragment StoreEntitySet="Stock_Line">
-          <ScalarProperty Name="StockLineID" ColumnName="StockLineID" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="Reason" ColumnName="Reason" />
-          <ScalarProperty Name="StockID" ColumnName="StockID" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Suppliers">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Supplier">
-        <MappingFragment StoreEntitySet="Supplier">
-          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Website" ColumnName="Website" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Supplier_Order_Status">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Supplier_Order_Status">
-        <MappingFragment StoreEntitySet="Supplier Order Status">
-          <ScalarProperty Name="SOStatusID" ColumnName="SOStatusID" />
-          <ScalarProperty Name="SOStatusDescription" ColumnName="SOStatusDescription" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Supplier_Order">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Supplier_Order">
-        <MappingFragment StoreEntitySet="Supplier_Order">
-          <ScalarProperty Name="SupplierOrderID" ColumnName="SupplierOrderID" />
-          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
-          <ScalarProperty Name="SOStatusID" ColumnName="SOStatusID" />
-          <ScalarProperty Name="SupplierOrderNumber" ColumnName="SupplierOrderNumber" />
-          <ScalarProperty Name="SupplierOrderDate" ColumnName="SupplierOrderDate" />
-          <ScalarProperty Name="SupplierOrderDescription" ColumnName="SupplierOrderDescription" />
-          <ScalarProperty Name="SupplierOrderQuantity" ColumnName="SupplierOrderQuantity" />
-          <ScalarProperty Name="SupplierOrderNote" ColumnName="SupplierOrderNote" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Supplier_Order_Line">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Supplier_Order_Line">
-        <MappingFragment StoreEntitySet="Supplier_Order_Line">
-          <ScalarProperty Name="SupplierOrderLineID" ColumnName="SupplierOrderLineID" />
-          <ScalarProperty Name="SupplierOrderID" ColumnName="SupplierOrderID" />
-          <ScalarProperty Name="StockID" ColumnName="StockID" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="Infinity_DbModel.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
-          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="User_Roles">
-      <EntityTypeMapping TypeName="Infinity_DbModel.User_Role">
-        <MappingFragment StoreEntitySet="User Role">
-          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Vats">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Vat">
-        <MappingFragment StoreEntitySet="Vat">
-          <ScalarProperty Name="VatID" ColumnName="VatID" />
-          <ScalarProperty Name="VatAmount" ColumnName="VatAmount" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="WriteOffLines">
-      <EntityTypeMapping TypeName="Infinity_DbModel.WriteOffLine">
-        <MappingFragment StoreEntitySet="WriteOffLine">
-          <ScalarProperty Name="WriteOffLineID" ColumnName="WriteOffLineID" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="WriteOffSID" ColumnName="WriteOffSID" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="WriteOffS">
-      <EntityTypeMapping TypeName="Infinity_DbModel.WriteOff">
-        <MappingFragment StoreEntitySet="WriteOffS">
-          <ScalarProperty Name="WriteOffSID" ColumnName="WriteOffSID" />
-          <ScalarProperty Name="Reason" ColumnName="Reason" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Infinity_DbModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-      <EndProperty Name="AspNetRoles">
-        <ScalarProperty Name="Id" ColumnName="RoleId" />
-      </EndProperty>
-      <EndProperty Name="AspNetUsers">
-        <ScalarProperty Name="Id" ColumnName="UserId" />
-      </EndProperty>
-    </AssociationSetMapping>
     <EntitySetMapping Name="C__MigrationHistory">
       <EntityTypeMapping TypeName="Infinity_DbModel.C__MigrationHistory">
         <MappingFragment StoreEntitySet="__MigrationHistory">
@@ -387,6 +8,70 @@
           <ScalarProperty Name="Model" ColumnName="Model" />
           <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
           <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+          <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Administrators">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Administrator">
+        <MappingFragment StoreEntitySet="Administrator">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Infinity_DbModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Infinity_DbModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Infinity_DbModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Infinity_DbModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -399,5 +84,339 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Cart_Line">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Cart_Line">
+        <MappingFragment StoreEntitySet="Cart_Line">
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CartLineID" ColumnName="CartLineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="Infinity_DbModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="provinceID" ColumnName="provinceID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="cityID" ColumnName="cityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company_Information">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Company_Information">
+        <MappingFragment StoreEntitySet="Company_Information">
+          <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
+          <ScalarProperty Name="CompanyEmailAddress" ColumnName="CompanyEmailAddress" />
+          <ScalarProperty Name="CompanyTelephoneNumber" ColumnName="CompanyTelephoneNumber" />
+          <ScalarProperty Name="CompanyPhysicalAddress" ColumnName="CompanyPhysicalAddress" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliverStatus">
+      <EntityTypeMapping TypeName="Infinity_DbModel.DeliverStatu">
+        <MappingFragment StoreEntitySet="DeliverStatus">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DeliveryStatusID" ColumnName="DeliveryStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deliveries">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Delivery">
+        <MappingFragment StoreEntitySet="Delivery">
+          <ScalarProperty Name="DeliveryStatusID" ColumnName="DeliveryStatusID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="IsCheckedIn" ColumnName="IsCheckedIn" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Inventory">
+        <MappingFragment StoreEntitySet="Inventory">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="InventoryDescription" ColumnName="InventoryDescription" />
+          <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log_In">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Log_In">
+        <MappingFragment StoreEntitySet="Log-In">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LogInID" ColumnName="LogInID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log_out">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Log_out">
+        <MappingFragment StoreEntitySet="Log-out">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LogOutID" ColumnName="LogOutID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Order_Number" ColumnName="Order_Number" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Product">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Order_Product">
+        <MappingFragment StoreEntitySet="Order_Product">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderProductID" ColumnName="OrderProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Status">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Order_Status">
+        <MappingFragment StoreEntitySet="Order_Status">
+          <ScalarProperty Name="Order_Status1" ColumnName="Order_Status" />
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="Payment_Amount" ColumnName="Payment_Amount" />
+          <ScalarProperty Name="isPaid" ColumnName="isPaid" />
+          <ScalarProperty Name="Payment_Time" ColumnName="Payment_Time" />
+          <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
+          <ScalarProperty Name="Payment_Total" ColumnName="Payment_Total" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment_Method">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Payment_Method">
+        <MappingFragment StoreEntitySet="Payment_Method">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="StockID" ColumnName="StockID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="InStock" ColumnName="InStock" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Categories">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Product_Category">
+        <MappingFragment StoreEntitySet="Product Category">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Types">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Product_Type">
+        <MappingFragment StoreEntitySet="Product Type">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Content">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Product_Content">
+        <MappingFragment StoreEntitySet="Product_Content">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductContentID" ColumnName="ProductContentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinces">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Province">
+        <MappingFragment StoreEntitySet="Province">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stocks">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Stock_Amount" ColumnName="Stock_Amount" />
+          <ScalarProperty Name="Stock_code" ColumnName="Stock_code" />
+          <ScalarProperty Name="StockID" ColumnName="StockID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stock_Line">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Stock_Line">
+        <MappingFragment StoreEntitySet="Stock_Line">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="StockID" ColumnName="StockID" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="StockLineID" ColumnName="StockLineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Order_Status">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Supplier_Order_Status">
+        <MappingFragment StoreEntitySet="Supplier Order Status">
+          <ScalarProperty Name="SOStatusDescription" ColumnName="SOStatusDescription" />
+          <ScalarProperty Name="SOStatusID" ColumnName="SOStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Order">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Supplier_Order">
+        <MappingFragment StoreEntitySet="Supplier_Order">
+          <ScalarProperty Name="SupplierOrderNote" ColumnName="SupplierOrderNote" />
+          <ScalarProperty Name="SupplierOrderQuantity" ColumnName="SupplierOrderQuantity" />
+          <ScalarProperty Name="SupplierOrderDescription" ColumnName="SupplierOrderDescription" />
+          <ScalarProperty Name="SupplierOrderDate" ColumnName="SupplierOrderDate" />
+          <ScalarProperty Name="SupplierOrderNumber" ColumnName="SupplierOrderNumber" />
+          <ScalarProperty Name="SOStatusID" ColumnName="SOStatusID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="SupplierOrderID" ColumnName="SupplierOrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_Order_Line">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Supplier_Order_Line">
+        <MappingFragment StoreEntitySet="Supplier_Order_Line">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="StockID" ColumnName="StockID" />
+          <ScalarProperty Name="SupplierOrderID" ColumnName="SupplierOrderID" />
+          <ScalarProperty Name="SupplierOrderLineID" ColumnName="SupplierOrderLineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Infinity_DbModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Roles">
+      <EntityTypeMapping TypeName="Infinity_DbModel.User_Role">
+        <MappingFragment StoreEntitySet="User Role">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vats">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Vat">
+        <MappingFragment StoreEntitySet="Vat">
+          <ScalarProperty Name="VatAmount" ColumnName="VatAmount" />
+          <ScalarProperty Name="VatID" ColumnName="VatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WriteOffLines">
+      <EntityTypeMapping TypeName="Infinity_DbModel.WriteOffLine">
+        <MappingFragment StoreEntitySet="WriteOffLine">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="WriteOffSID" ColumnName="WriteOffSID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="WriteOffLineID" ColumnName="WriteOffLineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WriteOffS">
+      <EntityTypeMapping TypeName="Infinity_DbModel.WriteOff">
+        <MappingFragment StoreEntitySet="WriteOffS">
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="WriteOffSID" ColumnName="WriteOffSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Infinity_DbModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

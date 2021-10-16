@@ -34,6 +34,25 @@
     <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
   <EntityType Name="AspNetUserRoles">
     <Key>
       <PropertyRef Name="UserId" />
@@ -327,8 +346,8 @@
     <Property Name="Username" Type="varchar(max)" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
     <Property Name="Surname" Type="varchar" MaxLength="50" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" />
-    <Property Name="ContactNumber" Type="char" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="20" />
     <Property Name="UserRoleID" Type="int" />
   </EntityType>
   <EntityType Name="User Role">
@@ -421,6 +440,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Cart_Line_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Cart_Line" Type="Self.Cart_Line" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Cart_Line">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_City_Province">
     <End Role="Province" Type="Self.Province" Multiplicity="1" />
     <End Role="City" Type="Self.City" Multiplicity="*" />
@@ -454,6 +485,34 @@
       </Principal>
       <Dependent Role="Customer">
         <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -498,11 +557,11 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Delivery_Employee">
-    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Delivery" Type="Self.Delivery" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="EmployeeID" />
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
       </Principal>
       <Dependent Role="Delivery">
         <PropertyRef Name="UserID" />
@@ -518,18 +577,6 @@
       </Principal>
       <Dependent Role="Employee">
         <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Feedback_Order">
-    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
-    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
-      </Principal>
-      <Dependent Role="Feedback">
-        <PropertyRef Name="OrderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -718,6 +765,8 @@
     <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
@@ -773,6 +822,10 @@
       <End Role="Customer" EntitySet="Customer" />
       <End Role="Cart" EntitySet="Cart" />
     </AssociationSet>
+    <AssociationSet Name="FK_Cart_Line_Product" Association="Self.FK_Cart_Line_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Cart_Line" EntitySet="Cart_Line" />
+    </AssociationSet>
     <AssociationSet Name="FK_City_Province" Association="Self.FK_City_Province">
       <End Role="Province" EntitySet="Province" />
       <End Role="City" EntitySet="City" />
@@ -784,6 +837,14 @@
     <AssociationSet Name="FK_Customer_User" Association="Self.FK_Customer_User">
       <End Role="User" EntitySet="User" />
       <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
     </AssociationSet>
     <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
@@ -798,16 +859,12 @@
       <End Role="Delivery" EntitySet="Delivery" />
     </AssociationSet>
     <AssociationSet Name="FK_Delivery_Employee" Association="Self.FK_Delivery_Employee">
-      <End Role="Employee" EntitySet="Employee" />
+      <End Role="User" EntitySet="User" />
       <End Role="Delivery" EntitySet="Delivery" />
     </AssociationSet>
     <AssociationSet Name="FK_Employee_User" Association="Self.FK_Employee_User">
       <End Role="User" EntitySet="User" />
       <End Role="Employee" EntitySet="Employee" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Feedback_Order" Association="Self.FK_Feedback_Order">
-      <End Role="Order" EntitySet="Order" />
-      <End Role="Feedback" EntitySet="Feedback" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_Address" Association="Self.FK_Order_Address">
       <End Role="Address" EntitySet="Address" />

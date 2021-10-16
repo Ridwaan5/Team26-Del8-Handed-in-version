@@ -14,6 +14,12 @@ namespace EnginX.Models
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.Cart_Line = new HashSet<Cart_Line>();
+        }
+    
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public int ProductCategoryID { get; set; }
@@ -24,6 +30,8 @@ namespace EnginX.Models
         public Nullable<int> StockID { get; set; }
         public Nullable<decimal> Price { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart_Line> Cart_Line { get; set; }
         public virtual Product_Category Product_Category { get; set; }
         public virtual Product_Type Product_Type { get; set; }
         public virtual Stock Stock { get; set; }

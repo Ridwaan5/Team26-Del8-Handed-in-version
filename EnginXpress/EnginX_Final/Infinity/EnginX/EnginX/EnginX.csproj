@@ -56,6 +56,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.2.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
@@ -95,6 +101,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -156,6 +166,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Twilio, Version=5.66.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.66.0\lib\net451\Twilio.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -191,10 +204,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\AspNetRolesController.cs" />
+    <Compile Include="Controllers\CartsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />
     <Compile Include="Controllers\DeliverStatusController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoriesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -227,9 +242,16 @@
     <Compile Include="Models\AspNetUser.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cart.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartList.cs" />
     <Compile Include="Models\Cart_Line.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -398,9 +420,31 @@
     <Content Include="Content\Pics\Logo.jpeg" />
     <Content Include="Content\shoppics\albany.png" />
     <Content Include="Content\shoppics\astros.png" />
+    <Content Include="Content\shoppics\biltong.png" />
     <Content Include="Content\shoppics\bonaqua-water-500ml.png" />
+    <Content Include="Content\shoppics\cadbury.png" />
+    <Content Include="Content\shoppics\charcoal.png" />
+    <Content Include="Content\shoppics\clover.png" />
+    <Content Include="Content\shoppics\coke.png" />
+    <Content Include="Content\shoppics\eggs.png" />
+    <Content Include="Content\shoppics\energade.png" />
+    <Content Include="Content\shoppics\fanta.png" />
+    <Content Include="Content\shoppics\feerrero.png" />
+    <Content Include="Content\shoppics\lays.png" />
+    <Content Include="Content\shoppics\liquifruit.png" />
+    <Content Include="Content\shoppics\magnum.png" />
     <Content Include="Content\shoppics\marlboro-gold-pack.jpg" />
     <Content Include="Content\shoppics\niknaks-original-cheese.png" />
+    <Content Include="Content\shoppics\peanuts.png" />
+    <Content Include="Content\shoppics\powerade.png" />
+    <Content Include="Content\shoppics\ps.png" />
+    <Content Include="Content\shoppics\pump.png" />
+    <Content Include="Content\shoppics\redbull.png" />
+    <Content Include="Content\shoppics\simba.png" />
+    <Content Include="Content\shoppics\sprite.png" />
+    <Content Include="Content\shoppics\sunlight.png" />
+    <Content Include="Content\shoppics\tex.png" />
+    <Content Include="Content\shoppics\tuffy.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -596,6 +640,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Templates\NewDetails.html" />
     <Content Include="Templates\MainReset.html" />
     <Content Include="Templates\Main.html" />
     <Content Include="Web.config" />
@@ -712,6 +757,9 @@
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Reports\ProductReport.cshtml" />
+    <Content Include="Views\Carts\Index.cshtml" />
+    <Content Include="Views\Help\Index.cshtml" />
+    <Content Include="Views\Carts\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
