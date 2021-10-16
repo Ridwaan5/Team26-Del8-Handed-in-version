@@ -18,7 +18,5 @@ namespace EnginX.Models
         public string Description { get; set; }
         public Nullable<int> OrderID { get; set; }
         public string Rating { get; set; }
-    
-        public virtual Order Order { get; set; }
     }
 }

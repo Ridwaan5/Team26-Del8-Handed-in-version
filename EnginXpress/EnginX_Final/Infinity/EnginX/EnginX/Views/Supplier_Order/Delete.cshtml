@@ -1,0 +1,88 @@
+﻿@model EnginX.Models.Supplier_Order
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Supplier_Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierOrderNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierOrderNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierOrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierOrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierOrderDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierOrderDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierOrderQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierOrderQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierOrderNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierOrderNote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Administrator.AdminID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Administrator.AdminID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier_Order_Status.SOStatusDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier_Order_Status.SOStatusDescription)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

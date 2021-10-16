@@ -29,6 +29,8 @@ namespace EnginX.Models
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Administrator> Administrators { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Cart_Line> Cart_Line { get; set; }

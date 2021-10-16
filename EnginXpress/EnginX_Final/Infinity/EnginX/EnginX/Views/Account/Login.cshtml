@@ -1,10 +1,6 @@
 ﻿@using EnginX.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Log in";
-}
-
-@{
     ViewBag.Title = "Login";
     Layout = null;
 }
@@ -37,6 +33,11 @@
             text-decoration: none;
             box-shadow: 1px 1px 8px rgb(55,105,236);
         }
+
+        .text-danger {
+            color: darkred;
+        }
+
     </style>
 </head>
 <body style="overflow-y:hidden">
@@ -74,9 +75,11 @@
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="RememberMe" name="RememberMe" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                                <br />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>Forgot Password <a href="/Account/ForgotPassword" class="term-service">Reset</a></label>
                             </div>
                             <div class="form-group form-button" id="btndiv">
-                                <input onclick="window.location.href = '@Url.Action("Index", "Home")'" type="submit" name="signin" id="signin" class="form-submit bcolor" value="Log in" style="background-color: rgb(55 105 236) !important;" />
+                                <input type="submit" name="signin" id="signin" class="form-submit bcolor" value="Log in" style="background-color: rgb(55 105 236) !important;" />
                             </div>
                         }
                     </div>
@@ -88,9 +91,6 @@
     <script src="~/Content/Account/vendor/jquery/jquery.min.js"></script>
     <script src="~/Content/Account/js/main.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#btndiv').hide();
-        });
     </script>
 </body>
 </html>

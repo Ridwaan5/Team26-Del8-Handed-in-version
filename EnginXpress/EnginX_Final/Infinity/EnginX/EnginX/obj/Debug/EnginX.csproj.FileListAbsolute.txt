@@ -328,6 +328,104 @@ E:\Infinity\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CopyComp
 E:\Infinity\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
 E:\Infinity\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
 E:\Infinity\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csprojAssemblyReference.cache
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll.config
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.pdb
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csc.exe
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csc.exe.config
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csc.rsp
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csi.exe
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csi.exe.config
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csi.rsp
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Buffers.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Memory.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\vbc.exe
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\vbc.exe.config
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\vbc.rsp
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Antlr3.Runtime.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Newtonsoft.Json.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Owin.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\StarkbankEcdsa.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Net.Http.Formatting.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Helpers.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.WebHost.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Mvc.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Optimization.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Razor.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Deployment.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Razor.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\WebGrease.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Newtonsoft.Json.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.pdb
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Net.Http.Formatting.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.WebHost.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Helpers.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Mvc.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Optimization.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Razor.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Deployment.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Razor.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Antlr3.Runtime.pdb
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CopyComplete
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\User\Desktop\INF 370 Git\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.InitialCreate.resources
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll.config
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.pdb
@@ -348,8 +446,12 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.Managed.Core.targets
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Buffers.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Collections.Immutable.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Memory.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Numerics.Vectors.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Reflection.Metadata.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Text.Encoding.CodePages.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Threading.Tasks.Extensions.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\vbc.exe
@@ -375,6 +477,8 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microso
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Web.Infrastructure.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Newtonsoft.Json.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Owin.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\StarkbankEcdsa.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Net.Http.Formatting.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Helpers.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.dll
@@ -388,6 +492,18 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\WebGrease.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.SqlServer.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Google.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Newtonsoft.Json.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.pdb
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Net.Http.Formatting.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.WebHost.xml
@@ -398,34 +514,22 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Deployment.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Razor.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Newtonsoft.Json.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Antlr3.Runtime.pdb
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Host.SystemWeb.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Facebook.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Google.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Twitter.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.OAuth.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.InitialCreate.resources
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CoreCompileInputs.cache
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CopyComplete
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Buffers.dll
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Memory.dll
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Numerics.Vectors.dll
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.dll
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\StarkbankEcdsa.dll
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.pdb
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.Initial.resources
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Logging.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Tokens.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Twilio.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Tokens.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Twilio.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll.config
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll
@@ -461,8 +565,6 @@ S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Inf
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe.config
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Antlr3.Runtime.dll
-S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.dll
-S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.SqlServer.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -491,8 +593,6 @@ S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Inf
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Razor.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\WebGrease.dll
-S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.xml
-S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.SqlServer.xml
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.xml
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Host.SystemWeb.xml
@@ -519,9 +619,105 @@ S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Inf
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.xml
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.xml
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csprojAssemblyReference.cache
-S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.Initial.resources
+S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.InitialCreate.resources
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
+S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CoreCompileInputs.cache
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CopyComplete
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
+S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll.config
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EnginX.pdb
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csc.exe
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csc.exe.config
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csc.rsp
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csi.exe
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csi.exe.config
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\csi.rsp
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CodeAnalysis.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.CSharp.Core.targets
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.Managed.Core.targets
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\Microsoft.VisualBasic.Core.targets
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Buffers.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Collections.Immutable.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Memory.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Numerics.Vectors.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Reflection.Metadata.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Text.Encoding.CodePages.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\System.Threading.Tasks.Extensions.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\vbc.exe
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\vbc.exe.config
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\vbc.rsp
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe.config
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Antlr3.Runtime.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Host.SystemWeb.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Facebook.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Google.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.OAuth.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Twitter.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Web.Infrastructure.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Newtonsoft.Json.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Owin.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\StarkbankEcdsa.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Net.Http.Formatting.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Helpers.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.WebHost.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Mvc.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Optimization.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Razor.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Deployment.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Razor.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\WebGrease.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Host.SystemWeb.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Facebook.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Google.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.OAuth.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.Twitter.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Newtonsoft.Json.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.pdb
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Net.Http.Formatting.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.WebHost.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Helpers.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Mvc.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Optimization.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Razor.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Deployment.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Razor.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Antlr3.Runtime.pdb
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.InitialCreate.resources
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CoreCompileInputs.cache
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CopyComplete
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
+S:\Users\Ridwaan\Documents\GitHub\Team-26-Handed-in-Version\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb

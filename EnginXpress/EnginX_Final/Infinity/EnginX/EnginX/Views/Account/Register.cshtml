@@ -17,6 +17,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="~/Content/Account/css/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
         .btn {
             background-color: rgb(55,105,236);
@@ -33,9 +34,22 @@
             text-decoration: none;
             box-shadow: 1px 1px 8px rgb(55,105,236);
         }
+
+        .form-select {
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 2px;
+            border: 1px solid rgb(247 247 247);
+            background-color: white;
+        }
+
+        .text-danger {
+            color: darkred;
+        }
     </style>
 </head>
-<body style="overflow-y:hidden">
+<body style="overflow-y:hidden" >
     <button class="btn" onclick="window.location.href='/Home/Index'" style="float:right">
         <i class="fas fa-home"></i>
     </button>
@@ -44,50 +58,87 @@
         <section class="signup">
             <div class="container">
                 <div class="signup-content">
+                    <div class="signup-image" style="float:right">
+                        <figure><img src="~/Content/Account/images/signup-image.png" alt="sing up image"></figure>
+                        <button onclick="window.location.href='/Account/Login'" class="btn">
+                            Already a Member ?
+                        </button>
+                    </div>
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
                         @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "register-form", role = "form", @id = "register-form" }))
                         {
                             @Html.AntiForgeryToken()
-                            @Html.ValidationSummary("", new { @class = "text-danger" })
-                            <div class="form-group">
-                                <label for="lastname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Your Username" })
-                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            <div id="first">
+                                <div class="form-group">
+                                    <label for="lastname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Your Username", @required=true })
+                                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Your Name", @required = true })
+                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="surnamename"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                    @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", @placeholder = "Your Surname", @required = true })
+                                    @Html.ValidationMessageFor(m => m.Surname, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Your Email", @required = true })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobilenumber"><i class="zmdi zmdi-phone material-icons-name"></i></label>
+                                    @Html.TextBoxFor(m => m.MobileNumber, new { @class = "form-control", @required = true, @placeholder = "0671728770" , @value = "+27", @maxlength = "15" })
+                                    @Html.ValidationMessageFor(m => m.MobileNumber, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter Password", @required = true })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                    @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Repeat Password", @required = true })
+                                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group form-button">
+                                    <button type="button" class="form-submit" style="background-color: rgb(55 105 236) !important;" id="next"> Next </button>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Your Email" })
-                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <label for="mobilenumber"><i class="zmdi zmdi-phone material-icons-name"></i></label>
-                                <input type="text" name="mobilenumber" id="mobilenumber" placeholder="+27 ..." value="+27" maxlength="15" />
-                            </div>
-                            <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter Password" })
-                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Repeat Password" })
-                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="/Home/Terms" class="term-service">Terms of service</a></label>
-                            </div>
-                            <div class="form-group form-button" id="btndiv">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" style="background-color: rgb(55 105 236) !important;" />
+                            <div id="second">
+                                <div class="form-group">
+                                    <label for="lastname">City</label>
+                                    <br />
+                                    <br />
+                                    @Html.DropDownList("cityID", (IEnumerable<SelectListItem>)ViewBag.CityID, new { @class = "form-select", @required = true })
+                                </div>
+                                <div class="form-group">
+                                    <label for="houseNumber"><i class="zmdi zmdi-home"></i></label>
+                                    @Html.TextBoxFor(m => m.HouseNumber, new { @class = "form-control", @placeholder = "Your House Number", @required = true })
+                                    @Html.ValidationMessageFor(m => m.HouseNumber, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="StreetName"><i class="zmdi zmdi-home"></i></label>
+                                    @Html.TextBoxFor(m => m.StreetName, new { @class = "form-control", @placeholder = "Your Street Name", @required = true })
+                                    @Html.ValidationMessageFor(m => m.StreetName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <p style="color:seagreen">Please Accept Terms and Conditions</p>
+                                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" onclick="check()" />
+                                    <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a target="_blank"  href="/Home/Terms" class="term-service">Terms of service</a></label>
+                                </div>
+                                <div class="form-group form-button">
+                                    <button class="form-submit" type="button" style="background-color: black !important;" id="back"> Back </button>
+                                    <button  id="sub" class="form-submit" type="submit" style="display:none; background-color: rgb(55 105 236) !important;">
+                                      Submit
+                                    </button>
+                                </div>
                             </div>
                         }
-                    </div>
-                    <div class="signup-image">
-                        <figure><img src="~/Content/Account/images/signup-image.png" alt="sing up image"></figure>
-                        <button onclick="window.location.href='/Account/Login'" class="btn">
-                            Already a Member ?
-                        </button>
                     </div>
                 </div>
             </div>
@@ -99,7 +150,27 @@
     <script>
         $(document).ready(function () {
             $('#btndiv').hide();
+            $('#second').hide();
+            $('#next').click(function () {
+                $('#first').hide();
+                $('#second').show();
+            });
+            $('#back').click(function () {
+                $('#second').hide();
+                $('#first').show();
+            });
         });
+        function check()
+        {
+            debugger
+            if ($("#agree-term").prop("checked") == true)
+            {
+                $("#sub").attr("style","display:inline");
+            }
+            else {
+                $("#sub").attr("style", "display:none");
+            }
+        }
     </script>
 </body>
 </html>

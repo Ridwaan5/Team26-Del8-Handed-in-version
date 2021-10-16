@@ -34,6 +34,25 @@
     <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
   <EntityType Name="AspNetUserRoles">
     <Key>
       <PropertyRef Name="UserId" />
@@ -65,6 +84,7 @@
     </Key>
     <Property Name="CartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" />
   </EntityType>
   <EntityType Name="Cart_Line">
     <Key>
@@ -124,7 +144,7 @@
       <PropertyRef Name="EmployeeID" />
     </Key>
     <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Date_of_birth" Type="date" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="IsCheckedIn" Type="bit" Nullable="false" />
   </EntityType>
@@ -219,9 +239,10 @@
     <Property Name="ProductCategoryID" Type="int" Nullable="false" />
     <Property Name="ProductTypeID" Type="int" Nullable="false" />
     <Property Name="Description" Type="varchar(max)" />
-    <Property Name="Image" Type="image" />
-    <Property Name="Price" Type="varchar" MaxLength="50" />
     <Property Name="InStock" Type="bit" />
+    <Property Name="Image" Type="varchar(max)" />
+    <Property Name="StockID" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="Product Category">
     <Key>
@@ -263,6 +284,7 @@
     <Property Name="Stock_Amount" Type="int" Nullable="false" />
     <Property Name="Description" Type="varchar(max)" />
     <Property Name="Date" Type="datetime" />
+    <Property Name="Quantity" Type="int" />
   </EntityType>
   <EntityType Name="Stock_Line">
     <Key>
@@ -324,8 +346,8 @@
     <Property Name="Username" Type="varchar(max)" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
     <Property Name="Surname" Type="varchar" MaxLength="50" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" />
-    <Property Name="ContactNumber" Type="char" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="20" />
     <Property Name="UserRoleID" Type="int" />
   </EntityType>
   <EntityType Name="User Role">
@@ -370,18 +392,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_248">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Order_Product" Type="Self.Order_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="Order_Product">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_251">
     <End Role="Order" Type="Self.Order" Multiplicity="1" />
     <End Role="Order_Product" Type="Self.Order_Product" Multiplicity="*" />
@@ -391,18 +401,6 @@
       </Principal>
       <Dependent Role="Order_Product">
         <PropertyRef Name="OrderID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_259">
-    <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
-    <End Role="Supplier_Order_Line" Type="Self.Supplier_Order_Line" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Stock">
-        <PropertyRef Name="StockID" />
-      </Principal>
-      <Dependent Role="Supplier_Order_Line">
-        <PropertyRef Name="StockID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -490,6 +488,34 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
     <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -531,11 +557,11 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Delivery_Employee">
-    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Delivery" Type="Self.Delivery" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="EmployeeID" />
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
       </Principal>
       <Dependent Role="Delivery">
         <PropertyRef Name="UserID" />
@@ -551,18 +577,6 @@
       </Principal>
       <Dependent Role="Employee">
         <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Feedback_Order">
-    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
-    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
-      </Principal>
-      <Dependent Role="Feedback">
-        <PropertyRef Name="OrderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -638,18 +652,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Product_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Order_Product" Type="Self.Order_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="Order_Product">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Payment_Payment_Method">
     <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="1" />
     <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
@@ -659,18 +661,6 @@
       </Principal>
       <Dependent Role="Payment">
         <PropertyRef Name="PaymentMethodID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Product_Content_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Product_Content" Type="Self.Product_Content" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="Product_Content">
-        <PropertyRef Name="ProductID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -698,26 +688,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Stock_Line_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Stock_Line" Type="Self.Stock_Line" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="Stock_Line">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Stock_Line_Stock">
-    <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
-    <End Role="Stock_Line" Type="Self.Stock_Line" Multiplicity="*" />
+  <Association Name="FK_Product_Stock">
+    <End Role="Stock" Type="Self.Stock" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Stock">
         <PropertyRef Name="StockID" />
       </Principal>
-      <Dependent Role="Stock_Line">
+      <Dependent Role="Product">
         <PropertyRef Name="StockID" />
       </Dependent>
     </ReferentialConstraint>
@@ -731,18 +709,6 @@
       </Principal>
       <Dependent Role="Supplier_Order">
         <PropertyRef Name="AdminID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Supplier_Order_Line_Stock">
-    <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
-    <End Role="Supplier_Order_Line" Type="Self.Supplier_Order_Line" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Stock">
-        <PropertyRef Name="StockID" />
-      </Principal>
-      <Dependent Role="Supplier_Order_Line">
-        <PropertyRef Name="StockID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -782,30 +748,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_WriteOffLine_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="WriteOffLine" Type="Self.WriteOffLine" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="WriteOffLine">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_WriteOffLine_Product1">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="WriteOffLine" Type="Self.WriteOffLine" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="WriteOffLine">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_WriteOffLine_WriteOffS">
     <End Role="WriteOffS" Type="Self.WriteOffS" Multiplicity="1" />
     <End Role="WriteOffLine" Type="Self.WriteOffLine" Multiplicity="*" />
@@ -823,6 +765,8 @@
     <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
@@ -862,17 +806,9 @@
       <End Role="Supplier_Order" EntitySet="Supplier_Order" />
       <End Role="Supplier_Order_Line" EntitySet="Supplier_Order_Line" />
     </AssociationSet>
-    <AssociationSet Name="FK_248" Association="Self.FK_248">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Order_Product" EntitySet="Order_Product" />
-    </AssociationSet>
     <AssociationSet Name="FK_251" Association="Self.FK_251">
       <End Role="Order" EntitySet="Order" />
       <End Role="Order_Product" EntitySet="Order_Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_259" Association="Self.FK_259">
-      <End Role="Stock" EntitySet="Stock" />
-      <End Role="Supplier_Order_Line" EntitySet="Supplier_Order_Line" />
     </AssociationSet>
     <AssociationSet Name="FK_Address_City" Association="Self.FK_Address_City">
       <End Role="City" EntitySet="City" />
@@ -902,6 +838,14 @@
       <End Role="User" EntitySet="User" />
       <End Role="Customer" EntitySet="Customer" />
     </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
     <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
@@ -915,16 +859,12 @@
       <End Role="Delivery" EntitySet="Delivery" />
     </AssociationSet>
     <AssociationSet Name="FK_Delivery_Employee" Association="Self.FK_Delivery_Employee">
-      <End Role="Employee" EntitySet="Employee" />
+      <End Role="User" EntitySet="User" />
       <End Role="Delivery" EntitySet="Delivery" />
     </AssociationSet>
     <AssociationSet Name="FK_Employee_User" Association="Self.FK_Employee_User">
       <End Role="User" EntitySet="User" />
       <End Role="Employee" EntitySet="Employee" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Feedback_Order" Association="Self.FK_Feedback_Order">
-      <End Role="Order" EntitySet="Order" />
-      <End Role="Feedback" EntitySet="Feedback" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_Address" Association="Self.FK_Order_Address">
       <End Role="Address" EntitySet="Address" />
@@ -950,17 +890,9 @@
       <End Role="Order" EntitySet="Order" />
       <End Role="Order_Product" EntitySet="Order_Product" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Product_Product" Association="Self.FK_Order_Product_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Order_Product" EntitySet="Order_Product" />
-    </AssociationSet>
     <AssociationSet Name="FK_Payment_Payment_Method" Association="Self.FK_Payment_Payment_Method">
       <End Role="Payment_Method" EntitySet="Payment_Method" />
       <End Role="Payment" EntitySet="Payment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Content_Product" Association="Self.FK_Product_Content_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Product_Content" EntitySet="Product_Content" />
     </AssociationSet>
     <AssociationSet Name="FK_Product_Product Category" Association="Self.FK_Product_Product Category">
       <End Role="Product Category" EntitySet="Product Category" />
@@ -970,21 +902,13 @@
       <End Role="Product Type" EntitySet="Product Type" />
       <End Role="Product" EntitySet="Product" />
     </AssociationSet>
-    <AssociationSet Name="FK_Stock_Line_Product" Association="Self.FK_Stock_Line_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Stock_Line" EntitySet="Stock_Line" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Stock_Line_Stock" Association="Self.FK_Stock_Line_Stock">
+    <AssociationSet Name="FK_Product_Stock" Association="Self.FK_Product_Stock">
       <End Role="Stock" EntitySet="Stock" />
-      <End Role="Stock_Line" EntitySet="Stock_Line" />
+      <End Role="Product" EntitySet="Product" />
     </AssociationSet>
     <AssociationSet Name="FK_Supplier_Order_Administrator" Association="Self.FK_Supplier_Order_Administrator">
       <End Role="Administrator" EntitySet="Administrator" />
       <End Role="Supplier_Order" EntitySet="Supplier_Order" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Supplier_Order_Line_Stock" Association="Self.FK_Supplier_Order_Line_Stock">
-      <End Role="Stock" EntitySet="Stock" />
-      <End Role="Supplier_Order_Line" EntitySet="Supplier_Order_Line" />
     </AssociationSet>
     <AssociationSet Name="FK_Supplier_Order_Supplier" Association="Self.FK_Supplier_Order_Supplier">
       <End Role="Supplier" EntitySet="Supplier" />
@@ -997,14 +921,6 @@
     <AssociationSet Name="FK_User_User Role" Association="Self.FK_User_User Role">
       <End Role="User Role" EntitySet="User Role" />
       <End Role="User" EntitySet="User" />
-    </AssociationSet>
-    <AssociationSet Name="FK_WriteOffLine_Product" Association="Self.FK_WriteOffLine_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="WriteOffLine" EntitySet="WriteOffLine" />
-    </AssociationSet>
-    <AssociationSet Name="FK_WriteOffLine_Product1" Association="Self.FK_WriteOffLine_Product1">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="WriteOffLine" EntitySet="WriteOffLine" />
     </AssociationSet>
     <AssociationSet Name="FK_WriteOffLine_WriteOffS" Association="Self.FK_WriteOffLine_WriteOffS">
       <End Role="WriteOffS" EntitySet="WriteOffS" />
