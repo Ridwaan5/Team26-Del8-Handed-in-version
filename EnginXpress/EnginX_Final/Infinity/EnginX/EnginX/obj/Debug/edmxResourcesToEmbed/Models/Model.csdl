@@ -20,7 +20,6 @@
     <EntitySet Name="Inventories" EntityType="Infinity_DbModel.Inventory" />
     <EntitySet Name="Log_In" EntityType="Infinity_DbModel.Log_In" />
     <EntitySet Name="Log_out" EntityType="Infinity_DbModel.Log_out" />
-    <EntitySet Name="Orders" EntityType="Infinity_DbModel.Order" />
     <EntitySet Name="Order_Product" EntityType="Infinity_DbModel.Order_Product" />
     <EntitySet Name="Order_Status" EntityType="Infinity_DbModel.Order_Status" />
     <EntitySet Name="Payments" EntityType="Infinity_DbModel.Payment" />
@@ -28,7 +27,6 @@
     <EntitySet Name="Products" EntityType="Infinity_DbModel.Product" />
     <EntitySet Name="Product_Categories" EntityType="Infinity_DbModel.Product_Category" />
     <EntitySet Name="Product_Types" EntityType="Infinity_DbModel.Product_Type" />
-    <EntitySet Name="Product_Content" EntityType="Infinity_DbModel.Product_Content" />
     <EntitySet Name="Provinces" EntityType="Infinity_DbModel.Province" />
     <EntitySet Name="Stocks" EntityType="Infinity_DbModel.Stock" />
     <EntitySet Name="Stock_Line" EntityType="Infinity_DbModel.Stock_Line" />
@@ -45,13 +43,17 @@
       <End Role="City" EntitySet="Cities" />
       <End Role="Address" EntitySet="Addresses" />
     </AssociationSet>
+    <AssociationSet Name="FK_Address_User" Association="Infinity_DbModel.FK_Address_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
     <AssociationSet Name="FK_Customer_Address" Association="Infinity_DbModel.FK_Customer_Address">
       <End Role="Address" EntitySet="Addresses" />
       <End Role="Customer" EntitySet="Customers" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Address" Association="Infinity_DbModel.FK_Order_Address">
-      <End Role="Address" EntitySet="Addresses" />
-      <End Role="Order" EntitySet="Orders" />
+    <AssociationSet Name="FK_Supplier_Order_Administrator" Association="Infinity_DbModel.FK_Supplier_Order_Administrator">
+      <End Role="Administrator" EntitySet="Administrators" />
+      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
     </AssociationSet>
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Infinity_DbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
@@ -82,28 +84,20 @@
       <End Role="Delivery" EntitySet="Deliveries" />
     </AssociationSet>
     <AssociationSet Name="FK_Delivery_Employee" Association="Infinity_DbModel.FK_Delivery_Employee">
-      <End Role="Employee" EntitySet="Employees" />
+      <End Role="User" EntitySet="Users" />
       <End Role="Delivery" EntitySet="Deliveries" />
     </AssociationSet>
-    <AssociationSet Name="FK_251" Association="Infinity_DbModel.FK_251">
-      <End Role="Order" EntitySet="Orders" />
-      <End Role="Order_Product" EntitySet="Order_Product" />
+    <AssociationSet Name="FK_Employee_User" Association="Infinity_DbModel.FK_Employee_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Employee" EntitySet="Employees" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Order_Product" Association="Infinity_DbModel.FK_Order_Order_Product">
-      <End Role="Order" EntitySet="Orders" />
-      <End Role="Order1" EntitySet="Orders" />
+    <AssociationSet Name="FK_Log_In_User" Association="Infinity_DbModel.FK_Log_In_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Log_In" EntitySet="Log_In" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Order_Status" Association="Infinity_DbModel.FK_Order_Order_Status">
-      <End Role="Order_Status" EntitySet="Order_Status" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_Payment" Association="Infinity_DbModel.FK_Order_Payment">
-      <End Role="Payment" EntitySet="Payments" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_Product_Order" Association="Infinity_DbModel.FK_Order_Product_Order">
-      <End Role="Order" EntitySet="Orders" />
-      <End Role="Order_Product" EntitySet="Order_Product" />
+    <AssociationSet Name="FK_Log_out_User" Association="Infinity_DbModel.FK_Log_out_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Log_out" EntitySet="Log_out" />
     </AssociationSet>
     <AssociationSet Name="FK_Payment_Payment_Method" Association="Infinity_DbModel.FK_Payment_Payment_Method">
       <End Role="Payment_Method" EntitySet="Payment_Method" />
@@ -145,25 +139,46 @@
       <End Role="AspNetRole" EntitySet="AspNetRoles" />
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
     </AssociationSet>
-    <AssociationSet Name="FK_Address_User" Association="Infinity_DbModel.FK_Address_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Address" EntitySet="Addresses" />
+    <AssociationSet Name="FK_Product_Type_Vat" Association="Infinity_DbModel.FK_Product_Type_Vat">
+      <End Role="Vat" EntitySet="Vats" />
+      <End Role="Product_Type" EntitySet="Product_Types" />
     </AssociationSet>
-    <AssociationSet Name="FK_Delivery_Employee1" Association="Infinity_DbModel.FK_Delivery_Employee1">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Delivery" EntitySet="Deliveries" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Supplier_Order_Administrator" Association="Infinity_DbModel.FK_Supplier_Order_Administrator">
-      <End Role="Administrator" EntitySet="Administrators" />
-      <End Role="Supplier_Order" EntitySet="Supplier_Order" />
+    <EntitySet Name="Orders" EntityType="Infinity_DbModel.Order" />
+    <AssociationSet Name="FK_Order_Cart" Association="Infinity_DbModel.FK_Order_Cart">
+      <End Role="Cart" EntitySet="Carts" />
+      <End Role="Order" EntitySet="Orders" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_Customer" Association="Infinity_DbModel.FK_Order_Customer">
       <End Role="Customer" EntitySet="Customers" />
       <End Role="Order" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK_Employee_User" Association="Infinity_DbModel.FK_Employee_User">
-      <End Role="User" EntitySet="Users" />
+    <AssociationSet Name="FK_251" Association="Infinity_DbModel.FK_251">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Order_Product" EntitySet="Order_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Order_Product" Association="Infinity_DbModel.FK_Order_Order_Product">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Order1" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Order_Status" Association="Infinity_DbModel.FK_Order_Order_Status">
+      <End Role="Order_Status" EntitySet="Order_Status" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Payment" Association="Infinity_DbModel.FK_Order_Payment">
+      <End Role="Payment" EntitySet="Payments" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Product_Order" Association="Infinity_DbModel.FK_Order_Product_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Order_Product" EntitySet="Order_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Order" Association="Infinity_DbModel.FK_Payment_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Employee" Association="Infinity_DbModel.FK_Order_Employee">
       <End Role="Employee" EntitySet="Employees" />
+      <End Role="Order" EntitySet="Orders" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="C__MigrationHistory">
@@ -186,9 +201,8 @@
     <Property Name="HouseNumber" Type="Int32" Nullable="false" />
     <Property Name="StreetName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="City" Relationship="Infinity_DbModel.FK_Address_City" FromRole="Address" ToRole="City" />
-    <NavigationProperty Name="Customers" Relationship="Infinity_DbModel.FK_Customer_Address" FromRole="Address" ToRole="Customer" />
-    <NavigationProperty Name="Orders" Relationship="Infinity_DbModel.FK_Order_Address" FromRole="Address" ToRole="Order" />
     <NavigationProperty Name="User" Relationship="Infinity_DbModel.FK_Address_User" FromRole="Address" ToRole="User" />
+    <NavigationProperty Name="Customers" Relationship="Infinity_DbModel.FK_Customer_Address" FromRole="Address" ToRole="Customer" />
   </EntityType>
   <EntityType Name="Administrator">
     <Key>
@@ -255,6 +269,8 @@
     <Property Name="CustomerID" Type="Int32" Nullable="false" />
     <Property Name="CreatedAt" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Customer" Relationship="Infinity_DbModel.FK_Cart_Customer" FromRole="Cart" ToRole="Customer" />
+    <Property Name="cartTotal" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Orders" Relationship="Infinity_DbModel.FK_Order_Cart" FromRole="Cart" ToRole="Order" />
   </EntityType>
   <EntityType Name="Cart_Line">
     <Key>
@@ -317,8 +333,7 @@
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="DeliveryStatusID" Type="Int32" />
     <NavigationProperty Name="DeliverStatu" Relationship="Infinity_DbModel.FK_Delivery_Delivery" FromRole="Delivery" ToRole="DeliverStatu" />
-    <NavigationProperty Name="Employee" Relationship="Infinity_DbModel.FK_Delivery_Employee" FromRole="Delivery" ToRole="Employee" />
-    <NavigationProperty Name="User" Relationship="Infinity_DbModel.FK_Delivery_Employee1" FromRole="Delivery" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="Infinity_DbModel.FK_Delivery_Employee" FromRole="Delivery" ToRole="User" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
@@ -328,8 +343,8 @@
     <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="UserID" Type="Int32" Nullable="false" />
     <Property Name="IsCheckedIn" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Deliveries" Relationship="Infinity_DbModel.FK_Delivery_Employee" FromRole="Employee" ToRole="Delivery" />
     <NavigationProperty Name="User" Relationship="Infinity_DbModel.FK_Employee_User" FromRole="Employee" ToRole="User" />
+    <NavigationProperty Name="Orders" Relationship="Infinity_DbModel.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
   </EntityType>
   <EntityType Name="Feedback">
     <Key>
@@ -354,8 +369,9 @@
     </Key>
     <Property Name="LogInID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="Time" Type="Time" Nullable="false" Precision="3" />
+    <Property Name="Time" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="User" Relationship="Infinity_DbModel.FK_Log_In_User" FromRole="Log_In" ToRole="User" />
   </EntityType>
   <EntityType Name="Log_out">
     <Key>
@@ -363,28 +379,9 @@
     </Key>
     <Property Name="LogOutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="Time" Type="Time" Nullable="false" Precision="3" />
+    <Property Name="Time" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-  </EntityType>
-  <EntityType Name="Order">
-    <Key>
-      <PropertyRef Name="OrderID" />
-    </Key>
-    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Order_Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Quantity" Type="Int32" />
-    <Property Name="OrderStatusID" Type="Int32" />
-    <Property Name="CustomerID" Type="Int32" />
-    <Property Name="AddressID" Type="Int32" />
-    <Property Name="PaymentID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Address" Relationship="Infinity_DbModel.FK_Order_Address" FromRole="Order" ToRole="Address" />
-    <NavigationProperty Name="Order_Product" Relationship="Infinity_DbModel.FK_251" FromRole="Order" ToRole="Order_Product" />
-    <NavigationProperty Name="Order1" Relationship="Infinity_DbModel.FK_Order_Order_Product" FromRole="Order" ToRole="Order1" />
-    <NavigationProperty Name="Order2" Relationship="Infinity_DbModel.FK_Order_Order_Product" FromRole="Order1" ToRole="Order" />
-    <NavigationProperty Name="Order_Status" Relationship="Infinity_DbModel.FK_Order_Order_Status" FromRole="Order" ToRole="Order_Status" />
-    <NavigationProperty Name="Payment" Relationship="Infinity_DbModel.FK_Order_Payment" FromRole="Order" ToRole="Payment" />
-    <NavigationProperty Name="Order_Product1" Relationship="Infinity_DbModel.FK_Order_Product_Order" FromRole="Order" ToRole="Order_Product" />
-    <NavigationProperty Name="Customer" Relationship="Infinity_DbModel.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
+    <NavigationProperty Name="User" Relationship="Infinity_DbModel.FK_Log_out_User" FromRole="Log_out" ToRole="User" />
   </EntityType>
   <EntityType Name="Order_Product">
     <Key>
@@ -416,8 +413,10 @@
     <Property Name="Payment_Time" Type="Time" Nullable="false" Precision="7" />
     <Property Name="isPaid" Type="Boolean" Nullable="false" />
     <Property Name="Payment_Amount" Type="Decimal" Precision="19" Scale="4" />
-    <NavigationProperty Name="Orders" Relationship="Infinity_DbModel.FK_Order_Payment" FromRole="Payment" ToRole="Order" />
     <NavigationProperty Name="Payment_Method" Relationship="Infinity_DbModel.FK_Payment_Payment_Method" FromRole="Payment" ToRole="Payment_Method" />
+    <Property Name="OrderID" Type="Int32" />
+    <NavigationProperty Name="Orders" Relationship="Infinity_DbModel.FK_Order_Payment" FromRole="Payment" ToRole="Order" />
+    <NavigationProperty Name="Order" Relationship="Infinity_DbModel.FK_Payment_Order" FromRole="Payment" ToRole="Order" />
   </EntityType>
   <EntityType Name="Payment_Method">
     <Key>
@@ -462,14 +461,8 @@
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Products" Relationship="Infinity_DbModel.FK_Product_Product_Type" FromRole="Product_Type" ToRole="Product" />
-  </EntityType>
-  <EntityType Name="Product_Content">
-    <Key>
-      <PropertyRef Name="ProductContentID" />
-    </Key>
-    <Property Name="ProductContentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductID" Type="Int32" Nullable="false" />
-    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="VatID" Type="Int32" />
+    <NavigationProperty Name="Vat" Relationship="Infinity_DbModel.FK_Product_Type_Vat" FromRole="Product_Type" ToRole="Vat" />
   </EntityType>
   <EntityType Name="Province">
     <Key>
@@ -535,10 +528,10 @@
     <Property Name="SupplierOrderDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="SupplierOrderQuantity" Type="Int32" Nullable="false" />
     <Property Name="SupplierOrderNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Administrator" Relationship="Infinity_DbModel.FK_Supplier_Order_Administrator" FromRole="Supplier_Order" ToRole="Administrator" />
     <NavigationProperty Name="Supplier" Relationship="Infinity_DbModel.FK_Supplier_Order_Supplier" FromRole="Supplier_Order" ToRole="Supplier" />
     <NavigationProperty Name="Supplier_Order_Status" Relationship="Infinity_DbModel.FK_Supplier_Order_Supplier_Order_Status" FromRole="Supplier_Order" ToRole="Supplier_Order_Status" />
     <NavigationProperty Name="Supplier_Order_Line" Relationship="Infinity_DbModel.FK_237" FromRole="Supplier_Order" ToRole="Supplier_Order_Line" />
-    <NavigationProperty Name="Administrator" Relationship="Infinity_DbModel.FK_Supplier_Order_Administrator" FromRole="Supplier_Order" ToRole="Administrator" />
   </EntityType>
   <EntityType Name="Supplier_Order_Line">
     <Key>
@@ -561,11 +554,13 @@
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ContactNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="UserRoleID" Type="Int32" />
-    <NavigationProperty Name="Customers" Relationship="Infinity_DbModel.FK_Customer_User" FromRole="User" ToRole="Customer" />
-    <NavigationProperty Name="User_Role" Relationship="Infinity_DbModel.FK_User_User_Role" FromRole="User" ToRole="User_Role" />
     <NavigationProperty Name="Addresses" Relationship="Infinity_DbModel.FK_Address_User" FromRole="User" ToRole="Address" />
-    <NavigationProperty Name="Deliveries" Relationship="Infinity_DbModel.FK_Delivery_Employee1" FromRole="User" ToRole="Delivery" />
+    <NavigationProperty Name="Customers" Relationship="Infinity_DbModel.FK_Customer_User" FromRole="User" ToRole="Customer" />
+    <NavigationProperty Name="Deliveries" Relationship="Infinity_DbModel.FK_Delivery_Employee" FromRole="User" ToRole="Delivery" />
     <NavigationProperty Name="Employees" Relationship="Infinity_DbModel.FK_Employee_User" FromRole="User" ToRole="Employee" />
+    <NavigationProperty Name="Log_In" Relationship="Infinity_DbModel.FK_Log_In_User" FromRole="User" ToRole="Log_In" />
+    <NavigationProperty Name="Log_out" Relationship="Infinity_DbModel.FK_Log_out_User" FromRole="User" ToRole="Log_out" />
+    <NavigationProperty Name="User_Role" Relationship="Infinity_DbModel.FK_User_User_Role" FromRole="User" ToRole="User_Role" />
   </EntityType>
   <EntityType Name="User_Role">
     <Key>
@@ -581,6 +576,7 @@
     </Key>
     <Property Name="VatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="VatAmount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <NavigationProperty Name="Product_Type" Relationship="Infinity_DbModel.FK_Product_Type_Vat" FromRole="Vat" ToRole="Product_Type" />
   </EntityType>
   <EntityType Name="WriteOffLine">
     <Key>
@@ -612,6 +608,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Address_User">
+    <End Type="Infinity_DbModel.User" Role="User" Multiplicity="1" />
+    <End Type="Infinity_DbModel.Address" Role="Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Customer_Address">
     <End Type="Infinity_DbModel.Address" Role="Address" Multiplicity="1" />
     <End Type="Infinity_DbModel.Customer" Role="Customer" Multiplicity="*" />
@@ -624,15 +632,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Address">
-    <End Type="Infinity_DbModel.Address" Role="Address" Multiplicity="0..1" />
-    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="*" />
+  <Association Name="FK_Supplier_Order_Administrator">
+    <End Type="Infinity_DbModel.Administrator" Role="Administrator" Multiplicity="1" />
+    <End Type="Infinity_DbModel.Supplier_Order" Role="Supplier_Order" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Address">
-        <PropertyRef Name="AddressID" />
+      <Principal Role="Administrator">
+        <PropertyRef Name="AdminID" />
       </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="AddressID" />
+      <Dependent Role="Supplier_Order">
+        <PropertyRef Name="AdminID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -725,74 +733,50 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Delivery_Employee">
-    <End Type="Infinity_DbModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="Infinity_DbModel.User" Role="User" Multiplicity="1" />
     <End Type="Infinity_DbModel.Delivery" Role="Delivery" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="EmployeeID" />
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
       </Principal>
       <Dependent Role="Delivery">
         <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_251">
-    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="1" />
-    <End Type="Infinity_DbModel.Order_Product" Role="Order_Product" Multiplicity="*" />
+  <Association Name="FK_Employee_User">
+    <End Type="Infinity_DbModel.User" Role="User" Multiplicity="1" />
+    <End Type="Infinity_DbModel.Employee" Role="Employee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
       </Principal>
-      <Dependent Role="Order_Product">
-        <PropertyRef Name="OrderID" />
+      <Dependent Role="Employee">
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Order_Product">
-    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="1" />
-    <End Type="Infinity_DbModel.Order" Role="Order1" Multiplicity="0..1" />
+  <Association Name="FK_Log_In_User">
+    <End Type="Infinity_DbModel.User" Role="User" Multiplicity="1" />
+    <End Type="Infinity_DbModel.Log_In" Role="Log_In" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
       </Principal>
-      <Dependent Role="Order1">
-        <PropertyRef Name="OrderID" />
+      <Dependent Role="Log_In">
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Order_Status">
-    <End Type="Infinity_DbModel.Order_Status" Role="Order_Status" Multiplicity="0..1" />
-    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="*" />
+  <Association Name="FK_Log_out_User">
+    <End Type="Infinity_DbModel.User" Role="User" Multiplicity="1" />
+    <End Type="Infinity_DbModel.Log_out" Role="Log_out" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Order_Status">
-        <PropertyRef Name="OrderStatusID" />
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
       </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="OrderStatusID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Order_Payment">
-    <End Type="Infinity_DbModel.Payment" Role="Payment" Multiplicity="1" />
-    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Payment">
-        <PropertyRef Name="PaymentID" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="PaymentID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Order_Product_Order">
-    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="1" />
-    <End Type="Infinity_DbModel.Order_Product" Role="Order_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
-      </Principal>
-      <Dependent Role="Order_Product">
-        <PropertyRef Name="OrderID" />
+      <Dependent Role="Log_out">
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -908,39 +892,52 @@
     <End Type="Infinity_DbModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
     <End Type="Infinity_DbModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
   </Association>
-  <Association Name="FK_Address_User">
-    <End Type="Infinity_DbModel.User" Role="User" Multiplicity="1" />
-    <End Type="Infinity_DbModel.Address" Role="Address" Multiplicity="*" />
+  <Association Name="FK_Product_Type_Vat">
+    <End Type="Infinity_DbModel.Vat" Role="Vat" Multiplicity="0..1" />
+    <End Type="Infinity_DbModel.Product_Type" Role="Product_Type" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
+      <Principal Role="Vat">
+        <PropertyRef Name="VatID" />
       </Principal>
-      <Dependent Role="Address">
-        <PropertyRef Name="UserID" />
+      <Dependent Role="Product_Type">
+        <PropertyRef Name="VatID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Delivery_Employee1">
-    <End Type="Infinity_DbModel.User" Role="User" Multiplicity="1" />
-    <End Type="Infinity_DbModel.Delivery" Role="Delivery" Multiplicity="*" />
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Order_Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OrderStatusID" Type="Int32" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="PaymentID" Type="Int32" Nullable="false" />
+    <Property Name="Dateplaced" Type="DateTime" Precision="3" />
+    <Property Name="Dateprocessed" Type="DateTime" Precision="3" />
+    <Property Name="Datecompleted" Type="DateTime" Precision="3" />
+    <Property Name="CartID" Type="Int32" />
+    <NavigationProperty Name="Cart" Relationship="Infinity_DbModel.FK_Order_Cart" FromRole="Order" ToRole="Cart" />
+    <NavigationProperty Name="Customer" Relationship="Infinity_DbModel.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
+    <NavigationProperty Name="Order_Product" Relationship="Infinity_DbModel.FK_251" FromRole="Order" ToRole="Order_Product" />
+    <NavigationProperty Name="Order1" Relationship="Infinity_DbModel.FK_Order_Order_Product" FromRole="Order" ToRole="Order1" />
+    <NavigationProperty Name="Order2" Relationship="Infinity_DbModel.FK_Order_Order_Product" FromRole="Order1" ToRole="Order" />
+    <NavigationProperty Name="Order_Status" Relationship="Infinity_DbModel.FK_Order_Order_Status" FromRole="Order" ToRole="Order_Status" />
+    <NavigationProperty Name="Payment" Relationship="Infinity_DbModel.FK_Order_Payment" FromRole="Order" ToRole="Payment" />
+    <NavigationProperty Name="Order_Product1" Relationship="Infinity_DbModel.FK_Order_Product_Order" FromRole="Order" ToRole="Order_Product" />
+    <NavigationProperty Name="Payments" Relationship="Infinity_DbModel.FK_Payment_Order" FromRole="Order" ToRole="Payment" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Infinity_DbModel.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK_Order_Cart">
+    <End Type="Infinity_DbModel.Cart" Role="Cart" Multiplicity="0..1" />
+    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
+      <Principal Role="Cart">
+        <PropertyRef Name="CartID" />
       </Principal>
-      <Dependent Role="Delivery">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Supplier_Order_Administrator">
-    <End Type="Infinity_DbModel.Administrator" Role="Administrator" Multiplicity="1" />
-    <End Type="Infinity_DbModel.Supplier_Order" Role="Supplier_Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Administrator">
-        <PropertyRef Name="AdminID" />
-      </Principal>
-      <Dependent Role="Supplier_Order">
-        <PropertyRef Name="AdminID" />
+      <Dependent Role="Order">
+        <PropertyRef Name="CartID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -956,15 +953,87 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Employee_User">
-    <End Type="Infinity_DbModel.User" Role="User" Multiplicity="1" />
-    <End Type="Infinity_DbModel.Employee" Role="Employee" Multiplicity="*" />
+  <Association Name="FK_251">
+    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="Infinity_DbModel.Order_Product" Role="Order_Product" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
       </Principal>
-      <Dependent Role="Employee">
-        <PropertyRef Name="UserID" />
+      <Dependent Role="Order_Product">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Order_Product">
+    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="Infinity_DbModel.Order" Role="Order1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="Order1">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Order_Status">
+    <End Type="Infinity_DbModel.Order_Status" Role="Order_Status" Multiplicity="0..1" />
+    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_Status">
+        <PropertyRef Name="OrderStatusID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Payment">
+    <End Type="Infinity_DbModel.Payment" Role="Payment" Multiplicity="1" />
+    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="PaymentID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product_Order">
+    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="Infinity_DbModel.Order_Product" Role="Order_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="Order_Product">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Order">
+    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="0..1" />
+    <End Type="Infinity_DbModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Employee">
+    <End Type="Infinity_DbModel.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="Infinity_DbModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="EmployeeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

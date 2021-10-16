@@ -14,10 +14,19 @@ namespace EnginX.Models
     
     public partial class Cart
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cart()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+    
         public int CartID { get; set; }
         public int CustomerID { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
+        public Nullable<decimal> cartTotal { get; set; }
     
         public virtual Customer Customer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

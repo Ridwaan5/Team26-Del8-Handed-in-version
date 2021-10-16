@@ -466,6 +466,8 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microso
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Logging.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Tokens.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Host.SystemWeb.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.dll
@@ -479,6 +481,7 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Newtons
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Owin.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\StarkbankEcdsa.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.IdentityModel.Tokens.Jwt.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Net.Http.Formatting.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Helpers.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.dll
@@ -489,10 +492,12 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Deployment.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Razor.dll
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Twilio.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\WebGrease.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.SqlServer.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Tokens.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Host.SystemWeb.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Security.xml
@@ -504,6 +509,7 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microso
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Newtonsoft.Json.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.pdb
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\SendGrid.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.IdentityModel.Tokens.Jwt.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Net.Http.Formatting.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.Http.WebHost.xml
@@ -514,6 +520,7 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Deployment.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Razor.xml
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Twilio.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Antlr3.Runtime.pdb
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.xml
@@ -523,11 +530,5 @@ E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\E
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CoreCompileInputs.cache
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Logging.dll
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Tokens.dll
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.IdentityModel.Tokens.Jwt.dll
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Twilio.dll
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.IdentityModel.Tokens.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.IdentityModel.Tokens.Jwt.xml
-E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Twilio.xml
 E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
+E:\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CopyComplete

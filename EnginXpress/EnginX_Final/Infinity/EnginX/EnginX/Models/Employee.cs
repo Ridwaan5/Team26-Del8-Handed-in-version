@@ -17,7 +17,7 @@ namespace EnginX.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
-            this.Deliveries = new HashSet<Delivery>();
+            this.Orders = new HashSet<Order>();
         }
     
         public int EmployeeID { get; set; }
@@ -25,8 +25,8 @@ namespace EnginX.Models
         public int UserID { get; set; }
         public bool IsCheckedIn { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Delivery> Deliveries { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
