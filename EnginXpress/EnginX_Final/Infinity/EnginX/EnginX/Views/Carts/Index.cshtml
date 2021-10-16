@@ -260,7 +260,7 @@
                         <tr>
                             <th>Product Name</th>
                             <th class="text-center">Quantity</th>
-                            <th class="text-center">Subtotal</th>
+                            <th class="text-center">Subtotal (Incl Vat)</th>
                             <th class="text-center">
                                 <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#modal" onclick="call()">
                                     <i class="fa fa-trash"></i>
@@ -326,7 +326,7 @@
 
         </div>
         <!--Table-->
-        <div class="btn btn-lg btn-primary" style="border-radius:20px;color:white;width:50%;margin:0 auto; margin-left:25%; height:50px" onclick="window.location.href='@Url.Action("Checkout", "Carts", new { Total = @ViewBag.Total })'">
+        <div class="btn btn-lg btn-primary" style="border-radius:20px;color:white;width:50%;margin:0 auto; margin-left:25%; height:50px" onclick="window.location.href='@Url.Action("Checkout", "Carts")'">
             <i class="glyphicon glyphicon-shopping-cart"></i>
             Proceed to Checkout
         </div>

@@ -20,7 +20,6 @@ namespace EnginX.Models
         public Nullable<int> DeliveryStatusID { get; set; }
     
         public virtual DeliverStatu DeliverStatu { get; set; }
-        public virtual Employee Employee { get; set; }
         public virtual User User { get; set; }
     }
 }

@@ -38,6 +38,58 @@ namespace EnginX.Controllers
             return View(Products);
         }
 
+        public ActionResult Main()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ApplicationDbContext context = new ApplicationDbContext();
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                var sysUser = UserManager.GetEmail(user.GetUserId());
+                useremail = sysUser;
+                if (User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("Admin");
+                }
+                else if (User.IsInRole("Cashie"))
+                {
+                    return RedirectToAction("Employee");
+
+                }
+                else if (User.IsInRole("Driver"))
+                {
+                    return RedirectToAction("Employee");
+
+                }
+                else if (User.IsInRole("StockClerk"))
+                {
+                    return RedirectToAction("Employee");
+                }
+                else
+                {
+                    return RedirectToAction("Customer");
+                }
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
+        public ActionResult Admin()
+        {
+            return View();
+        }
+        public ActionResult Employee()
+        {
+            return View();
+        }
+        public ActionResult Customer()
+        {
+            return RedirectToAction("Index");
+        }
+
 
         [HttpPost]
         public JsonResult searchProduct(string prefix)
@@ -197,63 +249,7 @@ namespace EnginX.Controllers
             return View();
         }
 
-        public ActionResult Main()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                var user = User.Identity;
-                ApplicationDbContext context = new ApplicationDbContext();
-                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-                var sysUser = UserManager.GetEmail(user.GetUserId());
-                useremail = sysUser;
-                if (User.IsInRole("Admin"))
-                {
-                    return RedirectToAction("Admin");
-                }
-                else if(User.IsInRole("Cashier"))
-                {
-                    return RedirectToAction("Cashier");
-
-                }
-                else if (User.IsInRole("Driver"))
-                {
-                    return RedirectToAction("Driver");
-
-                }
-                else if (User.IsInRole("StockClerk"))
-                {
-                    return RedirectToAction("Clerk");
-                }
-                else
-                {
-                    return RedirectToAction("Customer");
-                }
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        public ActionResult Admin()
-        {
-            return View();
-        }
-        public ActionResult Clerk()
-        {
-            return View();
-        }
-        public ActionResult Cashier()
-        {
-            return View();
-        }
-        public ActionResult Driver()
-        {
-            return View();
-        }
-        public ActionResult Customer()
-        {
-            return RedirectToAction("Index");
-        }
+   
+ 
     }
 }

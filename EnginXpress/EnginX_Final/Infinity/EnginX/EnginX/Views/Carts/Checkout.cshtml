@@ -4,7 +4,107 @@
 }
 
 <style>
+    .launch {
+        height: 50px
+    }
 
+    .close {
+        font-size: 21px;
+        cursor: pointer
+    }
+
+    .modal-body {
+        height: 450px
+    }
+
+    .nav-tabs {
+        border: none !important
+    }
+
+        .nav-tabs .nav-link.active {
+            color: #495057;
+            background-color: #fff;
+            border-color: #ffffff #ffffff #fff;
+            border-top: 3px solid blue !important
+        }
+
+        .nav-tabs .nav-link {
+            margin-bottom: -1px;
+            border: 1px solid transparent;
+            border-top-left-radius: 0rem;
+            border-top-right-radius: 0rem;
+            border-top: 3px solid #eee;
+            font-size: 20px
+        }
+
+            .nav-tabs .nav-link:hover {
+                border-color: #e9ecef #ffffff #ffffff
+            }
+
+    .nav-tabs {
+        display: table !important;
+        width: 100%
+    }
+
+    .nav-item {
+        display: table-cell
+    }
+
+    .form-control {
+        border-bottom: 1px solid #eee !important;
+        border: none;
+        font-weight: 600
+    }
+
+        .form-control:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #8bbafe;
+            outline: 0;
+            box-shadow: none
+        }
+
+    .inputbox {
+        position: relative;
+        margin-bottom: 20px;
+        width: 100%
+    }
+
+        .inputbox span {
+            position: absolute;
+            top: 7px;
+            left: 11px;
+            transition: 0.5s
+        }
+
+        .inputbox i {
+            position: absolute;
+            top: 13px;
+            right: 8px;
+            transition: 0.5s;
+            color: #3F51B5
+        }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0
+    }
+
+    .inputbox input:focus ~ span {
+        transform: translateX(-0px) translateY(-15px);
+        font-size: 12px
+    }
+
+    .inputbox input:valid ~ span {
+        transform: translateX(-0px) translateY(-15px);
+        font-size: 12px
+    }
+
+    .pay button {
+        height: 47px;
+        border-radius: 37px
+    }
 
 
     body {
@@ -251,7 +351,7 @@
                     <!-- end invoice-price -->
                 </div>
                 <!-- end invoice-content -->
-                <a style="float:right;" id="paytrigger" hidden class="pulsingButton" data-bs-toggle="modal" data-bs-target="#payModal">Checkout</a>
+                <a style="float:right;" id="paytrigger" hidden class="pulsingButton"  data-bs-toggle="modal" data-bs-target="#payModal">Checkout</a>
                 <!-- begin invoice-note -->
                 <div class="invoice-note">
                     * Make all cheques payable to [Engen Xpress]<br>
@@ -301,56 +401,57 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="payModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="payModal"  data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" style="border-radius:15px">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+        <div class="modal-content">
             <div class="modal-body">
-                <form id="payment-form" method="POST">
-                    <div class="one-liner">
-                        <div id="card-frame">
-                            <!-- classes in square brackets will be allied based on field and form state -->
-                            <div class="yc-card-form-container">
-                                <div class="yc-field-group--card-number yc-field-group yc-field-group--invalid">
-                                    <label>Card number</label>
-                                    <div class="yc-card-input-wrapper">
-                                        <!-- secure iframe inserted here, style the input at this level to set style the iframe contents -->
-                                        <input />
-                                    </div>
+                <div class="text-right"> <i class="fa fa-close close" data-bs-dismiss="modal"></i> </div>
+                <div class="tabs mt-3">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation"> <a class="nav-link active" id="visa-tab" data-bs-toggle="tab" href="#visa" role="tab" aria-controls="visa" aria-selected="true"> Card  <img src="https://i.imgur.com/sB4jftM.png" width="80"> </a> </li>
+                        <li class="nav-item" role="presentation"> <a class="nav-link" id="paypal-tab" data-bs-toggle="tab" href="#paypal" role="tab" aria-controls="paypal" aria-selected="false"> Cash  <img src="~/Content/Pics/payment.png" width="30" height="20" style="height:30px"> </a> </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="visa" role="tabpanel" aria-labelledby="visa-tab">
+                            <div class="mt-4 mx-4">
+                                <div class="text-center">
+                                    <h5>Credit card</h5>
                                 </div>
-                                <div class="yc-expiry-cvv-holder">
-                                    <div class="yc-field-group--card-expiry yc-field-group">
-                                        <label>Expiry date</label>
-                                        <div class="yc-card-input-wrapper">
-                                            <!-- secure iframe inserted here, style the input at this level to set style the iframe contents -->
-                                            <input />
-                                        </div>
+                                <div class="form mt-3">
+                                    <div class="inputbox"> <input id="cname" type="text" name="name" class="form-control" required="required"> <span>Cardholder Name</span> </div>
+                                    <div class="inputbox"> <input id="cnumber" type="text" name="name" min="1" max="999" class="form-control" required="required"> <span>Card Number</span> <i class="fa fa-eye"></i> </div>
+                                    <div class="d-flex flex-row">
+                                        <div class="inputbox"> <input id="cxp" placeholder="07/25" maxlength="4" type="text" name="name" min="1" max="999" class="form-control" required="required"> <span>Expiration Date</span> </div>
+                                        <div class="inputbox"> <input id="cvv" type="text" placeholder="254" name="name" min="1" max="999" maxlength="3" class="form-control" required="required"> <span>CVV</span> </div>
                                     </div>
-                                    <div class="yc-field-group--card-cvv yc-field-group">
-                                        <label>CVV/CVC</label>
-                                        <div class="yc-card-input-wrapper">
-                                            <!-- secure iframe inserted here, style the input at this level to set style the iframe contents -->
-                                            <input />
-                                        </div>
+                                    <div class="px-5 pay">
+                                         <button type="button" id="paycard" class="btn  tbcolor btn-block">Pay  @ViewBag.Total </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button id="pay-button"> PAY ZAR @ViewBag.Grand </button>
+                        <div class="tab-pane fade" id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
+                            <div class="px-5 mt-5">
+                                <div class="form mt-3">
+                                    <h4>Cash Payment</h4>
+                                    <hr />
+                                    <p>Please have <span class="tcolor" style="font-size:25px"><b>R @ViewBag.Total </b></span> in cash On delivery of your order</p>
+                            
+                                </div>
+                                
+                                <br />
+                                <div class="pay px-5"> 
+                                        <button type="button" id="paycash" class="btn tbcolor btn-block">Confirm Order</button> 
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="success-payment-message" />
-                </form>
-            </div>
-            <div class="modal-footer" style="justify-content:center !important">
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 
 @section Scripts{
@@ -359,6 +460,7 @@
         //var
         var element = $("#pdf"); // global variable
         var getCanvas;
+        var Customer = 0;
         $('#document').ready(function () {
             $.ajax({
                 url: '/Home/checkLoggedIn/',
@@ -436,7 +538,8 @@
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
-                    if (data.Customer == null) {
+                    if (data.Customer == null)
+                    {
                         $('#modal').modal('show');
                     }
                     else {
@@ -445,6 +548,8 @@
                         $('#paytrigger').prop('hidden', false);
                         $('#linked').prop('hidden', false);
                         $('#unlinked').prop('hidden', true);
+                        Customer = null;
+                        Customer = data.Customer.ContactNumber;
                         $('#cusname').text(data.Customer.Name);
                         $('#housenumber').text(data.Customer.HouseNumber);
                         $('#streetname').text(data.Customer.StreetName);
@@ -457,7 +562,6 @@
         $('#modal').on('hidden.bs.modal', function () {
             $('#search').val('');
         });
-
         function phone_validate(phno) {
             var regexPattern = new RegExp(/^[0-9]+$/);    // regular expression pattern
             return regexPattern.test(phno);
@@ -481,51 +585,109 @@
             });
 
         };
+        var PayOption;
+        $('body').on('click', '#paycard',  function ()
+        {
+            PayOption = "Card";
+            if ($('#cname').val() == "")
+            {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Name',
+                    text: 'Please Enter a Name',
+                    timer: 2000,
+                    showConfirmButton: false
+                })
+                return;
+            }
+            if ($('#cnumber').val() == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Card Number',
+                    text: 'Please Enter a Card Number',
+                    timer: 2000,
+                    showConfirmButton: false
+                })
+                return;
+            }
+            if ($('#cxp').val() == "") {
 
-
-    </script>
-    <!--Yoco Payments Intergration-->
-    <script>
-        var yoco = new window.YocoSDK({
-            publicKey: 'pk_live_ad448c7fGWXvmeKc3814',
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Expiration Date',
+                    text: 'Please Enter a Expiration Date',
+                    timer: 2000,
+                    showConfirmButton: false
+                })
+                return;
+            }
+            if ($('#cvv').val() == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing CVV',
+                    text: 'Please Enter a CVV',
+                    timer: 2000,
+                    showConfirmButton: false
+                })
+                return;
+            }
+            SubmitOrder();
+        });
+        $('body').on('click','#paycash', function ()
+        {
+            PayOption = "Cash";
+            SubmitOrder();
         });
 
-        // Create a new dropin form instance
-        var inline = sdk.inline({
-            layout: 'field',
-            amountInCents: 2499,
-            currency: 'ZAR'
-        });
-        // this ID matches the id of the element we created earlier.
-        inline.mount('#card-frame');
-    </script>
-    <script>
-        // Run our code when your form is submitted
-        var form = document.getElementById('payment-form');
-        var submitButton = document.getElementById('pay-button');
-        form.addEventListener('submit', function (event) {
-            event.preventDefault()
-            // Disable the button to prevent multiple clicks while processing
-            submitButton.disabled = true;
-            // This is the inline object we created earlier with the sdk
-            inline.createToken().then(function (result) {
-                // Re-enable button now that request is complete
-                // (i.e. on success, on error and when auth is cancelled)
-                submitButton.disabled = false;
-                if (result.error) {
-                    const errorMessage = result.error.message;
-                    errorMessage && alert("error occured: " + errorMessage);
-                } else {
-                    const token = result;
-                    alert("card successfully tokenised: " + token.id);
+        function SubmitOrder()
+        {
+            $.ajax({
+                url: '/Carts/SubmitOrderAsync/',
+                dataType: "json",
+                type: "POST",
+                data: JSON.stringify({ "Option": PayOption, "Customer": Customer}),
+                contentType: "application/json; charset=utf-8",
+                success: function (data)
+                {
+                    
+                    debugger;
+                    if (data.Status = "True")
+                    {
+                        $('#payModal').modal('hide');
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Order Placed',
+                            text: '',
+                            timer: 1000,
+                            showConfirmButton: false
+                        }).then(function () {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Your Order Has been Captured You can Track the Process on your Customer Portal 🙂 ',
+                                timer: 5000,
+                                showConfirmButton: false
+                            }).then(function () {
+                                window.location.href = "/Account/Login";
+                            });
+                        });
+                    }
+                    else {
+                        console.log(data);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Uh Oh',
+                            text: 'Something Went Wong Please try Again Later 😯',
+                            timer: 5000,
+                            showConfirmButton: false
+                        });
+                        return;
+                    }
+
                 }
-            }).catch(function (error) {
-                // Re-enable button now that request is complete
-                submitButton.disabled = false;
-                alert("error occured: " + error);
             });
-        });
-      // Any additional form data you want to submit to your backend should be done here, or in another event listener
+
+        }
     </script>
 
 }

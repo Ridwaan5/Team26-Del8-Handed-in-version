@@ -19,17 +19,22 @@ namespace EnginX.Models
         {
             this.Order_Product = new HashSet<Order_Product>();
             this.Order_Product1 = new HashSet<Order_Product>();
+            this.Payments = new HashSet<Payment>();
         }
     
         public int OrderID { get; set; }
         public string Order_Number { get; set; }
-        public Nullable<int> Quantity { get; set; }
         public Nullable<int> OrderStatusID { get; set; }
         public Nullable<int> CustomerID { get; set; }
-        public Nullable<int> AddressID { get; set; }
         public int PaymentID { get; set; }
+        public Nullable<System.DateTime> Dateplaced { get; set; }
+        public Nullable<System.DateTime> Dateprocessed { get; set; }
+        public Nullable<System.DateTime> Datecompleted { get; set; }
+        public Nullable<int> CartID { get; set; }
+        public Nullable<int> EmployeeID { get; set; }
     
-        public virtual Address Address { get; set; }
+        public virtual Cart Cart { get; set; }
+        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Product> Order_Product { get; set; }
         public virtual Order Order1 { get; set; }
@@ -38,6 +43,8 @@ namespace EnginX.Models
         public virtual Payment Payment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Product> Order_Product1 { get; set; }
-        public virtual Customer Customer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

@@ -98,6 +98,14 @@ namespace EnginX.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    var User = db.AspNetUsers.Where(x => x.UserName == model.UserName).FirstOrDefault();
+                    var dbUser = db.Users.Where(x => x.Email == User.Email).FirstOrDefault();
+                    Log_In newlogin = new Log_In();
+                    newlogin.UserID = dbUser.UserID;
+                    newlogin.Time = DateTime.Now.ToShortDateString();
+                    newlogin.Date = DateTime.Now.Date;
+                    db.Log_In.Add(newlogin);
+                    await db.SaveChangesAsync();
                     return RedirectToAction("Main", "Home");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -323,6 +331,14 @@ namespace EnginX.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            //var U = db.AspNetUsers.Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
+            //var dbUser = db.Users.Where(x => x.Email == U.Email).FirstOrDefault();
+            //Log_out newlogin = new Log_out();
+            //newlogin.UserID = dbUser.UserID;
+            //newlogin.Time = DateTime.Now.ToShortDateString();
+            //newlogin.Date = DateTime.Now.Date;
+            //db.Log_out.Add(newlogin);
+            // db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
 
