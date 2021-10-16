@@ -14,7 +14,16 @@ namespace EnginX.Models
     
     public partial class Vat
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Vat()
+        {
+            this.Product_Type = new HashSet<Product_Type>();
+        }
+    
         public int VatID { get; set; }
         public decimal VatAmount { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product_Type> Product_Type { get; set; }
     }
 }

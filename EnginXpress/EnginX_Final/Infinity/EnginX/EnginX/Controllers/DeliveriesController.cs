@@ -18,7 +18,7 @@ namespace EnginX.Controllers
         // GET: Deliveries
         public async Task<ActionResult> Index()
         {
-            var deliveries = db.Deliveries.Include(d => d.DeliverStatu).Include(d => d.Employee);
+            var deliveries = db.Deliveries.Include(d => d.DeliverStatu);
             return View(await deliveries.ToListAsync());
         }
 

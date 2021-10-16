@@ -78,6 +78,7 @@
     <EntitySetMapping Name="Carts">
       <EntityTypeMapping TypeName="Infinity_DbModel.Cart">
         <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="cartTotal" ColumnName="cartTotal" />
           <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
           <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
           <ScalarProperty Name="CartID" ColumnName="CartID" />
@@ -192,19 +193,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Orders">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Order">
-        <MappingFragment StoreEntitySet="Order">
-          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
-          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
-          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="Order_Number" ColumnName="Order_Number" />
-          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Order_Product">
       <EntityTypeMapping TypeName="Infinity_DbModel.Order_Product">
         <MappingFragment StoreEntitySet="Order_Product">
@@ -226,6 +214,7 @@
     <EntitySetMapping Name="Payments">
       <EntityTypeMapping TypeName="Infinity_DbModel.Payment">
         <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="Payment_Amount" ColumnName="Payment_Amount" />
           <ScalarProperty Name="isPaid" ColumnName="isPaid" />
           <ScalarProperty Name="Payment_Time" ColumnName="Payment_Time" />
@@ -271,18 +260,10 @@
     <EntitySetMapping Name="Product_Types">
       <EntityTypeMapping TypeName="Infinity_DbModel.Product_Type">
         <MappingFragment StoreEntitySet="Product Type">
+          <ScalarProperty Name="VatID" ColumnName="VatID" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Product_Content">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Product_Content">
-        <MappingFragment StoreEntitySet="Product_Content">
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="ProductContentID" ColumnName="ProductContentID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -418,5 +399,21 @@
         <ScalarProperty Name="Id" ColumnName="RoleId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
+          <ScalarProperty Name="Datecompleted" ColumnName="Datecompleted" />
+          <ScalarProperty Name="Dateprocessed" ColumnName="Dateprocessed" />
+          <ScalarProperty Name="Dateplaced" ColumnName="Dateplaced" />
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+          <ScalarProperty Name="Order_Number" ColumnName="Order_Number" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -16,7 +16,9 @@ namespace EnginX.Models
     {
         public int LogInID { get; set; }
         public int UserID { get; set; }
-        public System.TimeSpan Time { get; set; }
+        public string Time { get; set; }
         public System.DateTime Date { get; set; }
+    
+        public virtual User User { get; set; }
     }
 }

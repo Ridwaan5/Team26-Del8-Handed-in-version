@@ -1,2 +1,95 @@
-﻿
+﻿@{
+    ViewBag.Title = "Home Admin";
+}
+<style>
 
+    .order-cardss {
+        color: #fff;
+    }
+
+    .bg-c-blue {
+        background: linear-gradient(45deg,rgb(55,105,236),#73b4ff);
+    }
+
+    .bg-c-green {
+        background: linear-gradient(45deg,rgb(55,105,236),#73b4ff);
+    }
+
+    .bg-c-yellow {
+        background: linear-gradient(45deg,rgb(55,105,236),#73b4ff);
+    }
+
+    .bg-c-pink {
+        background: linear-gradient(45deg,rgb(55,105,236),#73b4ff);
+    }
+
+
+    .cardss {
+        border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+        box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+        border: none;
+        margin-bottom: 30px;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .cardss .cardss-block {
+            padding: 25px;
+        }
+
+    .order-cardss i {
+        font-size: 26px;
+    }
+
+    .f-left {
+        float: left;
+    }
+
+    .f-right {
+        float: right;
+    }
+</style>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <div class="row">
+        <div class="col-md-4 col-xl-3">
+            <div class="cardss bg-c-blue order-cardss">
+                <div class="cardss-block">
+                    <h6 class="m-b-20">Orders Received</h6>
+                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
+                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-xl-3">
+            <div class="cardss bg-c-green order-cardss">
+                <div class="cardss-block">
+                    <h6 class="m-b-20">Orders Received</h6>
+                    <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>486</span></h2>
+                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-xl-3">
+            <div class="cardss bg-c-yellow order-cardss">
+                <div class="cardss-block">
+                    <h6 class="m-b-20">Orders Received</h6>
+                    <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h2>
+                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-xl-3">
+            <div class="cardss bg-c-pink order-cardss">
+                <div class="cardss-block">
+                    <h6 class="m-b-20">Orders Received</h6>
+                    <h2 class="text-right"><i class="fa fa-credit-cardss f-left"></i><span>486</span></h2>
+                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
