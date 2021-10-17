@@ -340,7 +340,7 @@
       <PropertyRef Name="EmployeeID" />
     </Key>
     <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="UserID" Type="Int32" Nullable="false" />
     <Property Name="IsCheckedIn" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Infinity_DbModel.FK_Employee_User" FromRole="Employee" ToRole="User" />
