@@ -4,72 +4,100 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="mb-5">Supplier Orders</h2>
+<div class="row">
+    <div class="col">
+        <div class="cardsss shadow">
+            <div class="cardsss-header border-0">
+                <h3 class="mb-0">Orders</h3>
+            </div>
+            <div class="table-responsive">
+                <table id="tbl" class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Order Number</th>
+                            <th scope="col">Date Placed</th>
+                            <th scope="col">Order Status</th>
+                            <th></th>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+                        <tr>
+                            <th scope="row">
+                                <div class="media align-items-center">
+                                    <a href="#" class="avatar rounded-circle mr-3">
+                                        @if (order.Supplier.logoimg != null)
+                                        {
+                                            <img alt="Image placeholder" src="@Url.Content(order.Supplier.logoimg)">
+                                        }
+                                        else
+                                        {
+                                            <img alt="Image placeholder" src="~/Content/Pics/user.png">
+                                        }
+                                    </a>
+                                    <div class="media-body">
+                                        <span class="mb-0 text-sm"> @order.Supplier.CompanyName - @order.Supplier.CompanyName </span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td>
+                                @order.SupplierOrderDate.ToShortDateString();
+                            </td>
+                            <td>
+                                @order.SupplierOrderDescription
+                            </td>
+                            <td>
+                                @order.SupplierOrderQuantity
+                            </td>
+                            <td>
+                                @order.SupplierOrderNote
+                            </td>
+                            <td>
+                                @if (order.SOStatusID == 1)
+                                {
+                                    <span class="badge badge-dot mr-4" style="color:black">
+                                        <i class="bg-primary"></i> @order.Supplier_Order_Status.SOStatusDescription
+                                    </span>
+                                }
+                                else if (order.SOStatusID == 2)
+                                {
+                                  <span class="badge badge-dot mr-4">
+                                      <i class="bg-info"></i>  @order.Supplier_Order_Status.SOStatusDescription
+                                  </span>
+                                }
+                                else if (order.SOStatusID == 3)
+                                {
+                                     <span class="badge badge-dot mr-4">
+                                         <i class="bg-success"></i>  @order.Supplier_Order_Status.SOStatusDescription
+                                      </span>
+                                }
+                                else
+                                {
+                                  <span class="badge badge-dot mr-4">
+                                   <i class="bg-danger"></i>  @order.Supplier_Order_Status.SOStatusDescription
+                                   </span>
+                                }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SupplierOrderNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SupplierOrderDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SupplierOrderDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SupplierOrderQuantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SupplierOrderNote)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Administrator.AdminID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Supplier.CompanyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Supplier_Order_Status.SOStatusDescription)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SupplierOrderNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SupplierOrderDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SupplierOrderDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SupplierOrderQuantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SupplierOrderNote)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Administrator.AdminID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Supplier_Order_Status.SOStatusDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SupplierOrderID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SupplierOrderID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SupplierOrderID })
-        </td>
-    </tr>
-}
-
-</table>
+                            </td>
+                            <td class="text-right">
+                                <div class="btn-group dropdown-menu-end">
+                                    <button class="btn btn-sm btn-icon-only text-dark" role="button" onclick="window.location.href = '@Url.Action("Edit","Supplier_Orders",new {id = order.SupplierOrderID })'">
+                                        <i class="fas fa-pencil"></i>
+                                        Update Order
+                                    </button>
+                                    <button class="btn btn-sm btn-icon-only text-primary" role="button" onclick="window.location.href = '@Url.Action("Details","Supplier_Orders",new {id = order.SupplierOrderID })'">
+                                        <i class="fas fa-eye"></i>
+                                        View Order Details
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

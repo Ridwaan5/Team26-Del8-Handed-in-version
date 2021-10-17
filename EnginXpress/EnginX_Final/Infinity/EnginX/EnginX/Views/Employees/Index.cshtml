@@ -2,44 +2,96 @@
 
 @{
     ViewBag.Title = "Index";
+    EnginX.Models.Infinity_DbEntities db = new EnginX.Models.Infinity_DbEntities();
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Date_of_birth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsCheckedIn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.Username)
-        </th>
-        <th></th>
-    </tr>
+<h2 class="mb-5">Employees</h2>
+<div class="row">
+    <div class="col">
+        <div class="cardsss shadow">
+            <div class="cardsss-header border-0">
+                <h3 class="mb-0">Top 10 Recent Orders</h3>
+            </div>
+            <div class="table-responsive">
+                <table id="tbl" class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Employee</th>
+                            <th scope="col">Role </th>
+                            <th scope="col">Orders Managed </th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var emp in Model)
+                        {
+                        <tr>
+                            <th scope="row">
+                                <div class="media align-items-center">
+                                    <a href="#" class="avatar rounded-circle mr-3">
+                                        @if (emp.User.userimg != null)
+                                        {
+                                            <img alt="Image placeholder" src="@Url.Content(emp.User.userimg)">
+                                        }
+                                        else
+                                        {
+                                            <img alt="Image placeholder" src="~/Content/Pics/user.png">
+                                        }
+                                    </a>
+                                    <div class="media-body">
+                                        <span class="mb-0 text-sm">@emp.User.Name @emp.User.Surname </span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td>
+                                @emp.User.User_Role.Description
+                            </td>
+                            <td>
+                                @db.Orders.Where(x=> x.EmployeeID == emp.EmployeeID).Count()
+                            </td>
+                            <td>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date_of_birth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsCheckedIn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.Username)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID })
-        </td>
-    </tr>
-}
+                                @if (emp.IsCheckedIn == true)
+                                {
+                                    <span class="badge badge-dot mr-4" style="color:black">
+                                        <i class="bg-success"></i> Online
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-danger"></i> Offline
+                                    </span>
+                                }
+                              
+                            </td>
+                            <td>
+                                @emp.User.ContactNumber
+                            </td>
+                            <td class="text-right">
 
-</table>
+                                <div class="btn-group dropdown-menu-end">
+                                    <button class="btn btn-sm btn-icon-only text-dark" role="button" onclick="window.location.href = '@Url.Action("Edit","Employees",new { id = emp.EmployeeID })'">
+                                        <i class="fas fa-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-icon-only text-primary" role="button" onclick="window.location.href = '@Url.Action("Details","Employees",new { id = emp.EmployeeID })'">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-icon-only text-success" role="button" onclick="window.location.href = '@Url.Action("Delete","Employees",new { id = emp.EmployeeID })'">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

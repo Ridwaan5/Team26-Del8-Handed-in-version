@@ -1,0 +1,47 @@
+﻿@model EnginX.Models.Order
+
+@{
+    ViewBag.Title = "Edit";
+}
+<button class="btn tbcolor btn-sm" onclick="window.location.href = document.referrer;">
+    <i class="fas fa-arrow-left"></i> Back
+</button>
+<br />
+<br />
+<div class=" cardsss shadow text-center" style="justify-content: center; padding-left: 10%; padding-right: 10%">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div>
+        <h4>Update Order -  @Model.Order_Number </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger text-center" })
+        @Html.HiddenFor(model => model.OrderID)
+        @Html.HiddenFor(model => model.Order_Number)
+        @Html.HiddenFor(model => model.CustomerID)
+        @Html.HiddenFor(model => model.PaymentID)
+        @Html.HiddenFor(model => model.Dateplaced)
+        @Html.HiddenFor(model => model.Dateprocessed)
+        @Html.HiddenFor(model => model.Datecompleted)
+
+        <div class="form-group">
+            Update Status
+            <div>
+                @Html.DropDownList("OrderStatusID", null, htmlAttributes: new { @class = "form-control border-0 bg-light text-center", @required = "true" })
+                @Html.ValidationMessageFor(model => model.OrderStatusID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 ">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+
+        <br />
+    </div>
+    }
+</div>

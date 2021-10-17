@@ -2,38 +2,73 @@
 
 @{
     ViewBag.Title = "Index";
+    EnginX.Models.Infinity_DbEntities db = new EnginX.Models.Infinity_DbEntities();
 }
 
-<h2>Index</h2>
+<h2 class="mb-5">Customers</h2>
+<div class="row">
+    <div class="col">
+        <div class="cardsss shadow">
+            <div class="cardsss-header border-0">
+                <h3 class="mb-0">Top 10 Recent Orders</h3>
+            </div>
+            <div class="table-responsive">
+                <table id="tbl" class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Total Orders</th>
+                            <th scope="col">Date Joined</th>
+                            <th></th>
+                   </thead>
+                    <tbody>
+                        @foreach (var customer in Model)
+                        {
+                        <tr>
+                            <th scope="row">
+                                <div class="media align-items-center">
+                                    <a href="#" class="avatar rounded-circle mr-3">
+                                        @if (customer.User.userimg != null)
+                                        {
+                                            <img alt="Image placeholder" src="@Url.Content(customer.User.userimg)">
+                                        }
+                                        else
+                                        {
+                                            <img alt="Image placeholder" src="~/Content/Pics/user.png">
+                                        }
+                                    </a>
+                                    <div class="media-body">
+                                        <span class="mb-0 text-sm"> @customer.User.Name  @customer.User.Surname </span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td>
+                                @db.Orders.Where(x => x.CustomerID == customer.CustomerID).Count()
+                            </td>
+                            <td>
+                                @db.Users.Where(c => c.Email == customer.User.Email).FirstOrDefault().Datejoined
+                            </td>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Address.StreetName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.Username)
-        </th>
-        <th></th>
-    </tr>
+                            <td class="text-right">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address.StreetName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.Username)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CustomerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerID })
-        </td>
-    </tr>
-}
+                                <div class="btn-group dropdown-menu-end">
+                                    <button class="btn btn-sm btn-icon-only text-dark" role="button" onclick="window.location.href = '@Url.Action("Edit","Customers",new {id = customer.CustomerID })'">
+                                        <i class="fas fa-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-icon-only text-primary" role="button" onclick="window.location.href = '@Url.Action("Details","Customers",new { id = customer.CustomerID })'">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-icon-only text-success" role="button" onclick="window.location.href = '@Url.Action("Delete","Customers",new { id = customer.CustomerID })'">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
 
-</table>
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

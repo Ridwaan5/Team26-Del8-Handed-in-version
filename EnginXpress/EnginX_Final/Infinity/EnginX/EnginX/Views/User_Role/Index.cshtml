@@ -4,30 +4,49 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+<h2 class="mb-5">User Roless</h2>
+<div class="row">
+    <div class="col">
+        <div class="cardsss shadow">
+            <div class="cardsss-header border-0">
+                <h3 class="mb-0">Top 10 Recent Orders</h3>
+            </div>
+            <div class="table-responsive">
+                <table id="tbl" class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Role</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var role in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @role.Description
+                                </td>
+                                <td class="text-right">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserRoleID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserRoleID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserRoleID })
-        </td>
-    </tr>
-}
+                                    <div class="btn-group dropdown-menu-end">
+                                        <button class="btn btn-sm btn-icon-only text-dark" role="button" onclick="window.location.href = '@Url.Action("Edit","UserRoles",new {id = role.UserRoleID })'">
+                                            <i class="fas fa-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-icon-only text-primary" role="button" onclick="window.location.href = '@Url.Action("Details","UserRoles",new { id = role.UserRoleID })'">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-icon-only text-success" role="button" onclick="window.location.href = '@Url.Action("Delete","UserRoles",new { id = role.UserRoleID })'">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
 
-</table>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

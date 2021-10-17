@@ -1,0 +1,113 @@
+﻿@model IEnumerable<EnginX.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="mb-5">Orders</h2>
+<div class="row">
+    <div class="col">
+        <div class="cardsss shadow">
+            <div class="cardsss-header border-0">
+                <h3 class="mb-0">Order Records</h3>
+            </div>
+            <div class="table-responsive">
+                <table id="tbl" class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Order Number</th>
+                            <th scope="col">Date Placed</th>
+                            <th scope="col">Order Status</th>
+                            <th></th>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="#" class="avatar rounded-circle mr-3">
+                                            @if (order.Customer.User.userimg != null)
+                                            {
+                                                <img alt="Image placeholder" src="@Url.Content(order.Customer.User.userimg)">
+                                            }
+                                            else
+                                            {
+                                                <img alt="Image placeholder" src="~/Content/Pics/user.png">
+                                            }
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="mb-0 text-sm"> @order.Customer.User.Name  @order.Customer.User.Surname </span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    @order.Order_Number
+                                </td>
+                                <td>
+                                    @order.Dateplaced
+                                </td>
+                                <td>
+                                    @if (order.OrderStatusID == 1)
+                                    {
+                                        <span class="badge badge-dot mr-4" style="color:black">
+                                            <i class="bg-primary"></i> Order Placed
+                                        </span>
+                                    }
+                                    else if (order.OrderStatusID == 2)
+                                    {
+                                        <span class="badge badge-dot mr-4" style="color:black">
+                                            <i class="bg-warning"></i> Order Packed
+                                        </span>
+                                    }
+                                    else if (order.OrderStatusID == 3)
+                                    {
+                                        <span class="badge badge-dot mr-4" style="color:black">
+                                            <i class="bg-info"></i> Order Collected
+                                        </span>
+                                    }
+                                    else if (order.OrderStatusID == 4)
+                                    {
+                                        <span class="badge badge-dot mr-4" style="color:black">
+                                            <i class="bg-success"></i> Order Delivered
+                                        </span>
+                                    }
+                                    else if (order.OrderStatusID == 5)
+                                    {
+                                        <span class="badge badge-dot mr-4" style="color:black">
+                                            <i class="bg-danger"></i> Order Cancelled
+                                        </span>
+                                    }
+                                    else 
+                                    {
+                                        <span class="badge badge-dot mr-4" style="color:black">
+                                            <i class="bg-dark"></i> Order Closed
+                                        </span>
+                                    }
+
+
+                                </td>
+                                <td class="text-right">
+
+                                    <div class="btn-group dropdown-menu-end">
+                                        <button class="btn btn-sm btn-icon-only text-dark" role="button" onclick="window.location.href = '@Url.Action("Edit","Orders",new {id = order.OrderID })'">
+                                            <i class="fas fa-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-icon-only text-primary" role="button" onclick="window.location.href = '@Url.Action("Details","Orders",new { id = order.OrderID })'">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-icon-only text-success" role="button" onclick="window.location.href = '@Url.Action("Delete","Orders",new { id = order.OrderID })'">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -200,7 +200,7 @@ namespace EnginX.Controllers
                     i = 1;
                 }
                 Order newOrder = new Order();
-                newOrder.Order_Number = "ENGX" + DateTime.Today.Ticks;
+                newOrder.Order_Number = "EN" + DateTime.Now.Second + "GX";
                 newOrder.OrderStatusID = 1;
                 newOrder.CustomerID = customer.CustomerID;
                 newOrder.PaymentID = i;

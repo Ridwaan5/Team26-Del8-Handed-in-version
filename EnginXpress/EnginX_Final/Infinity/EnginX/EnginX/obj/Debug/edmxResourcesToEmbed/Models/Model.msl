@@ -144,16 +144,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Employees">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Employee">
-        <MappingFragment StoreEntitySet="Employee">
-          <ScalarProperty Name="IsCheckedIn" ColumnName="IsCheckedIn" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Feedbacks">
       <EntityTypeMapping TypeName="Infinity_DbModel.Feedback">
         <MappingFragment StoreEntitySet="Feedback">
@@ -193,35 +183,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Order_Product">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Order_Product">
-        <MappingFragment StoreEntitySet="Order_Product">
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-          <ScalarProperty Name="OrderProductID" ColumnName="OrderProductID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Order_Status">
       <EntityTypeMapping TypeName="Infinity_DbModel.Order_Status">
         <MappingFragment StoreEntitySet="Order_Status">
           <ScalarProperty Name="Order_Status1" ColumnName="Order_Status" />
           <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Payments">
-      <EntityTypeMapping TypeName="Infinity_DbModel.Payment">
-        <MappingFragment StoreEntitySet="Payment">
-          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-          <ScalarProperty Name="Payment_Amount" ColumnName="Payment_Amount" />
-          <ScalarProperty Name="isPaid" ColumnName="isPaid" />
-          <ScalarProperty Name="Payment_Time" ColumnName="Payment_Time" />
-          <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
-          <ScalarProperty Name="Payment_Total" ColumnName="Payment_Total" />
-          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
-          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -301,6 +267,7 @@
     <EntitySetMapping Name="Suppliers">
       <EntityTypeMapping TypeName="Infinity_DbModel.Supplier">
         <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="logoimg" ColumnName="logoimg" />
           <ScalarProperty Name="Website" ColumnName="Website" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -347,6 +314,8 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="Infinity_DbModel.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="userimg" ColumnName="userimg" />
+          <ScalarProperty Name="Datejoined" ColumnName="Datejoined" />
           <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
           <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -399,6 +368,28 @@
         <ScalarProperty Name="Id" ColumnName="RoleId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="Payment_Amount" ColumnName="Payment_Amount" />
+          <ScalarProperty Name="isPaid" ColumnName="isPaid" />
+          <ScalarProperty Name="Payment_Time" ColumnName="Payment_Time" />
+          <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="Infinity_DbModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="IsCheckedIn" ColumnName="IsCheckedIn" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="Infinity_DbModel.Order">
         <MappingFragment StoreEntitySet="Order">

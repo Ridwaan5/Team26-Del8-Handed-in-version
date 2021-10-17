@@ -79,7 +79,36 @@ namespace EnginX.Controllers
 
         public ActionResult Admin()
         {
-            return View();
+            DateTime Month = DateTime.Now.AddDays(-30);
+            DateTime JustDate = Month.Date;
+
+            //employees
+            ViewBag.EmployeesMade = db.Employees.Count();
+            ViewBag.EmployeesOnline = db.Employees.Where(x => x.IsCheckedIn).Count();
+            
+            //order
+            ViewBag.OrdersMade = db.Orders.Count();          
+            ViewBag.OrdersThisMonth = db.Orders.Where(x => x.Dateplaced > Month).Count();
+
+            //payments
+            ViewBag.TotalMade = db.Payments.Sum(x => Math.Round((double)x.Payment_Amount,2));
+            ViewBag.TotalMadeThisMonth = db.Payments.Where(y =>  y.isPaid == false).Count();
+
+            //Customers
+            ViewBag.CustomersMade = db.Customers.Count();
+            ViewBag.CustomersThisMonth = db.Customers.Include(u=> u.User).Where(x => x.User.Datejoined > Month).Count();
+
+            var list = db.Orders.Include(os => os.Order_Status)
+                                 .Include(cs => cs.Customer)
+                                 .Include(pt => pt.Payment)
+                                 .Include(ct => ct.Cart)
+                                 .Include(em => em.Employee)
+                                 .OrderByDescending(x=> x.OrderID)
+                                 .Take(10)
+                                 .ToList();
+
+
+            return View(list);
         }
         public ActionResult Employee()
         {

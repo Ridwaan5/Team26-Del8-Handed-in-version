@@ -17,10 +17,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://js.yoco.com/sdk/v1/yoco-sdk-web.js"></script>
-
-
-
     <style>
         @@import url('https://fonts.googleapis.com/css?family=Roboto');
 
@@ -249,26 +245,40 @@
                             <li class="nav-item ">
                                 <a class="nav-link" href="/Home/Admin"><i class="fas fa-home"></i>Dashboard</a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="/employees/Index"><i class="far fa-address-book"></i>Employees</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="/user_role/Index"><i class="far fa-address-book"></i>User Roles</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/customers/Index"><i class="fas fa-user"></i>Customers</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/orders/Index"><i class="fas fa-clipboard-list"></i>Orders</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="/supplier_order/index"><i class="fas fa-truck-loading"></i>Supplier Orders</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="/products/Index"><i class="far fa-boxes"></i>Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/product_type/Index"><i class="far fa-boxes"></i>Product Types</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/product_category/Index"><i class="far fa-boxes"></i>Product Categories</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="/suppliers/Index"><i class="far fa-address-book"></i>Suppliers</a>
                             </li>
+
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/employees/Index"><i class="far fa-address-book"></i>Employees</a>
+                            </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/supplier_order/index"><i class="fas fa-truck-loading"></i>Supplier Orders</a>
+                                <a class="nav-link" href="/customers/Index"><i class="fas fa-user"></i>Customers</a>
+                            </li>
+
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/user_role/Index"><i class="far fa-address-book"></i>User Roles</a>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Reports/ProductReport"><i class="fas fa-truck-loading"></i>Reports</a>
                             </li>
 
                         }
@@ -360,8 +370,7 @@
     @RenderSection("scripts", required: false)
     <script>
         // ---------Responsive-navbar-active-animation-----------
-        function test()
-        {
+        function test() {
             var tabsNewAnim = $('#navbarSupportedContent');
             var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
             var activeItemNewAnim = tabsNewAnim.find('.active');
@@ -410,15 +419,83 @@
             if (p == '//undefined' || p == '/Home/Index') {
                 p = '/home/index';
             }
-            if (p == '/Carts/undefined' || p == '/Carts/Index' || p == '/Carts/Checkout')
-            {
+            if (p == '/Carts/undefined' || p == '/Carts/Index' || p == '/Carts/Checkout') {
                 p = '/carts/index';
             }
             debugger;
-  
+
             var target = $('#navbarSupportedContent ul li a[href="' + p + '"]');
             target.parent().addClass('active');
         });
     </script>
+
+    <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" src="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" />
+    <script type="text/javascript" language="javascript" src=" https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+
+   
+    
+
+    <script>
+        $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            var table = $('#tbl').DataTable({
+                orderCellsTop: true,
+                fixedHeader: true,
+                initComplete: function () {
+                    var api = this.api();
+
+                    // For each column
+                    api
+                        .columns()
+                        .eq(0)
+                        .each(function (colIdx) {
+                            // Set the header cell to contain the input element
+                            var cell = $('.filters th').eq(
+                                $(api.column(colIdx).header()).index()
+                            );
+                            var title = $(cell).text();
+                            $(cell).html('<input type="text" placeholder="' + title + '" />');
+
+                            // On every keypress in this input
+                            $(
+                                'input',
+                                $('.filters th').eq($(api.column(colIdx).header()).index())
+                            )
+                                .off('keyup change')
+                                .on('keyup change', function (e) {
+                                    e.stopPropagation();
+
+                                    // Get the search value
+                                    $(this).attr('title', $(this).val());
+                                    var regexr = '({search})'; //$(this).parents('th').find('select').val();
+
+                                    var cursorPosition = this.selectionStart;
+                                    // Search the column for that value
+                                    api
+                                        .column(colIdx)
+                                        .search(
+                                            this.value != ''
+                                                ? regexr.replace('{search}', '(((' + this.value + ')))')
+                                                : '',
+                                            this.value != '',
+                                            this.value == ''
+                                        )
+                                        .draw();
+
+                                    $(this)
+                                        .focus()[0]
+                                        .setSelectionRange(cursorPosition, cursorPosition);
+                                });
+                        });
+                },
+            });
+        });
+    </script>
+
+
+
+
 </body>
 </html>

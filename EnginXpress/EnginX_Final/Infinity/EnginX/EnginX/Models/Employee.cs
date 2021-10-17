@@ -21,7 +21,6 @@ namespace EnginX.Models
         }
     
         public int EmployeeID { get; set; }
-        public System.DateTime DateOfBirth { get; set; }
         public int UserID { get; set; }
         public bool IsCheckedIn { get; set; }
     
