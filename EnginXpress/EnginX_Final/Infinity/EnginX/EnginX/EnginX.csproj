@@ -213,6 +213,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoriesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\Product_CategoryController.cs" />
     <Compile Include="Controllers\Product_TypeController.cs" />
@@ -306,9 +307,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Order_Product.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order_Status.cs">
@@ -410,11 +408,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Pics\AMKA.jpg" />
     <Content Include="Content\Pics\Engen_express.jpeg" />
+    <Content Include="Content\Pics\mondelez.jpg" />
     <Content Include="Content\Pics\null.jpg" />
     <Content Include="Content\Pics\payment.png" />
     <Content Include="Content\Pics\PicsArt_04-11-05.50.51-01-removebg.png" />
     <Content Include="Content\Pics\Logo.jpeg" />
+    <Content Include="Content\Pics\Unilever.jpg" />
+    <Content Include="Content\Pics\user.png" />
     <Content Include="Content\shoppics\albany.png" />
     <Content Include="Content\shoppics\astros.png" />
     <Content Include="Content\shoppics\biltong.png" />
@@ -753,6 +755,11 @@
     <Content Include="Views\Carts\Index.cshtml" />
     <Content Include="Views\Help\Index.cshtml" />
     <Content Include="Views\Carts\Checkout.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

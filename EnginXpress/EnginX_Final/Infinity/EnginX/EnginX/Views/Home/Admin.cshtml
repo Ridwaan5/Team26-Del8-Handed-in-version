@@ -1,95 +1,197 @@
-﻿@{
+﻿@model IEnumerable<EnginX.Models.Order>
+@{
     ViewBag.Title = "Home Admin";
 }
-<style>
-
-    .order-cardss {
-        color: #fff;
-    }
-
-    .bg-c-blue {
-        background: linear-gradient(45deg,rgb(55,105,236),#73b4ff);
-    }
-
-    .bg-c-green {
-        background: linear-gradient(45deg,rgb(55,105,236),#73b4ff);
-    }
-
-    .bg-c-yellow {
-        background: linear-gradient(45deg,rgb(55,105,236),#73b4ff);
-    }
-
-    .bg-c-pink {
-        background: linear-gradient(45deg,rgb(55,105,236),#73b4ff);
-    }
-
-
-    .cardss {
-        border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-        box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
-        border: none;
-        margin-bottom: 30px;
-        -webkit-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-    }
-
-        .cardss .cardss-block {
-            padding: 25px;
-        }
-
-    .order-cardss i {
-        font-size: 26px;
-    }
-
-    .f-left {
-        float: left;
-    }
-
-    .f-right {
-        float: right;
-    }
-</style>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-  <div class="row">
-        <div class="col-md-4 col-xl-3">
-            <div class="cardss bg-c-blue order-cardss">
-                <div class="cardss-block">
-                    <h6 class="m-b-20">Orders Received</h6>
-                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-xl-3">
-            <div class="cardss bg-c-green order-cardss">
-                <div class="cardss-block">
-                    <h6 class="m-b-20">Orders Received</h6>
-                    <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-xl-3">
-            <div class="cardss bg-c-yellow order-cardss">
-                <div class="cardss-block">
-                    <h6 class="m-b-20">Orders Received</h6>
-                    <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-xl-3">
-            <div class="cardss bg-c-pink order-cardss">
-                <div class="cardss-block">
-                    <h6 class="m-b-20">Orders Received</h6>
-                    <h2 class="text-right"><i class="fa fa-credit-cardss f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                </div>
+<div class="row">
+    <div class="col-md-4 col-xl-3">
+        <div class="cardsssss bg-c-blue order-cardsssss">
+            <div class="cardsssss-block">
+                <h6 class="m-b-20">Employees</h6>
+                <h2 class="text-right"><i class="fa fa-user f-left"></i><span> @ViewBag.EmployeesMade</span></h2>
+                <p class="m-b-0 text-light">Checked In<span class="f-right" style="color:limegreen">@ViewBag.EmployeesOnline</span></p>
             </div>
         </div>
     </div>
+
+    <div class="col-md-4 col-xl-3">
+        <div class="cardsssss bg-c-green order-cardsssss">
+            <div class="cardsssss-block">
+                <h6 class="m-b-20">Orders Received</h6>
+                <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>@ViewBag.OrdersMade</span></h2>
+                <p class="m-b-0 text-light">Orders In October 2021<span class="f-right" style="color:limegreen">@ViewBag.OrdersThisMonth</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-xl-3">
+        <div class="cardsssss bg-c-yellow order-cardsssss">
+            <div class="cardsssss-block">
+                <h6 class="m-b-20">Total Revenue</h6>
+                <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>@ViewBag.TotalMade</span></h2>
+                <p class="m-b-0 text-light" >Outstanding Payments<span class="f-right" style="color:red">@ViewBag.TotalMadeThisMonth</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-xl-3">
+        <div class="cardsssss bg-c-pink order-cardsssss">
+            <div class="cardsssss-block">
+                <h6 class="m-b-20">Total Customers</h6>
+                <h2 class="text-right"><i class="fa fa-user f-left"></i><span>@ViewBag.CustomersMade</span></h2>
+                <p class="m-b-0 text-light">Joined October 2021<span class="f-right" style="color:limegreen">@ViewBag.CustomersThisMonth</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<h2 class="mb-5">Recent Orders</h2>
+ <div class="row">
+            <div class="col">
+                <div class="cardsss shadow">
+                    <div class="cardsss-header border-0">
+                        <h3 class="mb-0">Top 10 Recent Orders</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">Order Total</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Employee</th>
+                                    <th scope="col">Completion</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var order in Model)
+                                {
+                                <tr>
+                                    <th scope="row">
+                                        <div class="media align-items-center">
+                                            <a href="#" class="avatar rounded-circle mr-3">
+                                                @if (order.Customer.User.userimg != null)
+                                                {
+                                                    <img alt="Image placeholder" src="@Url.Content(order.Customer.User.userimg)">
+                                                }
+                                                else
+                                                {
+                                                    <img alt="Image placeholder" src="~/Content/Pics/user.png">
+                                                }
+                                            </a>
+                                            <div class="media-body">
+                                                <span class="mb-0 text-sm">@order.Customer.User.Name @order.Customer.User.Surname </span>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <td>
+                                        R @order.Cart.cartTotal ZAR
+                                    </td>
+                                    <td>
+
+                                        @if (order.OrderStatusID == 1)
+                                        {
+                                            <span class="badge badge-dot mr-4" style="color:black">
+                                                <i class="bg-primary"></i> Order Placed
+                                            </span>
+                                        }
+                                        else if (order.OrderStatusID == 2)
+                                        {
+                                            <span class="badge badge-dot mr-4">
+                                                <i class="bg-warning"></i> Order Packed
+                                            </span>
+                                        }
+                                        else if (order.OrderStatusID == 3)
+                                        {
+                                            <span class="badge badge-dot mr-4">
+                                                <i class="bg-info"></i> Order Collected
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-dot mr-4">
+                                                <i class="bg-success"></i> Order Delivered
+                                            </span>
+                                        }
+ 
+                                    </td>
+                                    <td>
+                                        <div class="avatar-group">
+                                            @if (order.Customer.User.userimg != null)
+                                            {
+                                                <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                                                    <img alt="Image placeholder" src="@Url.Content(order.Employee.User.userimg)" class="rounded-circle">
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                                                    <img alt="Image placeholder" src="~/Content/Pics/user.png" class="rounded-circle">
+                                                </a>
+                                            }
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            @if (order.OrderStatusID == 1)
+                                            {
+                                                <span class="mr-2">40%</span>
+                                                <div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else if (order.OrderStatusID == 2)
+                                            {
+
+                                                <span class="mr-2">60%</span>
+                                                <div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else if (order.OrderStatusID == 3)
+                                            {
+
+                                                <span class="mr-2">80%</span>
+                                                <div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+
+                                                <span class="mr-2">100%</span>
+                                                <div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </td>
+                                    <td class="text-right">
+
+                                        <div class="btn-group dropdown-menu-end">
+                                            <button class="btn btn-sm btn-icon-only text-success"  role="button" onclick="window.location.href = '@Url.Action("Details","Orders",new { id=order.OrderID })'"  >
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<br />

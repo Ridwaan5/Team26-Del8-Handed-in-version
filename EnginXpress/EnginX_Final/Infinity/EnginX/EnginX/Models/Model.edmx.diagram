@@ -19,14 +19,11 @@
         <EntityTypeShape EntityType="Infinity_DbModel.Customer" Width="1.5" PointX="10.5" PointY="9.25" />
         <EntityTypeShape EntityType="Infinity_DbModel.DeliverStatu" Width="1.5" PointX="3" PointY="13.625" />
         <EntityTypeShape EntityType="Infinity_DbModel.Delivery" Width="1.5" PointX="5.25" PointY="10.375" />
-        <EntityTypeShape EntityType="Infinity_DbModel.Employee" Width="1.5" PointX="5.25" PointY="15.875" />
         <EntityTypeShape EntityType="Infinity_DbModel.Feedback" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="Infinity_DbModel.Inventory" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="Infinity_DbModel.Log_In" Width="1.5" PointX="5.25" PointY="6.75" />
         <EntityTypeShape EntityType="Infinity_DbModel.Log_out" Width="1.5" PointX="5.25" PointY="18.625" />
-        <EntityTypeShape EntityType="Infinity_DbModel.Order_Product" Width="1.5" PointX="15" PointY="9.375" />
         <EntityTypeShape EntityType="Infinity_DbModel.Order_Status" Width="1.5" PointX="10.5" PointY="12.375" />
-        <EntityTypeShape EntityType="Infinity_DbModel.Payment" Width="1.5" PointX="10.5" PointY="4.875" />
         <EntityTypeShape EntityType="Infinity_DbModel.Payment_Method" Width="1.5" PointX="8.25" PointY="5.5" />
         <EntityTypeShape EntityType="Infinity_DbModel.Product" Width="1.5" PointX="17" PointY="13" />
         <EntityTypeShape EntityType="Infinity_DbModel.Product_Category" Width="1.5" PointX="14.75" PointY="5.25" />
@@ -55,10 +52,8 @@
         <AssociationConnector Association="Infinity_DbModel.FK_Customer_User" />
         <AssociationConnector Association="Infinity_DbModel.FK_Delivery_Delivery" />
         <AssociationConnector Association="Infinity_DbModel.FK_Delivery_Employee" />
-        <AssociationConnector Association="Infinity_DbModel.FK_Employee_User" />
         <AssociationConnector Association="Infinity_DbModel.FK_Log_In_User" />
         <AssociationConnector Association="Infinity_DbModel.FK_Log_out_User" />
-        <AssociationConnector Association="Infinity_DbModel.FK_Payment_Payment_Method" />
         <AssociationConnector Association="Infinity_DbModel.FK_Product_Product_Category" />
         <AssociationConnector Association="Infinity_DbModel.FK_Product_Product_Type" />
         <AssociationConnector Association="Infinity_DbModel.FK_Product_Stock" />
@@ -69,16 +64,16 @@
         <AssociationConnector Association="Infinity_DbModel.FK_WriteOffLine_WriteOffS" />
         <AssociationConnector Association="Infinity_DbModel.AspNetUserRoles" />
         <AssociationConnector Association="Infinity_DbModel.FK_Product_Type_Vat" />
-        <EntityTypeShape EntityType="Infinity_DbModel.Order" Width="1.5" PointX="22" PointY="10.375" />
+        <EntityTypeShape EntityType="Infinity_DbModel.Payment" Width="1.5" PointX="25.25" PointY="8.875" />
+        <AssociationConnector Association="Infinity_DbModel.FK_Payment_Payment_Method" />
+        <EntityTypeShape EntityType="Infinity_DbModel.Employee" Width="1.5" PointX="5.25" PointY="13.625" />
+        <AssociationConnector Association="Infinity_DbModel.FK_Employee_User" />
+        <EntityTypeShape EntityType="Infinity_DbModel.Order" Width="1.5" PointX="27.5" PointY="10.75" />
         <AssociationConnector Association="Infinity_DbModel.FK_Order_Cart" />
         <AssociationConnector Association="Infinity_DbModel.FK_Order_Customer" />
-        <AssociationConnector Association="Infinity_DbModel.FK_251" />
-        <AssociationConnector Association="Infinity_DbModel.FK_Order_Order_Product" />
+        <AssociationConnector Association="Infinity_DbModel.FK_Order_Employee" />
         <AssociationConnector Association="Infinity_DbModel.FK_Order_Order_Status" />
         <AssociationConnector Association="Infinity_DbModel.FK_Order_Payment" />
-        <AssociationConnector Association="Infinity_DbModel.FK_Order_Product_Order" />
-        <AssociationConnector Association="Infinity_DbModel.FK_Payment_Order" />
-        <AssociationConnector Association="Infinity_DbModel.FK_Order_Employee" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

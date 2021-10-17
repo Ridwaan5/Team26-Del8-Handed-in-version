@@ -153,6 +153,7 @@ namespace EnginX.Controllers
                     newUser.Surname = model.Surname;
                     newUser.Email = model.Email;
                     newUser.ContactNumber = cell;
+                    newUser.Datejoined = DateTime.Now;
                     newUser.UserRoleID = Convert.ToInt32(db.User_Roles.Where( r => r.UserRoleID == 5 ).First().UserRoleID);
                     db.Users.Add(newUser);
                     await db.SaveChangesAsync();

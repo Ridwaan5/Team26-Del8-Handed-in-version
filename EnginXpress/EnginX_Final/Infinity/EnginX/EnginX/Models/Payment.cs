@@ -22,7 +22,6 @@ namespace EnginX.Models
     
         public int PaymentID { get; set; }
         public int PaymentMethodID { get; set; }
-        public decimal Payment_Total { get; set; }
         public System.DateTime Payment_Date { get; set; }
         public System.TimeSpan Payment_Time { get; set; }
         public bool isPaid { get; set; }
@@ -32,6 +31,5 @@ namespace EnginX.Models
         public virtual Payment_Method Payment_Method { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
-        public virtual Order Order { get; set; }
     }
 }

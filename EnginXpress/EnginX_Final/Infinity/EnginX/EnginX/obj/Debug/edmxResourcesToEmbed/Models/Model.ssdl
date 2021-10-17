@@ -145,7 +145,6 @@
       <PropertyRef Name="EmployeeID" />
     </Key>
     <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DateOfBirth" Type="date" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="IsCheckedIn" Type="bit" Nullable="false" />
   </EntityType>
@@ -199,15 +198,6 @@
     <Property Name="CartID" Type="int" />
     <Property Name="EmployeeID" Type="int" />
   </EntityType>
-  <EntityType Name="Order_Product">
-    <Key>
-      <PropertyRef Name="OrderProductID" />
-    </Key>
-    <Property Name="OrderProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="OrderID" Type="int" Nullable="false" />
-    <Property Name="ProductID" Type="int" Nullable="false" />
-    <Property Name="Quantity" Type="nchar" MaxLength="10" Nullable="false" />
-  </EntityType>
   <EntityType Name="Order_Status">
     <Key>
       <PropertyRef Name="OrderStatusID" />
@@ -221,7 +211,6 @@
     </Key>
     <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PaymentMethodID" Type="int" Nullable="false" />
-    <Property Name="Payment_Total" Type="money" Nullable="false" />
     <Property Name="Payment_Date" Type="date" Nullable="false" />
     <Property Name="Payment_Time" Type="time" Precision="7" Nullable="false" />
     <Property Name="isPaid" Type="bit" Nullable="false" />
@@ -305,6 +294,7 @@
     <Property Name="Email" Type="varchar(max)" />
     <Property Name="Address" Type="varchar(max)" />
     <Property Name="Website" Type="varchar(max)" />
+    <Property Name="logoimg" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Supplier Order Status">
     <Key>
@@ -347,6 +337,8 @@
     <Property Name="Email" Type="varchar" MaxLength="50" />
     <Property Name="ContactNumber" Type="varchar" MaxLength="20" />
     <Property Name="UserRoleID" Type="int" />
+    <Property Name="Datejoined" Type="datetime" />
+    <Property Name="userimg" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="User Role">
     <Key>
@@ -387,18 +379,6 @@
       </Principal>
       <Dependent Role="Supplier_Order_Line">
         <PropertyRef Name="SupplierOrderID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_251">
-    <End Role="Order" Type="Self.Order" Multiplicity="1" />
-    <End Role="Order_Product" Type="Self.Order_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
-      </Principal>
-      <Dependent Role="Order_Product">
-        <PropertyRef Name="OrderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -638,18 +618,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Order_Product">
-    <End Role="Order" Type="Self.Order" Multiplicity="1" />
-    <End Role="Order1" Type="Self.Order" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
-      </Principal>
-      <Dependent Role="Order1">
-        <PropertyRef Name="OrderID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Order_Order_Status">
     <End Role="Order_Status" Type="Self.Order_Status" Multiplicity="0..1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
@@ -671,30 +639,6 @@
       </Principal>
       <Dependent Role="Order">
         <PropertyRef Name="PaymentID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Order_Product_Order">
-    <End Role="Order" Type="Self.Order" Multiplicity="1" />
-    <End Role="Order_Product" Type="Self.Order_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
-      </Principal>
-      <Dependent Role="Order_Product">
-        <PropertyRef Name="OrderID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Payment_Order">
-    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
-    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="OrderID" />
-      </Principal>
-      <Dependent Role="Payment">
-        <PropertyRef Name="OrderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -828,7 +772,6 @@
     <EntitySet Name="Log-In" EntityType="Self.Log-In" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Log-out" EntityType="Self.Log-out" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Order_Product" EntityType="Self.Order_Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order_Status" EntityType="Self.Order_Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payment_Method" EntityType="Self.Payment_Method" Schema="dbo" store:Type="Tables" />
@@ -850,10 +793,6 @@
     <AssociationSet Name="FK_237" Association="Self.FK_237">
       <End Role="Supplier_Order" EntitySet="Supplier_Order" />
       <End Role="Supplier_Order_Line" EntitySet="Supplier_Order_Line" />
-    </AssociationSet>
-    <AssociationSet Name="FK_251" Association="Self.FK_251">
-      <End Role="Order" EntitySet="Order" />
-      <End Role="Order_Product" EntitySet="Order_Product" />
     </AssociationSet>
     <AssociationSet Name="FK_Address_City" Association="Self.FK_Address_City">
       <End Role="City" EntitySet="City" />
@@ -931,10 +870,6 @@
       <End Role="Employee" EntitySet="Employee" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Order_Product" Association="Self.FK_Order_Order_Product">
-      <End Role="Order" EntitySet="Order" />
-      <End Role="Order1" EntitySet="Order" />
-    </AssociationSet>
     <AssociationSet Name="FK_Order_Order_Status" Association="Self.FK_Order_Order_Status">
       <End Role="Order_Status" EntitySet="Order_Status" />
       <End Role="Order" EntitySet="Order" />
@@ -942,14 +877,6 @@
     <AssociationSet Name="FK_Order_Payment" Association="Self.FK_Order_Payment">
       <End Role="Payment" EntitySet="Payment" />
       <End Role="Order" EntitySet="Order" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_Product_Order" Association="Self.FK_Order_Product_Order">
-      <End Role="Order" EntitySet="Order" />
-      <End Role="Order_Product" EntitySet="Order_Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Payment_Order" Association="Self.FK_Payment_Order">
-      <End Role="Order" EntitySet="Order" />
-      <End Role="Payment" EntitySet="Payment" />
     </AssociationSet>
     <AssociationSet Name="FK_Payment_Payment_Method" Association="Self.FK_Payment_Payment_Method">
       <End Role="Payment_Method" EntitySet="Payment_Method" />

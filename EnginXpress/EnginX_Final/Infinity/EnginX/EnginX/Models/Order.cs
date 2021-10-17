@@ -14,14 +14,6 @@ namespace EnginX.Models
     
     public partial class Order
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
-        {
-            this.Order_Product = new HashSet<Order_Product>();
-            this.Order_Product1 = new HashSet<Order_Product>();
-            this.Payments = new HashSet<Payment>();
-        }
-    
         public int OrderID { get; set; }
         public string Order_Number { get; set; }
         public Nullable<int> OrderStatusID { get; set; }
@@ -35,16 +27,8 @@ namespace EnginX.Models
     
         public virtual Cart Cart { get; set; }
         public virtual Customer Customer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order_Product> Order_Product { get; set; }
-        public virtual Order Order1 { get; set; }
-        public virtual Order Order2 { get; set; }
+        public virtual Employee Employee { get; set; }
         public virtual Order_Status Order_Status { get; set; }
         public virtual Payment Payment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order_Product> Order_Product1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payment> Payments { get; set; }
-        public virtual Employee Employee { get; set; }
     }
 }
