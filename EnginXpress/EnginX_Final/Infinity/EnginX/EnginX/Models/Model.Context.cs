@@ -39,11 +39,15 @@ namespace EnginX.Models
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<DeliverStatu> DeliverStatus { get; set; }
         public virtual DbSet<Delivery> Deliveries { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Inventory> Inventories { get; set; }
         public virtual DbSet<Log_In> Log_In { get; set; }
         public virtual DbSet<Log_out> Log_out { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Order_Product> Order_Product { get; set; }
         public virtual DbSet<Order_Status> Order_Status { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Payment_Method> Payment_Method { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Product_Category> Product_Categories { get; set; }
@@ -60,8 +64,5 @@ namespace EnginX.Models
         public virtual DbSet<Vat> Vats { get; set; }
         public virtual DbSet<WriteOffLine> WriteOffLines { get; set; }
         public virtual DbSet<WriteOff> WriteOffS { get; set; }
-        public virtual DbSet<Payment> Payments { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
     }
 }

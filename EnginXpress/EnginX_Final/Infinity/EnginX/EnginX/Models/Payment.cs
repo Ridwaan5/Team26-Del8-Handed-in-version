@@ -28,8 +28,8 @@ namespace EnginX.Models
         public Nullable<decimal> Payment_Amount { get; set; }
         public Nullable<int> OrderID { get; set; }
     
-        public virtual Payment_Method Payment_Method { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+        public virtual Payment_Method Payment_Method { get; set; }
     }
 }

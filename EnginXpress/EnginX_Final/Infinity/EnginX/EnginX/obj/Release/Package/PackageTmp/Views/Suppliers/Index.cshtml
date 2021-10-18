@@ -1,0 +1,82 @@
+﻿@model IEnumerable<EnginX.Models.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="mb-5">Suppliers</h2>
+<div class="row">
+    <div class="col">
+        <div class="cardsss shadow">
+            <div class="cardsss-header border-0">
+                <h3 class="mb-0">Suppliers</h3>
+            </div>
+            <div class="table-responsive">
+                <table id="tbl" class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Supplier</th>
+                            <th scope="col">Role </th>
+                            <th scope="col">Orders Managed </th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var supp in Model)
+                        {
+                        <tr>
+                            <th scope="row">
+                                <div class="media align-items-center">
+                                    <a href="#"  >
+                                        @if (supp.logoimg != null)
+                                        {
+                                            <img style="height:20px;width:80px" alt="Image placeholder" src="@Url.Content(supp.logoimg)">
+                                        }
+                                        else
+                                        {
+                                            <img style="height:20px;width:80px"   alt="Image placeholder" src="~/Content/Pics/user.png">
+                                        }
+                                    </a>
+                                    <div class="media-body">
+                                        <span class="mb-0 text-sm">@supp.CompanyName</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td>
+                                @supp.ContactName - @supp.ContactNumber
+                            </td>
+                            <td>
+                                @supp.Email
+                            </td>
+                            <td>
+                                <button class="btn   text-light tbcolor" role="button" target="_blank" onclick="window.open(@supp.Website)">
+                                    <i class="fas fa-globe"></i>
+                                    @supp.Website
+                                </button>
+                                
+                            </td>
+                            <td class="text-right">
+
+                                <div class="btn-group dropdown-menu-end">
+                                    <button class="btn btn-sm btn-icon-only text-dark" role="button" onclick="window.location.href = '@Url.Action("Edit","Employees",new { id = supp.SupplierID })'">
+                                        <i class="fas fa-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-icon-only text-primary" role="button" onclick="window.location.href = '@Url.Action("Details","Employees",new { id = supp.SupplierID })'">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-icon-only text-success" role="button" onclick="window.location.href = '@Url.Action("Delete","Employees",new { id = supp.SupplierID })'">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

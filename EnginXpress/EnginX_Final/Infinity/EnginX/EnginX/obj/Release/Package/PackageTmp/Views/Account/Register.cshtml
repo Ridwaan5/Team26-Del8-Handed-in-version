@@ -1,0 +1,290 @@
+﻿@model EnginX.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/Content/Account/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/Content/Account/css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .btn {
+            background-color: rgb(55,105,236);
+            border: #2e6da4;
+            font-family: Arial, Geneva, Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            color: #fff;
+            letter-spacing: 1px;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: normal;
+            border-radius: 100px;
+            line-height: 1.5;
+            text-decoration: none;
+            box-shadow: 1px 1px 8px rgb(55,105,236);
+        }
+
+        .form-select {
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 2px;
+            border: 1px solid rgb(247 247 247);
+            background-color: white;
+        }
+
+        .text-danger {
+            color: darkred;
+        }
+    </style>
+</head>
+<body style="overflow-y:hidden" >
+    <button class="btn" onclick="window.location.href='/Home/Index'" style="float:right">
+        <i class="fas fa-home"></i>
+    </button>
+    <div class="main">
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-image" style="float:right">
+                        <figure><img src="~/Content/Account/images/signup-image.png" alt="sing up image"></figure>
+                        <button onclick="window.location.href='/Account/Login'" class="btn">
+                            Already a Member ?
+                        </button>
+                    </div>
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "register-form", role = "form", @id = "register-form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div id="first">
+                                <div class="form-group">
+                                    <label for="lastname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Your Username", @required=true })
+                                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Your Name", @required = true })
+                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="surnamename"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                    @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", @placeholder = "Your Surname", @required = true })
+                                    @Html.ValidationMessageFor(m => m.Surname, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Your Email", @required = true })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobilenumber"><i class="zmdi zmdi-phone material-icons-name"></i></label>
+                                    @Html.TextBoxFor(m => m.MobileNumber, new { @class = "form-control", @required = true, @placeholder = "0671728770" , @value = "+27", @maxlength = "15" })
+                                    @Html.ValidationMessageFor(m => m.MobileNumber, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter Password", @required = true })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                    @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Repeat Password", @required = true })
+                                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group form-button">
+                                    <button type="button" class="form-submit" style="background-color: rgb(55 105 236) !important;" id="next"> Next </button>
+                                </div>
+                            </div>
+                            <div id="second">
+                                <div class="form-group">
+                                    <label for="lastname">City</label>
+                                    <br />
+                                    <br />
+                                    @Html.DropDownList("cityID", (IEnumerable<SelectListItem>)ViewBag.CityID, new { @class = "form-select", @required = true })
+                                </div>
+                                <div class="form-group">
+                                    <label for="houseNumber"><i class="zmdi zmdi-home"></i></label>
+                                    @Html.TextBoxFor(m => m.HouseNumber, new { @class = "form-control", @placeholder = "Your House Number", @required = true })
+                                    @Html.ValidationMessageFor(m => m.HouseNumber, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="StreetName"><i class="zmdi zmdi-home"></i></label>
+                                    @Html.TextBoxFor(m => m.StreetName, new { @class = "form-control", @placeholder = "Your Street Name", @required = true })
+                                    @Html.ValidationMessageFor(m => m.StreetName, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ID_Number"></label>
+                                    <i class="zmdi zmdi-account "></i>
+                                    <input maxlength="13" id="idn" name="ID_Number" class="form-control" placeholder="ID Number" required />
+                                    <p id="verified" hidden> Verified <i style="color:lime !important" class=" fa fa-check"></i>  </p>
+
+                                    <button type="button" class="form-submit" style="color:white;background-color: rgb(55 105 236) !important;" id="checkid">
+                                        Verify
+                                    </button>
+                                    <br />
+                                </div>
+                                <div id="debug" style="border:1px solid; border-radius:5px;border-color:darkred;width:auto"></div>
+
+                                <div class="form-group">
+                                    <p style="color:seagreen">Please Accept Terms and Conditions</p>
+                                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" onclick="check()" />
+                                    <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a target="_blank" href="/Home/Terms" class="term-service">Terms of service</a></label>
+                                </div>
+                                <div class="form-group form-button">
+                                    <button class="form-submit" type="button" style="background-color: black !important;" id="back"> Back </button>
+                                    <button id="sub" class="form-submit" type="submit" style="display:none; background-color: rgb(55 105 236) !important;">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- JS -->
+    <script src="~/Content/Account/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/Account/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btndiv').hide();
+            $('#second').hide();
+            $('#next').click(function () {
+                $('#first').hide();
+                $('#second').show();
+            });
+            $('#back').click(function () {
+                $('#second').hide();
+                $('#first').show();
+            });
+        });
+        function check()
+        {
+            debugger
+            if ($("#agree-term").prop("checked") == true)
+            {
+                $("#sub").attr("style","display:inline");
+            }
+            else {
+                $("#sub").attr("style", "display:none");
+            }
+        }
+        function validateRSAidnumber()
+        {
+
+            $('#debug').empty();
+
+            // structure: (YYMMDD GSSS CAZ)
+
+            var idnumber = $('#idn').val(),
+                invalid = 0;
+
+            // display debugging
+            var debug = $('#debug');
+
+            // check that value submitted is a number
+            if (isNaN(idnumber)) {
+                debug.append('Value supplied is not a valid number.<br />');
+                invalid++;
+            }
+
+            // check length of 13 digits
+            if (idnumber.length != 13) {
+                debug.append('Number supplied does not have 13 digits.<br />');
+                invalid++;
+            }
+
+            // check that YYMMDD group is a valid date
+            var yy = idnumber.substring(0, 2),
+                mm = idnumber.substring(2, 4),
+                dd = idnumber.substring(4, 6);
+
+            var dob = new Date(yy, (mm - 1), dd);
+
+            // check values - add one to month because Date() uses 0-11 for months
+            if (!(((dob.getFullYear() + '').substring(2, 4) == yy) && (dob.getMonth() == mm - 1) && (dob.getDate() == dd))) {
+                debug.append('Date in first 6 digits is invalid.<br />');
+                invalid++;
+            }
+
+            // evaluate GSSS group for gender and sequence
+            var gender = parseInt(idnumber.substring(6, 10), 10) > 5000 ? "M" : "F";
+
+            // ensure third to last digit is a 1 or a 0
+            if (idnumber.substring(10, 11) > 1) {
+                debug.append('Third to last digit can only be a 0 or 1 but is a ' + idnumber.substring(10, 11) + '.<br />');
+                invalid++;
+            } else {
+                // determine citizenship from third to last digit (C)
+                var saffer = parseInt(idnumber.substring(10, 11), 10) === 0 ? "C" : "F";
+            }
+
+            // ensure second to last digit is a 8 or a 9
+            if (idnumber.substring(11, 12) < 8) {
+                debug.append('Second to last digit can only be a 8 or 9 but is a ' + idnumber.substring(11, 12) + '.<br />');
+                invalid++;
+            }
+
+            // calculate check bit (Z) using the Luhn algorithm
+            var ncheck = 0,
+                beven = false;
+
+            for (var c = idnumber.length - 1; c >= 0; c--) {
+                var cdigit = idnumber.charAt(c),
+                    ndigit = parseInt(cdigit, 10);
+
+                if (beven) {
+                    if ((ndigit *= 2) > 9) ndigit -= 9;
+                }
+
+                ncheck += ndigit;
+                beven = !beven;
+            }
+
+            if ((ncheck % 10) !== 0) {
+
+                debug.append('Checkbit is incorrect.<br />');
+                invalid++;
+            }
+
+            // if one or more checks fail, display details
+            if (invalid > 0) {
+            debug.css('display', 'block');
+            debug.css('color', 'darkred');
+            debug.css('border', 'none');
+                
+            }
+            else {
+                debug.css('display', 'block');
+                debug.css('color', 'seagreen');
+                debug.css('border', 'none');
+                $('#checkid').attr("style","display:none");
+                $('#verified').prop("hidden", false);
+            }
+
+
+            return (ncheck % 10) === 0;
+        }
+        $('#checkid').click(validateRSAidnumber);
+
+    </script>
+</body>
+</html>
+
+

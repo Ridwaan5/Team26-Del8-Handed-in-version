@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "ProductReport";
+}
+
+<p>
+    <button class="btn btn tbcolor" onclick="printContent('Data');">Print</button>
+</p>
+<div id="Data">
+    <h2>Report : Products </h2>
+    <div>
+        <canvas id="barChart" width="300" height="100"></canvas>
+
+        <script>
+            var c = document.getElementById("barChart");
+            var ctx = c.getContext("2d");
+            var tData = $.getValues("/Reports/ProductBarChartData");
+            var myBarChart = new Chart(ctx, {
+                type: 'bar',
+                data: tData
+            });
+        </script>
+    </div>
+</div>
+

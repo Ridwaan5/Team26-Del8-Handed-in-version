@@ -1,0 +1,76 @@
+﻿@model EnginX.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+<button class="btn tbcolor btn-sm" onclick="window.location.href = document.referrer;">
+    <i class="fas fa-arrow-left"></i> Back
+</button>
+<br />
+<br />
+
+
+<div class=" cardsss shadow text-center" style="justify-content: center; padding-left: 10%; padding-right: 10%">
+    <h4> Order -  @Model.Order_Number </h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Order Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dateplaced)
+        </dd>
+
+        <dt>
+            Last Processed
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dateprocessed)
+        </dd>
+
+        <dt>
+           Date Completed
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datecompleted)
+        </dd>
+
+        <dt>
+            Order Total
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cart.cartTotal)
+        </dd>
+
+        <dt>
+            Customer Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.User.Name)
+        </dd>
+
+
+        <dt>
+            Order Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_Status.Order_Status1)
+        </dd>
+
+        <dt>
+           Payment Type
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment.Payment_Method.Description)
+        </dd>
+
+    </dl>
+</div>

@@ -1,0 +1,96 @@
+﻿@using EnginX.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/Content/Account/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/Content/Account/css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <style>
+        .btn {
+            background-color: rgb(55,105,236);
+            border: #2e6da4;
+            font-family: Arial, Geneva, Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            color: #fff;
+            letter-spacing: 1px;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: normal;
+            border-radius: 100px;
+            line-height: 1.5;
+            text-decoration: none;
+            box-shadow: 1px 1px 8px rgb(55,105,236);
+        }
+
+        .text-danger {
+            color: darkred;
+        }
+
+    </style>
+</head>
+<body style="overflow-y:hidden">
+    <button class="btn" onclick="window.location.href='/Home/Index'" style="float:right">
+        <i class="fas fa-home"></i>
+    </button>
+    <div class="main">
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="~/Content/Account/images/signin-image.png" alt="sing up image"></figure>
+                        <button onclick="window.location.href='/Account/Register'" class="btn">
+                            New to EnginXpress ?
+                        </button>
+                    </div>
+
+                    <div class="signin-form">
+                        <img src="~/Content/Pics/PicsArt_04-11-05.50.51-01-removebg.png" />
+                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "register-form", role = "form", @id = "login-form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger", @style = "Color:darkred" })
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Username" })
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="remember-me" id="RememberMe" name="RememberMe" class="agree-term" />
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                                <br />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>Forgot Password <a href="/Account/ForgotPassword" class="term-service">Reset</a></label>
+                            </div>
+                            <div class="form-group form-button" id="btndiv">
+                                <input type="submit" name="signin" id="signin" class="form-submit bcolor" value="Log in" style="background-color: rgb(55 105 236) !important;" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- JS -->
+    <script src="~/Content/Account/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/Account/js/main.js"></script>
+    <script>
+    </script>
+</body>
+</html>

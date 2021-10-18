@@ -33,7 +33,7 @@ namespace EnginX.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart_Line> Cart_Line { get; set; }
         public virtual Product_Category Product_Category { get; set; }
-        public virtual Product_Type Product_Type { get; set; }
         public virtual Stock Stock { get; set; }
+        public virtual Product_Type Product_Type { get; set; }
     }
 }

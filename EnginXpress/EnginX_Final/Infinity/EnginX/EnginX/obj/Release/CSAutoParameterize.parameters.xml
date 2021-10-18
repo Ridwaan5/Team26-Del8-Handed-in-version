@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=engenx.database.windows.net;initial catalog=engenx;persist security info=True;user id=ridwaan;password=Azurekicksut370;Initial Catalog=Infinity_Db;Integrated Security=True;Trusted_Connection=False;Encrypt=True;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="S:\\Users\\Ridwaan\\Documents\\GitHub\\Engenxpress_Final\\EnginXpress\\EnginX_Final\\Infinity\\EnginX\\EnginX\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="Infinity_DbEntities-Web.config Connection String" description="Infinity_DbEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model.csdl|res://*/Models.Model.ssdl|res://*/Models.Model.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=engenx.database.windows.net;initial catalog=Infinity_Db;user id=ridwaan;password=Azurekicksut370;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="S:\\Users\\Ridwaan\\Documents\\GitHub\\Engenxpress_Final\\EnginXpress\\EnginX_Final\\Infinity\\EnginX\\EnginX\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Infinity_DbEntities']/@connectionString" />
+  </parameter>
+</parameters>

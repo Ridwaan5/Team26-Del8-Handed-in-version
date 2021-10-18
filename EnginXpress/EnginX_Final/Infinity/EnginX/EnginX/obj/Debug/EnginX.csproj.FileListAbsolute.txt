@@ -566,6 +566,8 @@ S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Inf
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\roslyn\VBCSCompiler.exe.config
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Antlr3.Runtime.dll
+S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.dll
+S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.SqlServer.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -595,6 +597,8 @@ S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Inf
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\System.Web.WebPages.Razor.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Twilio.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\WebGrease.dll
+S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.xml
+S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\EntityFramework.SqlServer.xml
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.xml
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.Owin.Host.SystemWeb.xml
@@ -622,10 +626,8 @@ S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Inf
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Core.xml
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.Owin.xml
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.AssemblyReference.cache
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.Migrations.InitialCreate.resources
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.GenerateResource.cache
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CoreCompileInputs.cache
-S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.csproj.CopyComplete
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.dll
 S:\Users\Ridwaan\Documents\GitHub\Engenxpress_Final\EnginXpress\EnginX_Final\Infinity\EnginX\EnginX\obj\Debug\EnginX.pdb

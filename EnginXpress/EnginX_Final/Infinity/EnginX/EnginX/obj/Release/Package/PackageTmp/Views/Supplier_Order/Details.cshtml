@@ -1,0 +1,82 @@
+﻿@model EnginX.Models.Supplier_Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Supplier_Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierOrderNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierOrderNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierOrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierOrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierOrderDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierOrderDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierOrderQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierOrderQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierOrderNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierOrderNote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Administrator.AdminID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Administrator.AdminID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier_Order_Status.SOStatusDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier_Order_Status.SOStatusDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SupplierOrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

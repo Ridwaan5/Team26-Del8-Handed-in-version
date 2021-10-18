@@ -20,9 +20,9 @@ namespace EnginX.Models
             this.Addresses = new HashSet<Address>();
             this.Customers = new HashSet<Customer>();
             this.Deliveries = new HashSet<Delivery>();
+            this.Employees = new HashSet<Employee>();
             this.Log_In = new HashSet<Log_In>();
             this.Log_out = new HashSet<Log_out>();
-            this.Employees = new HashSet<Employee>();
         }
     
         public int UserID { get; set; }
@@ -42,11 +42,11 @@ namespace EnginX.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Delivery> Deliveries { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employee> Employees { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Log_In> Log_In { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Log_out> Log_out { get; set; }
         public virtual User_Role User_Role { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

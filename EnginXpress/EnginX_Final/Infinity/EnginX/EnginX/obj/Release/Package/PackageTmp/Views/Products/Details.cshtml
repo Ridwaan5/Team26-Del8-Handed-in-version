@@ -1,0 +1,42 @@
+﻿@model EnginX.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    .card-img-top {
+        max-width: 100% !important;
+        height: 300px !important;
+        width: 300px !important;
+    }
+</style>
+<h2><button class="btn tbcolor" onclick="window.history.go(-1)">Back</button></h2>
+<div class="card" style="width: 30rem;">
+    @if (Model.InStock == false)
+    {
+        <p style="text-align:right;color:red">*** Out of Stock ***</p>
+    }
+    else
+    {
+        <p style="text-align:right;color:darkgreen"> Quantity Availible: @Model.Stock.Quantity</p>
+    }
+    @if (Model.Image == "" || Model.Image == null)
+    {
+        <img class="card-img-top" src="~/Content/Pics/null.jpg">
+    }
+    else
+    {
+        <img class="card-img-top" src="@Url.Content(Model.Image)">
+    }
+    <div class="card-body">
+        <h5 class="card-title">@Model.ProductName</h5>
+        <p class="card-title">@Model.Description</p>
+        <p class="card-text"><strong style="color:dodgerblue;font-size:20px">R @Model.Price</strong></p>
+        <div class="btn-group" style="border-radius:20px !important">
+            <button class="btn btn-dark btn-sm" type="submit" onclick="window.location.href='@Url.Action("AddToCart", "Home", new { id = Model.ProductID })'">
+                <i class="fa fa-plus"></i> Add
+            </button>
+        </div>
+    </div>
+</div>

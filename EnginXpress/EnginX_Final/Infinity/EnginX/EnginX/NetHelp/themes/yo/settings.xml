@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <theme>
+    <name>yo</name>
+    <predefined>false</predefined>
+    <baseTheme>Responsive</baseTheme>
+    <baseVersion>1.2.6</baseVersion>
+    <type>Responsive</type>
+  </theme>
+  <sidePanel>
+    <header>
+      <logoClick>/Home/Admin</logoClick>
+      <logoImage>images/W123.jpg</logoImage>
+    </header>
+  </sidePanel>
+  <general>
+    <favicon>images/favi_5S9_1.ico</favicon>
+  </general>
+</settings>
