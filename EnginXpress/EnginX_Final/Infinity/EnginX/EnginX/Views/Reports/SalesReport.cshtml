@@ -1,0 +1,132 @@
+﻿@model IEnumerable<EnginX.Models.Order>
+
+@{
+    ViewBag.Title = "SalesReport";
+    EnginX.Models.Infinity_DbEntities db = new EnginX.Models.Infinity_DbEntities();
+}
+
+<h2> Sales/Orders Report</h2>
+
+<table class="table" id="simple_table">
+    <tr>
+        <th>
+            Order Number
+        </th>
+        <th>
+           Date placed
+        </th>
+        <th>
+            Date processed
+        </th>
+        <th>
+            Date completed
+        </th>
+        <th>
+           Cart Total
+        </th>
+        <th>
+           Customer
+        </th>
+        <th>
+           Assigned Employee
+        </th>
+        <th>
+            Payment Amount
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dateplaced)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dateprocessed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datecompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cart.cartTotal)
+            </td>
+            <td>
+                @item.Customer.User.Name  @item.Customer.User.Surname  @item.Customer.Idnumber
+            </td>
+            <td>
+                 @item.Employee.User.Name
+            </td>
+            <td>
+                @item.Payment.Payment_Amount
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+<button type="button" class="btn btn-lg tbcolor" onclick="generate()"> Export To PDF </button>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+    <script type="text/javascript">
+        function generate() {
+            var doc = new jsPDF('p', 'pt', 'letter');
+            var htmlstring = '';
+            var tempVarToCheckPageHeight = 0;
+            var pageHeight = 0;
+            pageHeight = doc.internal.pageSize.height;
+            specialElementHandlers = {
+                // element with id of "bypass" - jQuery style selector
+                '#bypassme': function (element, renderer) {
+                    // true = "handled elsewhere, bypass text extraction"
+                    return true
+                }
+            };
+            margins = {
+                top: 150,
+                bottom: 60,
+                left: 40,
+                right: 40,
+                width: 600
+            };
+            var y = 20;
+            doc.setLineWidth(2);
+            doc.text(200, y = y + 30, "Sales/Orders");
+            doc.autoTable({
+                html: '#simple_table',
+                startY: 70,
+                theme: 'grid',
+                columnStyles: {
+                    0: {
+                        cellWidth: 80,
+                    },
+                    1: {
+                        cellWidth: 80,
+                    },
+                    2: {
+                        cellWidth: 80,
+                    }, 3: {
+                        cellWidth: 80,
+                    }, 4: {
+                        cellWidth: 80,
+                    }, 5: {
+                        cellWidth: 80,
+                    }, 6: {
+                        cellWidth: 80,
+                    }, 7: {
+                        cellWidth: 80,
+                    }
+                },
+                styles: {
+                    minCellHeight: 40
+                }
+            })
+            doc.save('OrdersReport.pdf');
+        }
+    </script>
+}

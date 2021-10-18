@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Index";
+
 }
 
 <div class="row">
@@ -8,7 +9,7 @@
             <div class="cardsssss-block">
                 <h6 class="m-b-20">Customers</h6>
                 <p class="m-b-0 text-light">
-                    <button class="btn btn-md btn-dark">
+                    <button class="btn btn-md btn-dark" onclick="window.location.href = '@Url.Action("CustomersReport","Reports")'">
                         Generate Report
                     </button>
                 </p>
@@ -19,9 +20,9 @@
     <div class="col-md-4 ">
         <div class="cardsssss bg-c-blue order-cardsssss">
             <div class="cardsssss-block">
-                <h6 class="m-b-20">Sales </h6>
+                <h6 class="m-b-20">Sale Orders </h6>
                 <p class="m-b-0 text-light">
-                    <button class="btn btn-md btn-dark">
+                    <button class="btn btn-md btn-dark" onclick="window.location.href = '@Url.Action("SalesReport","Reports")'">
                         Generate Report
                     </button>
                 </p>
@@ -34,20 +35,20 @@
             <div class="cardsssss-block">
                 <h6 class="m-b-20">Products </h6>
                 <p class="m-b-0 text-light">
-                    <button class="btn btn-md btn-dark">
+                    <button class="btn btn-md btn-dark" onclick="window.location.href = '@Url.Action("ProductsReport","Reports")'">
                         Generate Report
                     </button>
                 </p>
             </div>
         </div>
     </div>
-
+    
     <div class="col-md-6 ">
         <div class="cardsssss bg-c-blue order-cardsssss">
             <div class="cardsssss-block">
-                <h6 class="m-b-20">Suppliers </h6>
+                <h6 class="m-b-20">Product Category/ Products </h6>
                 <p class="m-b-0 text-light">
-                    <button class="btn btn-md btn-dark">
+                    <button class="btn btn-md btn-dark" onclick="window.location.href = '@Url.Action("ProductReport","Reports")'">
                         Generate Report
                     </button>
                 </p>
@@ -55,18 +56,17 @@
         </div>
     </div>
 
-    <div class="col-md-6 ">
+    <div class="col-md-6">
         <div class="cardsssss bg-c-blue order-cardsssss">
             <div class="cardsssss-block">
                 <h6 class="m-b-20">Stock</h6>
                 <p class="m-b-0 text-light">
-                    <button class="btn btn-md btn-dark">
+                    <button class="btn btn-md btn-dark" disabled>
                         Generate Report
                     </button>
                 </p>
             </div>
         </div>
     </div>
-
 </div>
 

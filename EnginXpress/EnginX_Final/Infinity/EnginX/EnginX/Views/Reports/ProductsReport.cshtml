@@ -1,0 +1,115 @@
+﻿@model IEnumerable<EnginX.Models.Product>
+
+@{
+    ViewBag.Title = "ProductsReport";
+    EnginX.Models.Infinity_DbEntities db = new EnginX.Models.Infinity_DbEntities();
+}
+
+<h2>Products Report</h2>
+<br />
+<button type="button" class="btn btn-lg tbcolor" onclick="generate()"> Export To PDF </button>
+
+
+<table class="table" id="simple_table">
+    <tr>
+        <th>
+            Product
+        </th>
+        <th>
+            Stock Quantity
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Stock Code
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+
+            <td>
+                @item.Stock.Quantity
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock.Stock_code)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+    <script type="text/javascript">
+        function generate() {
+            var doc = new jsPDF('p', 'pt', 'letter');
+            var htmlstring = '';
+            var tempVarToCheckPageHeight = 0;
+            var pageHeight = 0;
+            pageHeight = doc.internal.pageSize.height;
+            specialElementHandlers = {
+                // element with id of "bypass" - jQuery style selector
+                '#bypassme': function (element, renderer) {
+                    // true = "handled elsewhere, bypass text extraction"
+                    return true
+                }
+            };
+            margins = {
+                top: 150,
+                bottom: 60,
+                left: 40,
+                right: 40,
+                width: 600
+            };
+            var y = 20;
+            doc.setLineWidth(2);
+            doc.text(200, y = y + 30, "Products Report");
+            doc.autoTable({
+                html: '#simple_table',
+                startY: 70,
+                theme: 'grid',
+                columnStyles: {
+                    0: {
+                        cellWidth: 180,
+                    },
+                    1: {
+                        cellWidth: 180,
+                    },
+                    2: {
+                        cellWidth: 180,
+                    }
+                    , 3: {
+                        cellWidth: 180,
+                    },
+                    4: {
+                        cellWidth: 180,
+                    }
+                    , 5: {
+                        cellWidth: 180,
+                    }
+                },
+                styles: {
+                    minCellHeight: 40
+                }
+            })
+            doc.save('ProductsReport.pdf');
+        }
+    </script>
+}
