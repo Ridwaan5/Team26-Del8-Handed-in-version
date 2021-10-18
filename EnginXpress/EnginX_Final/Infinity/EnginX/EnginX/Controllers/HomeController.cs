@@ -91,7 +91,15 @@ namespace EnginX.Controllers
             ViewBag.OrdersThisMonth = db.Orders.Where(x => x.Dateplaced > Month).Count();
 
             //payments
-            ViewBag.TotalMade = db.Payments.Sum(x => Math.Round((double)x.Payment_Amount,2));
+            if (db.Payments.Count() > 0)
+            {
+                ViewBag.TotalMade = db.Payments.Where(x => x.Payment_Amount != null).Sum(x => Math.Round((double)x.Payment_Amount, 2));
+
+            }
+            else
+            {
+                ViewBag.TotalMade = 0;
+            }
             ViewBag.TotalMadeThisMonth = db.Payments.Where(y =>  y.isPaid == false).Count();
 
             //Customers
