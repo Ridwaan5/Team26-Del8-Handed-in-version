@@ -11,17 +11,27 @@
 <br />
 <div class=" cardsss shadow text-center" style="justify-content: center; padding-left: 10%; padding-right: 10%">
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Create", "Users", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
-
         <div class="form-horizontal">
             <h4>Create Employee</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <br />
+                <input type="file" accept="image/gif, image/jpeg, image/png" name="image" id="file" style="display: none;" onchange="loadFile(event)" required>
+
+                <p><label for="file" style="cursor: pointer;border-radius:30px" class=" tbcolor btn btn-lg">Upload Image </label></p>
+                <br />
+                <img id="output" width="200" style="border-radius:30px" />
+
+            </div>
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div >
+                <div>
                     @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control border-0 bg-light text-center", @required = "true" } })
                     @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
                 </div>
@@ -29,7 +39,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div >
+                <div>
                     @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control border-0 bg-light text-center", @required = "true" } })
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
@@ -37,7 +47,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div >
+                <div>
                     @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control border-0 bg-light text-center", @required = "true" } })
                     @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
                 </div>
@@ -45,23 +55,25 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div >
+                <div>
                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control border-0 bg-light text-center", @required = "true" } })
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.ContactNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div >
+                Contact Number
+                <br />
+                <small style="color:dodgerblue">Format: +27134561234 </small>
+                <div>
                     @Html.EditorFor(model => model.ContactNumber, new { htmlAttributes = new { @class = "form-control border-0 bg-light text-center", @required = "true" } })
                     @Html.ValidationMessageFor(model => model.ContactNumber, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-               Employee Role
-                <div >
+                Employee Role
+                <div>
                     @Html.DropDownList("UserRoleID", null, htmlAttributes: new { @class = "form-control border-0 bg-light text-center", @required = "true" })
                     @Html.ValidationMessageFor(model => model.UserRoleID, "", new { @class = "text-danger" })
                 </div>
@@ -70,7 +82,7 @@
 
             <br />
             <div class="form-group">
-                <div >
+                <div>
                     <input type="submit" value="Register" class="btn btn-default" />
                 </div>
             </div>
@@ -78,3 +90,12 @@
     }
     <br />
 </div>
+
+@section Scripts{
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+}

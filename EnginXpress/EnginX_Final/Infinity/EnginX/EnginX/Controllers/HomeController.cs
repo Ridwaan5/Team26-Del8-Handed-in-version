@@ -51,7 +51,7 @@ namespace EnginX.Controllers
                 {
                     return RedirectToAction("Admin");
                 }
-                else if (User.IsInRole("Cashie"))
+                else if (User.IsInRole("CashieR"))
                 {
                     return RedirectToAction("Employee");
 
@@ -124,7 +124,7 @@ namespace EnginX.Controllers
         }
         public ActionResult Customer()
         {
-            return RedirectToAction("Index");
+            return View();
         }
 
 
