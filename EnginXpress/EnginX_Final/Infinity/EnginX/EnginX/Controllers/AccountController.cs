@@ -132,7 +132,7 @@ namespace EnginX.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult> Register(RegisterViewModel model,int cityID)
+        public async Task<ActionResult> Register(RegisterViewModel model,int cityID, string ID_Number)
         {
             if (ModelState.IsValid)
             {
@@ -171,6 +171,7 @@ namespace EnginX.Controllers
                     Customer newCustomer = new Customer();
                     newCustomer.UserID = dbUser.UserID;
                     newCustomer.AddressID = dbAddress.AddressID;
+                    newCustomer.Idnumber = ID_Number;
                     db.Customers.Add(newCustomer);
                     await db.SaveChangesAsync();
 

@@ -128,6 +128,7 @@
           <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="AddressID" Type="int" Nullable="false" />
+          <Property Name="Idnumber" Type="varchar" MaxLength="13" />
         </EntityType>
         <EntityType Name="DeliverStatus">
           <Key>
@@ -1222,6 +1223,7 @@
           <NavigationProperty Name="Carts" Relationship="Infinity_DbModel.FK_Cart_Customer" FromRole="Customer" ToRole="Cart" />
           <NavigationProperty Name="User" Relationship="Infinity_DbModel.FK_Customer_User" FromRole="Customer" ToRole="User" />
           <NavigationProperty Name="Orders" Relationship="Infinity_DbModel.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
+          <Property Name="Idnumber" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="DeliverStatu">
           <Key>
@@ -2005,6 +2007,7 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="Infinity_DbModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Idnumber" ColumnName="Idnumber" />
                 <ScalarProperty Name="AddressID" ColumnName="AddressID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />

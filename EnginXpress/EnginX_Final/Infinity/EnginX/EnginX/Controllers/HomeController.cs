@@ -178,8 +178,6 @@ namespace EnginX.Controllers
         [HttpPost]
         public JsonResult searchCustomer(string prefix)
         {
-            string Number = prefix.Remove(0, 1);
-            string cell = "+27" + Number;
             List<Customer> foundCustomers = new List<Customer>();
             Customer foundCustomer = new Customer();
             using (Infinity_DbEntities dbs = new Infinity_DbEntities())
@@ -187,7 +185,7 @@ namespace EnginX.Controllers
                 var Customer = (from cs in db.Customers
                                 join us in db.Users on cs.UserID equals us.UserID
                                 join ad in db.Addresses on cs.AddressID equals ad.AddressID
-                                where us.ContactNumber == cell
+                                where cs.Idnumber == prefix
                                 select new
                                 {
                                     us.Name,
@@ -213,7 +211,7 @@ namespace EnginX.Controllers
             else
             {
                 useremail = db.Users.Where(x => x.UserID == 1).FirstOrDefault().Email;
-                CustomerID = 1;
+                CustomerID = 10;
             }
 
             if (CartID == 0)

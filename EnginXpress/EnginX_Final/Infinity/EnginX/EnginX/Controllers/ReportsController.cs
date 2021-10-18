@@ -13,6 +13,13 @@ namespace EnginX.Controllers
         private Infinity_DbEntities db = new Infinity_DbEntities();
 
         // GET: Reports
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+
+
         public ActionResult ProductReport()
         {
             return View();
