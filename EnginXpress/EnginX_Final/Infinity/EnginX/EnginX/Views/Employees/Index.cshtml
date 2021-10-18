@@ -4,7 +4,9 @@
     ViewBag.Title = "Index";
     EnginX.Models.Infinity_DbEntities db = new EnginX.Models.Infinity_DbEntities();
 }
-
+<button class="btn tbcolor btn-sm" onclick="window.location.href = ' @Url.Action("Create","Users")'">
+    <i class="fas fa-user"></i> Add New
+</button>
 
 <h2 class="mb-5">Employees</h2>
 <div class="row">

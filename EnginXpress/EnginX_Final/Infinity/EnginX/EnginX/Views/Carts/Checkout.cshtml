@@ -241,16 +241,20 @@
                 <!-- end invoice-company -->
                 <!-- begin invoice-header -->
                 <div hidden id="unlinked" class="invoice-header text-center">
-                    <h4 class="tcolor">Please Enter Cell Number</h4>
+                    <h4 class="tcolor">Please Enter ID Number</h4>
                     <div class="p-1 bg-light rounded rounded-pill mb-4">
                         <div class="input-group rounded">
-                            <input required maxlength="10" id="search" placeholder="Search Here" class="form-control border-0 bg-light text-center">
+                            <input required maxlength="13" id="search" placeholder="Enter Here" class="form-control border-0 bg-light text-center">
                             <div class="input-group-append">
                                 <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                     </div>
-                    <a class="pulsingButton" onclick="Locate()">Confirm Number</a>
+                    <p id="verified" hidden> Verified <i style="color:lime !important" class=" fa fa-check"></i>  </p>
+
+                    <div id="debug" style="border:1px solid; border-radius:5px;border-color:darkred;width:auto"></div>
+
+                    <a class="pulsingButton" onclick="Locate()">Confirm </a>
                 </div>
 
                 <div hidden id="linked" class="invoice-header">
@@ -409,11 +413,11 @@
                 <div class="text-right"> <i class="fa fa-close close" data-bs-dismiss="modal"></i> </div>
                 <div class="tabs mt-3">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation"> <a class="nav-link active" id="visa-tab" data-bs-toggle="tab" href="#visa" role="tab" aria-controls="visa" aria-selected="true"> Card  <img src="https://i.imgur.com/sB4jftM.png" width="80"> </a> </li>
+                        @*<li class="nav-item" role="presentation"> <a class="nav-link active" id="visa-tab" data-bs-toggle="tab" href="#visa" role="tab" aria-controls="visa" aria-selected="true"> Card  <img src="https://i.imgur.com/sB4jftM.png" width="80"> </a> </li>*@
                         <li class="nav-item" role="presentation"> <a class="nav-link" id="paypal-tab" data-bs-toggle="tab" href="#paypal" role="tab" aria-controls="paypal" aria-selected="false"> Cash  <img src="~/Content/Pics/payment.png" width="30" height="20" style="height:30px"> </a> </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="visa" role="tabpanel" aria-labelledby="visa-tab">
+                        @*<div class="tab-pane fade show active" id="visa" role="tabpanel" aria-labelledby="visa-tab">
                             <div class="mt-4 mx-4">
                                 <div class="text-center">
                                     <h5>Credit card</h5>
@@ -430,7 +434,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                         <div class="tab-pane fade" id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
                             <div class="px-5 mt-5">
                                 <div class="form mt-3">
@@ -459,6 +463,7 @@
     <script>
         //var
         var element = $("#pdf"); // global variable
+        var Verfied = false;
         var getCanvas;
         var Customer = 0;
         $('#document').ready(function () {
@@ -490,74 +495,57 @@
 
         });
         //functions
-        function Locate() {
+        function Locate()
+        {
             var data = $('#search').val();
-
-            if ($('#search').val() == "") {
+            if ($('#search').val() == "")
+            {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Missing Number',
-                    text: 'Please Enter a Number',
+                    text: 'Please Enter a Id Number',
                     timer: 5000,
                     showConfirmButton: false
                 })
                 return;
-            } else {
-                if (data.length == 10) {
-                    if (phone_validate(data)) {
-                        console.log("correct format");
-                    }
-                    else {
-                        Swal.fire({
-                            icon: 'warning',
-                            title: 'Incorrect Number',
-                            text: 'Phone Number has to be a valid Number Sequence',
-                            timer: 5000,
-                            showConfirmButton: false
-                        });
-                        return;
-                    }
-                }
-                else {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Oops',
-                        text: 'Phone Number is Missing a few Number, Please double check  🙂 ',
-                        timer: 5000,
-                        showConfirmButton: false
-                    });
-                    return;
-                }
             }
-
-
-            $.ajax({
-                url: '/Home/searchCustomer/',
-                data: "{ 'prefix': '" + data + "'}",
-                dataType: "json",
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    if (data.Customer == null)
-                    {
-                        $('#modal').modal('show');
-                    }
-                    else {
-                        $('#search').val('');
-                        $('#print').prop('hidden', false);
-                        $('#paytrigger').prop('hidden', false);
-                        $('#linked').prop('hidden', false);
-                        $('#unlinked').prop('hidden', true);
-                        Customer = null;
-                        Customer = data.Customer.ContactNumber;
-                        $('#cusname').text(data.Customer.Name);
-                        $('#housenumber').text(data.Customer.HouseNumber);
-                        $('#streetname').text(data.Customer.StreetName);
-                        $('#cell').text(data.Customer.ContactNumber);
-                        $('#email').text(data.Customer.Email);
-                    }
+            else
+            {
+                var state = validateRSAidnumber();
+                console.log(state);
+                debugger;
+                if (state == true)
+                {
+                    $.ajax({
+                        url: '/Home/searchCustomer/',
+                        data: "{ 'prefix': '" + data + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data)
+                        {
+                            if (data.Customer == null)
+                            {
+                                $('#modal').modal('show');
+                            }
+                            else {
+                                $('#search').val('');
+                                $('#print').prop('hidden', false);
+                                $('#paytrigger').prop('hidden', false);
+                                $('#linked').prop('hidden', false);
+                                $('#unlinked').prop('hidden', true);
+                                Customer = null;
+                                Customer = data.Customer.ContactNumber;
+                                $('#cusname').text(data.Customer.Name);
+                                $('#housenumber').text(data.Customer.HouseNumber);
+                                $('#streetname').text(data.Customer.StreetName);
+                                $('#cell').text(data.Customer.ContactNumber);
+                                $('#email').text(data.Customer.Email);
+                            }
+                        }
+                    });
                 }
-            });
+            }       
         };
         $('#modal').on('hidden.bs.modal', function () {
             $('#search').val('');
@@ -639,6 +627,102 @@
             SubmitOrder();
         });
 
+        function validateRSAidnumber()
+        {
+            $('#debug').empty();
+            // structure: (YYMMDD GSSS CAZ)
+
+            var idnumber = $('#search').val(),
+                invalid = 0;
+
+            // display debugging
+            var debug = $('#debug');
+
+            // check that value submitted is a number
+            if (isNaN(idnumber))
+            {
+                debug.append('Value supplied is not a valid number.<br />');
+                invalid++;
+            }
+
+            // check length of 13 digits
+            if (idnumber.length != 13)
+            {
+                debug.append('Number supplied does not have 13 digits.<br />');
+                invalid++;
+            }
+
+            // check that YYMMDD group is a valid date
+            var yy = idnumber.substring(0, 2),
+                mm = idnumber.substring(2, 4),
+                dd = idnumber.substring(4, 6);
+
+            var dob = new Date(yy, (mm - 1), dd);
+
+            // check values - add one to month because Date() uses 0-11 for months
+            if (!(((dob.getFullYear() + '').substring(2, 4) == yy) && (dob.getMonth() == mm - 1) && (dob.getDate() == dd))) {
+                debug.append('Date in first 6 digits is invalid.<br />');
+                invalid++;
+            }
+
+            // evaluate GSSS group for gender and sequence
+            var gender = parseInt(idnumber.substring(6, 10), 10) > 5000 ? "M" : "F";
+
+            // ensure third to last digit is a 1 or a 0
+            if (idnumber.substring(10, 11) > 1) {
+                debug.append('Third to last digit can only be a 0 or 1 but is a ' + idnumber.substring(10, 11) + '.<br />');
+                invalid++;
+            } else {
+                // determine citizenship from third to last digit (C)
+                var saffer = parseInt(idnumber.substring(10, 11), 10) === 0 ? "C" : "F";
+            }
+
+            // ensure second to last digit is a 8 or a 9
+            if (idnumber.substring(11, 12) < 8) {
+                debug.append('Second to last digit can only be a 8 or 9 but is a ' + idnumber.substring(11, 12) + '.<br />');
+                invalid++;
+            }
+
+            // calculate check bit (Z) using the Luhn algorithm
+            var ncheck = 0,
+                beven = false;
+
+            for (var c = idnumber.length - 1; c >= 0; c--) {
+                var cdigit = idnumber.charAt(c),
+                    ndigit = parseInt(cdigit, 10);
+
+                if (beven) {
+                    if ((ndigit *= 2) > 9) ndigit -= 9;
+                }
+
+                ncheck += ndigit;
+                beven = !beven;
+            }
+
+            if ((ncheck % 10) !== 0)
+            {
+
+                debug.append('Checkbit is incorrect.<br />');
+                invalid++;
+            }
+
+            // if one or more checks fail, display details
+            if (invalid > 0) {
+                debug.css('display', 'block');
+                debug.css('color', 'darkred');
+                debug.css('border', 'none');
+
+            }
+            else {
+                Verfied = true;
+                debug.css('display', 'block');
+                debug.css('color', 'seagreen');
+                debug.css('border', 'none');
+                $('#checkid').attr("style", "display:none");
+                $('#verified').prop("hidden", false);
+            }
+            return (ncheck % 10) === 0;
+        }       
         function SubmitOrder()
         {
             $.ajax({

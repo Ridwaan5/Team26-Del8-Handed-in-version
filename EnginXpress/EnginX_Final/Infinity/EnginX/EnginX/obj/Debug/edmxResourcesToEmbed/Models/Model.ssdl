@@ -123,6 +123,7 @@
     <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="AddressID" Type="int" Nullable="false" />
+    <Property Name="Idnumber" Type="varchar" MaxLength="13" />
   </EntityType>
   <EntityType Name="DeliverStatus">
     <Key>

@@ -298,6 +298,7 @@
     <NavigationProperty Name="Carts" Relationship="Infinity_DbModel.FK_Cart_Customer" FromRole="Customer" ToRole="Cart" />
     <NavigationProperty Name="User" Relationship="Infinity_DbModel.FK_Customer_User" FromRole="Customer" ToRole="User" />
     <NavigationProperty Name="Orders" Relationship="Infinity_DbModel.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
+    <Property Name="Idnumber" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="DeliverStatu">
     <Key>

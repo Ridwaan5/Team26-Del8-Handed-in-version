@@ -1,7 +1,9 @@
 ﻿using EnginX.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using static EnginX.Models.Charts;
@@ -13,6 +15,33 @@ namespace EnginX.Controllers
         private Infinity_DbEntities db = new Infinity_DbEntities();
 
         // GET: Reports
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public async Task<ActionResult> CustomersReport()
+        {
+                var customers = db.Customers.Include(c => c.Address).Include(c => c.User);
+                return View(await customers.ToListAsync());
+        }
+
+
+        public async Task<ActionResult> SalesReport()
+        {
+            var orders = db.Orders.Include(o => o.Cart).Include(o => o.Customer).Include(o => o.Employee).Include(o => o.Order_Status).Include(o => o.Payment);
+            return View(await orders.ToListAsync());
+        }
+
+
+        public async Task<ActionResult> ProductsReport()
+        {
+            var products = db.Products.Include(p => p.Product_Category).Include(p => p.Product_Type);
+            return View(await products.ToListAsync());
+        }
+
+
+
         public ActionResult ProductReport()
         {
             return View();

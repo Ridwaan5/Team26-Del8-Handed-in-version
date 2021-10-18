@@ -24,6 +24,7 @@ namespace EnginX.Models
         public int CustomerID { get; set; }
         public int UserID { get; set; }
         public int AddressID { get; set; }
+        public string Idnumber { get; set; }
     
         public virtual Address Address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

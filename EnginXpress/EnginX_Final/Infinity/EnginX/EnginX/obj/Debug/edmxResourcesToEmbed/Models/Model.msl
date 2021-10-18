@@ -120,6 +120,7 @@
     <EntitySetMapping Name="Customers">
       <EntityTypeMapping TypeName="Infinity_DbModel.Customer">
         <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Idnumber" ColumnName="Idnumber" />
           <ScalarProperty Name="AddressID" ColumnName="AddressID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
